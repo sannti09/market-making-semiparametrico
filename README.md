@@ -112,7 +112,20 @@ The data are not in Git. They cover BTC/USDT on Binance Spot, 29 Jun–26 Oct 20
 - the order book reconstructed every 100 ms;
 - 337 million trades.
 
-This section summarises how they were obtained and how to use them.
+| | Records | Compressed | Uncompressed |
+|---|---|---|---|
+| Raw capture, primary only | ≈ 440 M messages | ≈ 21 GB | ≈ 214 GB |
+| Raw capture, primary + backup | ≈ 880 M messages | ≈ 42 GB | ≈ 430 GB |
+| Canonical layer: book every 100 ms | 104 M rows × 202 columns | 35 GB | — |
+| Canonical layer: trades | 337 M | 3 GB | — |
+
+How the raw figures were obtained:
+- they were measured on two complete raw days (27–28 Jul) and extrapolated to 120 days;
+- trades are scaled to the actual 337 M of the period.
+
+Each capture received about 862,800 depth messages per day out of 864,000 possible (99.9 %). Primary and backup differ by a few hundred messages a day: the gaps the backup exists to fill.
+
+This section summarises how the data were obtained and how to use them.
 
 ### 1. Capture on the server
 
