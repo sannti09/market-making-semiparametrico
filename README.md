@@ -52,10 +52,92 @@ Cada carpeta numerada contiene su protocolo (`PLAN_*.md` o `ENMIENDA_*.md`, con 
 
 ## Datos
 
-Los datos (unos 45 GB: libro reconstruido cada 100 ms y 337 millones de transacciones de BTC/USDT en Binance Spot, 29 jun–26 oct de 2026) no se incluyen. Para reproducir:
+Los datos (unos 45 GB: libro reconstruido cada 100 ms y 337 millones de transacciones de BTC/USDT en Binance Spot, 29 jun–26 oct de 2026) no se incluyen en Git. El código de captura y reconstrucción del libro está en el repositorio público del proyecto, [Market-Making-with-Statistical-Learning](https://github.com/sannti09/Market-Making-with-Statistical-Learning) (`src/capture/`, `src/reconstruction/`, `src/trades/`, `src/features/`). Esta sección resume cómo se obtienen y se usan.
 
-- colocar las carpetas `market_features_100ms/` y `trades_event/` dentro de `codigo/00_datos_canonicos/`;
-- verificar los archivos con `CATALOGO.json`.
+### 1. Captura del libro y de las transacciones (Binance Spot, WebSocket público)
+
+Dos capturas en paralelo (primaria y de respaldo) por flujo, con rotación de archivos cada 12 horas:
+
+```bash
+git clone https://github.com/sannti09/Market-Making-with-Statistical-Learning.git
+cd Market-Making-with-Statistical-Learning
+
+# libro: wss://data-stream.binance.vision/ws/btcusdt@depth@100ms (+ instantáneas REST /api/v3/depth)
+python src/capture/python/live_lob_capture.py --exchange binance --symbol BTCUSDT \
+  --binance-interval 100ms --rotate-hours 12 --root /ruta/captura
+
+# transacciones: wss://data-stream.binance.vision/ws/btcusdt@trade
+python src/capture/python/live_trade_capture.py --exchange binance --symbol BTCUSDT \
+  --binance-stream trade --rotate-hours 12 --root /ruta/captura
+```
+
+El libro se reconstruye con `src/reconstruction/`, siguiendo el procedimiento oficial de Binance: instantánea REST y diferenciales en orden de secuencia `U/u`; los huecos no cubiertos se marcan como inválidos y no se interpolan.
+
+### 2. Transacciones oficiales (Binance Vision)
+
+Las transacciones se verifican y completan con el archivo diario oficial, que incluye su suma de verificación:
+
+```bash
+D=2026-09-04
+URL=https://data.binance.vision/data/spot/daily/trades/BTCUSDT/BTCUSDT-trades-$D.zip
+curl -sO "$URL" && curl -sO "$URL.CHECKSUM"
+shasum -a 256 -c "BTCUSDT-trades-$D.zip.CHECKSUM"
+```
+
+Para un rango de fechas está `archive/beta_pipeline/data_audit/Data Scripts/download_binance_vision_trades.py --symbol BTCUSDT --start-date AAAA-MM-DD --end-date AAAA-MM-DD`, en el mismo repositorio.
+
+### 3. Uso en este repositorio
+
+Colocar la capa canónica dentro de `codigo/00_datos_canonicos/`, con un archivo por día:
+
+```
+codigo/00_datos_canonicos/
+  market_features_100ms/binance_market_features_100ms_BTCUSDT_AAAA-MM-DD.parquet   # 864 000 filas, 202 columnas
+  trades_event/binance_trades_events_BTCUSDT_AAAA-MM-DD.parquet                     # una fila por transacción
+  CATALOGO.json
+```
+
+Si los datos están en otro disco, basta con enlaces simbólicos:
+
+```bash
+cd codigo/00_datos_canonicos
+ln -s /ruta/datos/market_features_100ms market_features_100ms
+ln -s /ruta/datos/trades_event trades_event
+```
+
+Verificar la integridad de los 240 archivos contra el catálogo:
+
+```bash
+cd codigo/00_datos_canonicos
+python - <<'EOF'
+import json, hashlib
+from pathlib import Path
+cat = json.load(open("CATALOGO.json"))["dias"]; malos = 0
+for d, capas in cat.items():
+    for capa, info in capas.items():
+        nombre = (f"binance_market_features_100ms_BTCUSDT_{d}.parquet" if capa == "market_features_100ms"
+                  else f"binance_trades_events_BTCUSDT_{d}.parquet")
+        h = hashlib.sha256(Path(capa, nombre).read_bytes()).hexdigest()
+        malos += h != info["sha256"]
+print("archivos que no coinciden:", malos)
+EOF
+```
+
+Lectura de un día. Los archivos son grandes; conviene leer solo las columnas necesarias, con PyArrow o DuckDB, en lugar de concatenar todo en un DataFrame:
+
+```bash
+python - <<'EOF'
+import pyarrow.parquet as pq
+d = "2026-09-04"
+libro = pq.read_table(f"codigo/00_datos_canonicos/market_features_100ms/binance_market_features_100ms_BTCUSDT_{d}.parquet",
+                      columns=["ts_ms", "state_valid", "best_bid", "best_ask", "mid"])
+trades = pq.read_table(f"codigo/00_datos_canonicos/trades_event/binance_trades_events_BTCUSDT_{d}.parquet",
+                       columns=["event_time_us", "price", "qty", "aggressor_buy"])
+print(libro.num_rows, trades.num_rows)
+EOF
+```
+
+En la capa, el libro en el instante `t` es el estado conocido en `t`; las variables `past_*` excluyen el intervalo actual. Las filas con `state_valid = False` (resincronizaciones) deben descartarse, nunca interpolarse.
 
 ## Archivos que se regeneran
 
