@@ -26,7 +26,7 @@ A partir del libro reconstruido y de las transacciones se construyó una capa de
 La Tabla~\ref{tab:volumen} resume el volumen de datos. El inventario del servidor al 19 de octubre registra 85~GB comprimidos capturados desde el 29 de junio (113 días): 64~GB de libros, 19~GB de transacciones y 2~GB del archivo oficial de Binance. Esa cifra incluye una captura paralela de Coinbase (BTC/USD), que se usó solo en la fase exploratoria. La parte de Binance BTC/USDT, con primaria y respaldo, suma unos 40~GB en esos 113 días. Coincide con lo medido en dos días completos conservados (27 y 28 de julio), que extrapolado a los 120 días da unos 42~GB comprimidos y 430~GB sin comprimir. Cada captura recibió unos 862\,800 mensajes de profundidad al día, de 864\,000 posibles (99,9\,\%), y las dos capturas difieren en pocos cientos de mensajes por día. Unos 880 millones de mensajes crudos se convierten así en una capa de 38~GB lista para modelar.
 
 \begin{table}[htbp]
-\centering\small
+\centering\small\setlength{\tabcolsep}{4pt}
 \caption{Volumen de los datos crudos y de la capa canónica.}
 \label{tab:volumen}
 \begin{tabular}{@{}lrrr@{}}
