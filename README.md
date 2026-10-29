@@ -8,6 +8,7 @@ El repositorio contiene el documento y el código, los protocolos y los resultad
 
 ```
 documento/                      Tesis en LaTeX (main.tex, capitulos/, figuras/) y PDF
+captura_datos/                  Captura en el servidor: scripts de Python, servicios systemd y comandos Shell
 codigo/
   00_datos_canonicos/           Catálogo de los 120 días (huella SHA-256 por archivo); los datos no se incluyen
   01_nucleo_e3/                 Capa de datos, convenciones y modelo E3 base (g + h − kδ)
@@ -39,7 +40,7 @@ Cada carpeta numerada contiene su protocolo (`PLAN_*.md` o `ENMIENDA_*.md`, con 
 | Documento | Carpeta |
 |---|---|
 | Cap. 6, metodología: respuesta, modelos y evaluación | `02_`, `05_`, `07_`, `09_` |
-| Cap. 7, datos: capa canónica | `00_datos_canonicos/`, `03_cargador_datos/` |
+| Cap. 7, datos: captura y capa canónica | `captura_datos/`, `00_datos_canonicos/`, `03_cargador_datos/` |
 | §8.1, especificación final de E3 | `01_` a `06_` |
 | §8.2, walk-forward | `10_walk_forward/` |
 | §8.3–8.4, test predictivo y calibración tras barridos | `17_test_predictivo/` (idéntico a `12_` a tres decimales) |
@@ -52,26 +53,22 @@ Cada carpeta numerada contiene su protocolo (`PLAN_*.md` o `ENMIENDA_*.md`, con 
 
 ## Datos
 
-Los datos (unos 45 GB: libro reconstruido cada 100 ms y 337 millones de transacciones de BTC/USDT en Binance Spot, 29 jun–26 oct de 2026) no se incluyen en Git. El código de captura y reconstrucción del libro está en el repositorio público del proyecto, [Market-Making-with-Statistical-Learning](https://github.com/sannti09/Market-Making-with-Statistical-Learning) (`src/capture/`, `src/reconstruction/`, `src/trades/`, `src/features/`). Esta sección resume cómo se obtienen y se usan.
+Los datos (unos 45 GB: libro reconstruido cada 100 ms y 337 millones de transacciones de BTC/USDT en Binance Spot, 29 jun–26 oct de 2026) no se incluyen en Git. Esta sección resume cómo se obtuvieron y cómo se usan.
 
-### 1. Captura del libro y de las transacciones (Binance Spot, WebSocket público)
+### 1. Captura en el servidor
 
-Dos capturas en paralelo (primaria y de respaldo) por flujo, con rotación de archivos cada 12 horas:
+Los datos se capturaron en vivo en un servidor Linux dedicado, con dos capturas en paralelo (primaria y de respaldo) por flujo, servicios systemd y rotación de archivos cada 12 horas. Los scripts de Python, las unidades systemd y los comandos de instalación y operación están en [`captura_datos/`](captura_datos/README.md):
 
 ```bash
-git clone https://github.com/sannti09/Market-Making-with-Statistical-Learning.git
-cd Market-Making-with-Statistical-Learning
-
 # libro: wss://data-stream.binance.vision/ws/btcusdt@depth@100ms (+ instantáneas REST /api/v3/depth)
-python src/capture/python/live_lob_capture.py --exchange binance --symbol BTCUSDT \
-  --binance-interval 100ms --rotate-hours 12 --root /ruta/captura
+python captura_datos/python/live_lob_capture.py --exchange binance --symbol BTCUSDT --rotate-hours 12 --root /opt/lob_system
 
 # transacciones: wss://data-stream.binance.vision/ws/btcusdt@trade
-python src/capture/python/live_trade_capture.py --exchange binance --symbol BTCUSDT \
-  --binance-stream trade --rotate-hours 12 --root /ruta/captura
+python captura_datos/python/live_trade_capture.py --exchange binance --storage-stream binance_trades --symbol BTCUSDT \
+  --binance-stream trade --rotate-hours 12 --root /opt/lob_system
 ```
 
-El libro se reconstruye con `src/reconstruction/`, siguiendo el procedimiento oficial de Binance: instantánea REST y diferenciales en orden de secuencia `U/u`; los huecos no cubiertos se marcan como inválidos y no se interpolan.
+El libro se reconstruye siguiendo el procedimiento oficial de Binance: instantánea REST y diferenciales en orden de secuencia `U/u`; los huecos no cubiertos se marcan como inválidos y no se interpolan. El código de reconstrucción y de las capas está en el repositorio público del proyecto, [Market-Making-with-Statistical-Learning](https://github.com/sannti09/Market-Making-with-Statistical-Learning) (`src/reconstruction/`, `src/trades/`, `src/features/`).
 
 ### 2. Transacciones oficiales (Binance Vision)
 
@@ -84,7 +81,7 @@ curl -sO "$URL" && curl -sO "$URL.CHECKSUM"
 shasum -a 256 -c "BTCUSDT-trades-$D.zip.CHECKSUM"
 ```
 
-Para un rango de fechas está `archive/beta_pipeline/data_audit/Data Scripts/download_binance_vision_trades.py --symbol BTCUSDT --start-date AAAA-MM-DD --end-date AAAA-MM-DD`, en el mismo repositorio.
+En el servidor, esta descarga corría cada día a las 04:00 UTC (temporizador systemd). Para un rango de fechas: `python captura_datos/python/download_binance_vision_trades.py --root /ruta --symbol BTCUSDT --start-date AAAA-MM-DD --end-date AAAA-MM-DD`, que verifica cada archivo contra su suma de verificación.
 
 ### 3. Uso en este repositorio
 
