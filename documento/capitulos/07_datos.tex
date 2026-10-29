@@ -23,17 +23,18 @@ Las transacciones se contrastaron con el archivo histórico oficial de Binance, 
 \section{Capa canónica}
 A partir del libro reconstruido y de las transacciones se construyó una capa de estado cada 100~ms para el periodo del 29 de junio al 26 de octubre de 2026: 120 días, 864\,000 filas por día y 202 columnas. Cada fila contiene los veinte mejores niveles de cada lado, indicadores de validez y variables causales del libro, del flujo de transacciones y de la volatilidad, calculadas solo con información anterior a la fila. Las 337 millones de transacciones del periodo se conservan por separado, una por una. Toda la capa se construyó con el mismo código, y cada archivo queda registrado en un catálogo que permite verificar su integridad.
 
-La Tabla~\ref{tab:volumen} resume el volumen de datos. Las cifras del crudo se midieron en dos días completos conservados (27 y 28 de julio) y se extrapolaron a los 120 días; para las transacciones se usó el total del periodo. Cada captura recibió unos 862\,800 mensajes de profundidad al día, de 864\,000 posibles (99,9\,\%), y las dos capturas difieren en pocos cientos de mensajes por día. Unos 880 millones de mensajes crudos se convierten así en una capa de 38~GB lista para modelar.
+La Tabla~\ref{tab:volumen} resume el volumen de datos. El inventario del servidor al 19 de octubre registra 85~GB comprimidos capturados desde el 29 de junio (113 días): 64~GB de libros, 19~GB de transacciones y 2~GB del archivo oficial de Binance. Esa cifra incluye una captura paralela de Coinbase (BTC/USD), que se usó solo en la fase exploratoria. La parte de Binance BTC/USDT, con primaria y respaldo, suma unos 40~GB en esos 113 días. Coincide con lo medido en dos días completos conservados (27 y 28 de julio), que extrapolado a los 120 días da unos 42~GB comprimidos y 430~GB sin comprimir. Cada captura recibió unos 862\,800 mensajes de profundidad al día, de 864\,000 posibles (99,9\,\%), y las dos capturas difieren en pocos cientos de mensajes por día. Unos 880 millones de mensajes crudos se convierten así en una capa de 38~GB lista para modelar.
 
 \begin{table}[htbp]
 \centering\small
-\caption{Volumen de los datos crudos (estimado para 120 días) y de la capa canónica.}
+\caption{Volumen de los datos crudos y de la capa canónica.}
 \label{tab:volumen}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
  & Mensajes o filas & Comprimido & Sin comprimir\\\midrule
-Crudo, captura primaria & $\approx$440 millones & $\approx$21~GB & $\approx$214~GB\\
-Crudo, primaria y respaldo & $\approx$880 millones & $\approx$42~GB & $\approx$430~GB\\
+Servidor, todo (medido, 113 días) & --- & 85~GB & ---\\
+Binance, primaria (120 días) & $\approx$440 millones & $\approx$21~GB & $\approx$214~GB\\
+Binance, ambas capturas (120 días) & $\approx$880 millones & $\approx$42~GB & $\approx$430~GB\\
 Canónica: libro (202 columnas) & 104 millones de filas & 35~GB & ---\\
 Canónica: transacciones & 337 millones & 3~GB & ---\\
 \bottomrule

@@ -114,14 +114,18 @@ The data are not in Git. They cover BTC/USDT on Binance Spot, 29 Jun–26 Oct 20
 
 | | Records | Compressed | Uncompressed |
 |---|---|---|---|
-| Raw capture, primary only | ≈ 440 M messages | ≈ 21 GB | ≈ 214 GB |
-| Raw capture, primary + backup | ≈ 880 M messages | ≈ 42 GB | ≈ 430 GB |
+| Server, everything captured (29 Jun–19 Oct, measured) | — | 85 GB | — |
+| Binance, primary only (120 days) | ≈ 440 M messages | ≈ 21 GB | ≈ 214 GB |
+| Binance, primary + backup (120 days) | ≈ 880 M messages | ≈ 42 GB | ≈ 430 GB |
 | Canonical layer: book every 100 ms | 104 M rows × 202 columns | 35 GB | — |
 | Canonical layer: trades | 337 M | 3 GB | — |
 
-How the raw figures were obtained:
-- they were measured on two complete raw days (27–28 Jul) and extrapolated to 120 days;
-- trades are scaled to the actual 337 M of the period.
+The server inventory of 19 Oct records 85 GB compressed since 29 Jun (113 days):
+- 64 GB of order books;
+- 19 GB of trades;
+- 2 GB of official Binance files.
+
+It includes a parallel Coinbase (BTC/USD) capture, used only in the exploratory phase. The Binance BTC/USDT part (primary + backup) is about 40 GB over those 113 days. That agrees with two complete raw days kept locally (27–28 Jul), which extrapolate to ≈ 42 GB compressed and ≈ 430 GB uncompressed over 120 days.
 
 Each capture received about 862,800 depth messages per day out of 864,000 possible (99.9 %). Primary and backup differ by a few hundred messages a day: the gaps the backup exists to fill.
 
