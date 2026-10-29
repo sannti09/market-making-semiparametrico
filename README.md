@@ -108,7 +108,7 @@ Protocols and notes are in Spanish, as they were sealed.
 
 ## Data
 
-The data are not in Git. They cover BTC/USDT on Binance Spot, 29 Jun–26 Oct 2026, about 45 GB:
+The data are not in Git. They cover BTC/USDT on Binance Spot, 29 Jun–26 Oct 2026, about 38 GB (35 GB order book, 3 GB trades):
 - the order book reconstructed every 100 ms;
 - 337 million trades.
 

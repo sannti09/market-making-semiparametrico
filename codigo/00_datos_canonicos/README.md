@@ -1,6 +1,6 @@
 # 00 · Canonical data
 
-The single data folder every script reads from: BTC/USDT on Binance Spot, **29 Jun – 26 Oct 2026 (120 days)**, one file per day and layer. The data themselves are not in Git (~45 GB); see the main README for how to obtain and place them.
+The single data folder every script reads from: BTC/USDT on Binance Spot, **29 Jun – 26 Oct 2026 (120 days)**, one file per day and layer. The data themselves are not in Git (~38 GB: 35 GB order book, 3 GB trades); see the main README for how to obtain and place them.
 
 ## Contents
 
