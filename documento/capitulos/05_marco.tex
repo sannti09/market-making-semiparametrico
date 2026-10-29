@@ -1,0 +1,151 @@
+% ═══════════════════════════════════════════════════════════════════════════
+\chapter{Marco Teórico}
+\label{chap:marco-teorico}
+% ═══════════════════════════════════════════════════════════════════════════
+
+Este capítulo reúne los conceptos necesarios para formular y comparar tres enfoques de creación de mercado: el modelo de Avellaneda--Stoikov, una especificación basada en procesos de Hawkes y el modelo semiparamétrico propuesto. El hilo conductor es la intensidad con que las órdenes agresivas alcanzan una cotización pasiva a cada distancia del precio medio. En los tres casos, el creador de mercado observa el estado del libro, decide las distancias de sus cotizaciones y administra el compromiso entre capturar el spread, mantener inventario y exponerse a selección adversa.
+
+\section{Microestructura del libro y selección adversa}
+\label{sec:seleccion-adversa}
+
+En un mercado electrónico de órdenes límite, el \textit{limit order book} (LOB) organiza las intenciones de compra y venta por precio y prioridad temporal. En el instante $t$, el mejor precio comprador es $b_t$ y el mejor vendedor es $a_t$; de ellos se obtienen el precio medio y el spread:
+\begin{equation}
+ m_t=\frac{a_t+b_t}{2},
+ \qquad
+ s_t=a_t-b_t.
+ \label{eq:mid-spread}
+\end{equation}
+Si $q^{b}_{i,t}$ y $q^{a}_{i,t}$ son las cantidades en el nivel $i$ de compra y venta, dos resúmenes del estado son el desequilibrio de profundidad y el microprecio:
+\begin{equation}
+ I^{(K)}_t=
+ \frac{\sum_{i=1}^{K}q^{b}_{i,t}-\sum_{i=1}^{K}q^{a}_{i,t}}
+ {\sum_{i=1}^{K}q^{b}_{i,t}+\sum_{i=1}^{K}q^{a}_{i,t}},
+ \qquad
+ \mu_t=\frac{a_tq^{b}_{1,t}+b_tq^{a}_{1,t}}
+ {q^{b}_{1,t}+q^{a}_{1,t}}.
+ \label{eq:imbalance-microprice}
+\end{equation}
+El \textit{order flow imbalance} (OFI) resume los cambios del mejor nivel y se relaciona con las variaciones contemporáneas del precio \citep{ContKukanovStoikov2014}. Spread, profundidad, desequilibrio, OFI, volatilidad reciente y flujo de transacciones forman así un estado más informativo que el precio medio por sí solo.
+
+El creador de mercado mantiene un inventario $q_t$, que aumenta cuando se ejecuta su compra y disminuye cuando se ejecuta su venta. El resultado de cada ejecución pasiva se mide con su \textit{markout}: para una venta a precio $p$ en el instante $\tau$,
+\begin{equation}
+ \mathrm{MK}_H=\frac{p-m_{\tau+H}}{p}\times10^4~\text{bps},
+ \label{eq:markout}
+\end{equation}
+con el signo opuesto para una compra. El \textit{markout} suma la distancia capturada respecto del precio medio y el movimiento posterior del precio. En el modelo de \citet{GlostenMilgrom1985}, el spread compensa al creador de mercado por negociar con agentes mejor informados \citep{OHara1995}. Si el spread es mínimo, esa compensación desaparece, y el creador de mercado pierde siempre que la probabilidad de ser ejecutado esté correlacionada con un movimiento posterior desfavorable. Ese fenómeno es la \emph{selección adversa}.
+
+\section{Avellaneda--Stoikov como referencia estructural}
+
+\citet{AvellanedaStoikov2008} formulan la creación de mercado como un problema de control estocástico. El precio de referencia sigue $dm_t=\sigma\,dW_t$, el agente cotiza a distancias $\delta_t^b=m_t-p_t^b$ y $\delta_t^a=p_t^a-m_t$, y las ejecuciones llegan como procesos de conteo con intensidades
+\begin{equation}
+ \lambda^b(\delta)=A e^{-k\delta},
+ \qquad
+ \lambda^a(\delta)=A e^{-k\delta}.
+ \label{eq:as-intensity}
+\end{equation}
+$A$ fija la escala de llegada y $k$ la sensibilidad a alejar la orden del mercado. Con utilidad exponencial y aversión al riesgo $\gamma$, una aproximación conocida da el precio de reserva y el spread óptimo:
+\begin{equation}
+ r_t=m_t-q_t\gamma\sigma^2(T-t),
+ \qquad
+ \psi_t=\gamma\sigma^2(T-t)+\frac{2}{\gamma}\log\!\left(1+\frac{\gamma}{k}\right).
+ \label{eq:as-quotes}
+\end{equation}
+Si el inventario es positivo, el precio de reserva baja, lo que favorece vender. El modelo es interpretable, pero sus supuestos son restrictivos para alta frecuencia: $A$ y $k$ son fijos, las llegadas no tienen memoria y no dependen del estado del libro. En este trabajo funciona como línea base estructural: sus parámetros se estiman solo con el entrenamiento y su política se somete a la misma regla de ejecución que las demás.
+
+\section{Procesos puntuales y modelo de Hawkes}
+\label{sec:hawkes-multiescala}
+
+En un proceso de Poisson la intensidad no depende de la historia, mientras que las transacciones aparecen en ráfagas. Los procesos de Hawkes introducen autoexcitación: cada evento eleva temporalmente la probabilidad de nuevos eventos \citep{Hawkes1971,BacryHawkes2015}. Para las compras agresivas ($+$, que alcanzan el ask) y las ventas ($-$, que alcanzan el bid), un Hawkes bivariado con $M$ escalas de memoria es
+\begin{equation}
+ \lambda_i(t)=\mu_i+\sum_{j\in\{+,-\}}\sum_{m=1}^{M}\alpha^{(m)}_{ij}\int_0^{t^-}\beta_m e^{-\beta_m(t-u)}\,dN_j(u),
+ \qquad i\in\{+,-\}.
+ \label{eq:hawkes-multi}
+\end{equation}
+$\mu_i$ es la intensidad basal, $\alpha^{(m)}_{ij}$ mide el efecto de un evento de tipo $j$ sobre el tipo $i$ y $\beta_m$ la velocidad de olvido. La estacionariedad exige que el radio espectral de la matriz de ramificación $\sum_m\alpha^{(m)}$ sea menor que uno. Con una sola escala, la estimación tiende a capturar las ráfagas de fragmentación de órdenes (milisegundos) y no la persistencia a escala de segundos; dos escalas permiten separar ambas memorias. Los parámetros se estiman con el algoritmo EM que trata como latente la estructura de ramificación \citep{VeenSchoenberg2008,Ozaki1979}. Estos modelos se han usado para transacciones, precios y libros de órdenes \citep{Bowsher2007,LuAbergel2018,RambaldiEtAl2017,MorariuPatrichiPakkanen2022}.
+
+Para compararlo con los demás modelos en la misma escala de tiempo, el Hawkes se evalúa con el número esperado de eventos en el intervalo siguiente, dada la historia:
+\begin{equation}
+ \Lambda_i(t)=\int_0^{\Delta}\E\bigl[\lambda_i(t+u)\mid\mathcal F_t\bigr]\,du .
+ \label{eq:lambda-predictiva}
+\end{equation}
+Como la esperanza condicional de los estados de excitación satisface una ecuación diferencial lineal, \eqref{eq:lambda-predictiva} tiene forma cerrada mediante la exponencial matricial.
+
+\section{Intensidad semiparamétrica propuesta}
+\label{sec:curva-distancia}
+
+Sea $X_t$ el vector de covariables causales del libro y del flujo, y $y_{t\delta}$ el número de eventos agresores del intervalo $[t,t+\Delta)$ que alcanzan $m_t(1\pm10^{-4}\delta)$, con $\delta$ en bps. Se modela
+\begin{equation}
+\begin{aligned}
+ y_{t\delta}\mid X_t&\sim\operatorname{Poisson}\bigl(\Delta\,\lambda_i(t,\delta\mid X_t)\bigr),\\
+ \lambda_i(t,\delta\mid X_t)&=\exp\bigl\{g_i(X_t)+h_i(t)+m_i(X_t)\,f_i(\delta)\bigr\}.
+\end{aligned}
+ \label{eq:fkx}
+\end{equation}
+\begin{itemize}[nosep]
+\item $g_i$ es una función flexible del estado, estimada con \textit{gradient boosting} \citep{Friedman2001}; \textit{random forest} \citep{Breiman2001} sirve de alternativa. En datos tabulares ninguna familia domina siempre, por lo que la elección descansa en validación temporal \citep{GrinsztajnEtAl2022}.
+\item $h_i(t)$ recoge la periodicidad horaria con variables conocidas fuera de muestra.
+\item $f_i(\delta)$ es una curva monótona de distancia, con $f_i(\delta_1)=0$ y no creciente.
+\item $m_i(X_t)=\exp(b_i^\top z_t)$ modula la pendiente de la curva según un vector corto de covariables estandarizadas: si $m_i>1$, la intensidad se concentra cerca del precio medio; si $m_i<1$, la curva se aplana.
+\end{itemize}
+El enlace exponencial garantiza positividad. La especificación del anteproyecto, $\exp\{g_i+h_i\}e^{-k_i\delta}$, es el caso $f_i(\delta)=-k_i\delta$ y $m_i\equiv1$; Avellaneda--Stoikov es además el caso $g_i+h_i$ constante. La forma exponencial impone una caída a tasa constante con la distancia; empíricamente, la caída es más rápida cerca del precio medio y más lenta en la cola, y eso motiva la curva libre $f_i$.
+
+Como un evento que alcanza $\delta_2$ alcanza también toda $\delta_1<\delta_2$, los conteos están anidados y la función
+\begin{equation}
+ \ell=\sum_t\sum_\delta\bigl[y_{t\delta}\log\lambda(t,\delta)-\Delta\,\lambda(t,\delta)\bigr]
+ \label{eq:ll-compuesta}
+\end{equation}
+es una verosimilitud compuesta. Con $m_i\equiv1$ y $g_i+h_i$ fijos, la condición de primer orden da la curva en forma cerrada:
+\begin{equation}
+ f_j=\log\frac{N_j}{N_1},\qquad N_j=\sum_t y_{tj},
+ \label{eq:f-cerrada}
+\end{equation}
+monótona porque el anidamiento hace $N_j$ no creciente. Cuando $m_i$ varía, $f$ se parametriza como $f_j=-\sum_{l<j}e^{\theta_l}(\delta_{l+1}-\delta_l)$ y $(\theta,b)$ se estiman por máxima verosimilitud. La estimación completa alterna los ajustes de $g_i$, $h_i$ y la curva (\textit{backfitting}), principio relacionado con la regresión semiparamétrica parcialmente lineal \citep{RobinsonSemiparametric1988,SancettaLOB2024}.
+
+Las covariables usan solo información disponible antes de decidir la cotización, y la respuesta corresponde al intervalo posterior; así se evita el sesgo de anticipación. Que una variable mejore la predicción no implica que modificarla cause más ejecuciones: la interpretación es predictiva, no causal.
+
+\section{Control óptimo con inventario y la ecuación HJB}
+\label{sec:hjb-teoria}
+
+La intensidad estimada se integra al problema de control mediante recompensas de ejecución y penalizaciones de inventario. De forma esquemática, la política maximiza
+\begin{equation}
+ \E\!\left[\mathrm{PnL}_T-\phi\int_0^T q_t^2\,dt-\eta q_T^2\right].
+ \label{eq:objective}
+\end{equation}
+Se consideran un precio $dS_t=\sigma\,dW_t$, cotizaciones $S_t-\delta^b_t$ y $S_t+\delta^a_t$ con intensidades $\Lambda_i(\delta)=A_ie^{-k_i\delta}$ distintas por lado, inventario $|q|\le Q$ y utilidad $-\exp\{-\gamma(X_T+q_TS_T)\}$ \citep{GuentLehalle2013,Gueant2017,CarteaEtAl2015}. Con el ansatz $u=-\exp\{-\gamma(x+qS+\theta(t,q))\}$, la ecuación de Hamilton--Jacobi--Bellman se reduce a $2Q+1$ ecuaciones diferenciales:
+\begin{equation}
+0=\partial_t\theta-\tfrac12\gamma\sigma^2q^2+\mathbf 1_{q<Q}\,H_b\bigl(\theta(t,q)-\theta(t,q+1)\bigr)+\mathbf 1_{q>-Q}\,H_a\bigl(\theta(t,q)-\theta(t,q-1)\bigr),
+\label{eq:hjb-theta}
+\end{equation}
+con Hamiltoniano y distancia óptima
+\begin{equation}
+H_i(p)=\frac{A_i}{k_i+\gamma}\Bigl(1+\frac{\gamma}{k_i}\Bigr)^{-k_i/\gamma}e^{-k_ip},\qquad
+\delta_i^*=p+\frac1\gamma\ln\Bigl(1+\frac{\gamma}{k_i}\Bigr),
+\label{eq:hjb-H}
+\end{equation}
+donde $p_b=\theta(q)-\theta(q+1)$ y $p_a=\theta(q)-\theta(q-1)$. Para una intensidad general $\Lambda_i(\delta)$ la reducción es la misma, con $H_i(p)=\sup_\delta\Lambda_i(\delta)\bigl(1-e^{-\gamma(\delta-p)}\bigr)/\gamma$, que ya no tiene forma cerrada y se calcula numéricamente. El término $-\tfrac12\gamma\sigma^2q^2$ tiene la misma forma que la penalización de \eqref{eq:objective} con $\phi=\tfrac12\gamma\sigma^2$, pero los dos objetivos no son equivalentes en general: con utilidad exponencial, el Hamiltoniano pondera la distancia por $(1-e^{-\gamma(\delta-p)})/\gamma$, mientras que con \eqref{eq:objective} lo hace por $\delta-p$; ambos coinciden solo cuando $\gamma\to0$ \citep{Gueant2017}. En este trabajo se usa la utilidad exponencial y el inventario final se liquida al precio medio. Para horizontes largos, $\theta(\tau,q)=c\tau+\theta_\infty(q)$ y la política estacionaria depende solo de $\sigma^2/A_a$, de $A_b/A_a$ y de $(k_a,k_b)$.
+
+\citet{GuentLehalle2013} obtienen la aproximación cerrada (GLFT) para $\gamma$ pequeño:
+\begin{equation}
+\begin{aligned}
+ \delta^{*}_{b}(q)&\approx\tfrac1\gamma\ln\bigl(1+\tfrac{\gamma}{k_b}\bigr)+\bigl(q+\tfrac12\bigr)\omega_b,\qquad
+ \delta^{*}_{a}(q)\approx\tfrac1\gamma\ln\bigl(1+\tfrac{\gamma}{k_a}\bigr)-\bigl(q-\tfrac12\bigr)\omega_a,\\
+ \omega_i&=\sqrt{\tfrac{\sigma^2\gamma}{2k_iA_i}\bigl(1+\tfrac{\gamma}{k_i}\bigr)^{1+k_i/\gamma}} .
+\end{aligned}
+ \label{eq:glft}
+\end{equation}
+Estas expresiones suponen que $\Lambda_i(\delta)$ es la intensidad de \emph{ejecución} de la propia orden. Los datos permiten estimar la intensidad de \emph{alcance} de una cotización hipotética, que es una cota superior de la de ejecución porque no considera la posición en la cola; en este trabajo se usa como aproximación, y la evaluación económica aplica una regla de ejecución más estricta (Sección~\ref{sec:eval-economica}). Dos consecuencias son centrales. En GLFT la distancia base depende de $k_i$ y no de $A_i$: un modelo que solo mejora el nivel de la intensidad apenas mueve las cotizaciones. En la solución numérica, en cambio, el cociente $A_b/A_a$ entra de forma no lineal en \eqref{eq:hjb-theta}, y la política se sesga hacia un lado incluso con inventario nulo. En el límite sin aversión ni inventario, el agente maximiza $\Lambda_i(\delta)\,\delta$ en cada instante (regla miope), cuyo óptimo exponencial es $\delta^*=1/k_i$.
+
+Cuando las intensidades dependen del estado, el problema exacto incluiría $X_t$ como variable de estado. Aquí se usa la aproximación de coeficientes congelados: en cada decisión se aplica la política estacionaria con los coeficientes vigentes.
+
+\section{Evaluación predictiva y valor económico}
+\label{sec:evaluacion-pronosticos}
+
+La log-verosimilitud es una regla de puntuación estrictamente propia: su esperanza se maximiza solo con la distribución verdadera \citep{GneitingRaftery2007}. La comparación principal es, por tanto, la diferencia de \eqref{eq:ll-compuesta} por intervalo entre dos modelos, fuera de muestra, complementada con:
+\begin{itemize}[nosep]
+\item la discriminación, mediante el AUC del evento ``al menos un cruce a $\delta=2$~bps en el segundo'' \citep{Fawcett2006}; un predictor constante obtiene 0,5;
+\item la calibración, mediante el cociente entre cruces observados y esperados (O/E);
+\item la \emph{parte de la mejora}, $(\ell_m-\ell_{\text{AS}})/(\ell_{\text{E3}}-\ell_{\text{AS}})$, que indica qué fracción de la ganancia de la propuesta sobre Avellaneda--Stoikov recupera cada referencia.
+\end{itemize}
+Los intervalos de un mismo día están correlacionados, de modo que la incertidumbre se estima con un \textit{bootstrap} por días \citep{EfronTibshirani1993}. Para que la selección de especificaciones no contamine la evaluación, se combinan validación \textit{walk-forward}, protocolos con los criterios escritos antes de ver resultados y una evaluación final con modelos congelados.
+
+La precisión estadística no determina el valor económico \citep{LeitchTanner1991}. En market making esto tiene una forma concreta. \citet{AlbersEtAl2025}, con experimentos en vivo en el perpetuo de Bitcoin de Binance, encuentran una relación negativa entre la probabilidad de ejecución y el retorno posterior. \citet{DeLise2024} describe la deriva negativa del precio tras la ejecución de una orden límite. \citet{LalorSwishchuk2024} muestran que los simuladores que separan precios y llegadas sobreestiman estas estrategias. \citet{CarteaWang2020} usan señales de corto plazo para reducir la selección adversa, aunque buena parte de su valor proviene de órdenes de mercado. Un modelo que ordena mejor los momentos de alta intensidad de agresores ordena también los momentos en que una cotización pasiva será ejecutada antes de un movimiento en contra. La mejora predictiva solo tendría valor económico si informara además sobre la dirección posterior, o si las comisiones compensaran la selección adversa.

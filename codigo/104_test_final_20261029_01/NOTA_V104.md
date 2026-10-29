@@ -1,0 +1,14 @@
+# NOTA v104 — test final 4–20 sep (abierto el 29 oct 09:31, uso único)
+- Modelos congelados v103 (29 jun–3 sep), sin reajuste. Se aplicó el preregistro v101 con las enmiendas v101b y v104.
+- **Los 4 criterios preregistrados se cumplen.**
+  - C1 jerarquía: IC95 > 0 frente a E1+h-f, E1+S, E1+X49, E2m+h-f y E2m+S en los dos lados.
+  - C2 consistencia: gana a E2m+S 17/17 días en los dos lados.
+  - C3: AUC δ=2 de 0,813 (ask) y 0,813 (bid).
+  - C4: brecha de rebote de +0,116 (vendedores) y −0,139 (compradores), dentro de ±0,15.
+- Informativo:
+  - Frente a GLM 49: +0,110 (ask) y +0,140 (bid), gana 16/17.
+  - Frente a E3-fkX 44: ask +0,002 [−0,004; +0,008], no significativo; bid +0,015 [+0,003; +0,029].
+  - Frente a E3 base: +0,05 y +0,09, gana 16–17/17.
+  - Celda débil del rebote: comprador con 1 h al alza, −0,235.
+- No es ciego para P1 en sentido estricto (v58–v59 usaron estas fechas con el E3 antiguo). La corrida libre 21 sep–26 oct sigue cerrada.
+- Archivos: salida/ (por día, eventos, resultados_test_v101.json, tablas_test_v101.md) y tablas_tesis/T5_test.{md,csv,tex}.

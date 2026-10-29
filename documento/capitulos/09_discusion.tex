@@ -1,0 +1,43 @@
+% ═══════════════════════════════════════════════════════════════════════════
+\chapter{Discusión}
+\label{chap:discusion}
+% ═══════════════════════════════════════════════════════════════════════════
+
+\section{Las dos preguntas}
+
+\paragraph{\textquestiondown{}Cuánto mejora E3 la estimación?} De forma sustancial y estable. Frente a Avellaneda--Stoikov, E3 gana alrededor de 1,3 unidades de log-verosimilitud por segundo en el test, todos los días y en ambos lados, y pasa de un AUC de 0,5 a uno de 0,81. La pregunta más exigente es cuánto de esa mejora alcanzan las referencias cuando reciben la misma información. El Hawkes de dos escalas con señales llega al 74\,\% y el modelo lineal con las 49 covariables al 90\,\%; ninguno alcanza a E3 en ningún tramo del \textit{walk-forward} ni del test. La descomposición es informativa:
+\begin{itemize}[nosep]
+\item la información del estado del libro y del flujo reciente explica la mayor parte de la ganancia;
+\item la memoria endógena aporta cuando se modela a la escala correcta: el Hawkes de una escala, con memoria de milisegundos, apenas supera a la referencia;
+\item la no linealidad de $g$ aporta el último 10\,\% y, entre los modelos evaluados, es la que mejor discrimina y mejor calibra el comportamiento tras barridos; esto no excluye que otra especificación lineal pudiera lograrlo.
+\end{itemize}
+En la simulación posterior, de 36 días y sin reajustes, el orden de los modelos y la magnitud de las ventajas se mantienen, con un AUC de 0,85. Esta descomposición responde a P1 y a OE2--OE3: la forma semiparamétrica conserva la estructura interpretable de Avellaneda--Stoikov (nivel por estado, periodicidad, curva de distancia) y mejora cada uno de sus supuestos restrictivos.
+
+\paragraph{\textquestiondown{}Qué valor económico produjo?} Ninguno positivo bajo las políticas evaluadas. Con la regla miope, con la HJB numérica o con su aproximación cerrada, todas las intensidades pierden entre 1,2 y 1,3~bps por ejecución antes de comisiones, en el test y en la simulación. En el test las diferencias entre modelos no son significativas; en la simulación, con la regla miope, E3 pierde 0,08~bps más por ejecución que los modelos que cotizan a distancia fija, porque se acerca al precio medio cuando predice más actividad. Lo que sí cambia con E3 es la política: con la HJB opera entre un 31 y un 38\,\% menos que AS y Hawkes con la misma forma de curva, y pierde menos por día. Esto responde a P3: la estimación \textit{data-driven} cambia la política óptima, sobre todo a través del cociente de intensidades entre lados. Y responde a P2: ese cambio no produce un PnL neto positivo ni una pérdida por ejecución menor que la de Avellaneda--Stoikov y Hawkes.
+
+\section[Por qué la predicción no se traduce en rentabilidad]{Por qué la mejora predictiva no se traduce en rentabilidad}
+
+La explicación que sigue es una interpretación acotada a los tres modelos y a la regla de ejecución evaluados. Los tres (Avellaneda--Stoikov, Hawkes y E3) estiman lo mismo: cuándo y a qué distancia llegarán agresores. Ninguno se estimó para predecir hacia dónde se moverá el precio después de una ejecución. Con la misma regla de ejecución, las políticas derivadas de cada modelo difieren en las distancias de cotización y en la frecuencia de participación (el tamaño de cada orden está fijado en 0,01~BTC), pero las ejecuciones que obtienen tienen un \textit{markout} a 10~s muy parecido, de $-1{,}16$ a $-1{,}31$~bps. La descomposición de la Sección~\ref{sec:p2-origen} muestra el mecanismo: cotizar más lejos captura más margen, pero solo se es ejecutado cuando un barrido atraviesa esa distancia, y el movimiento posterior compensa el margen adicional. Por eso una mejor predicción de la intensidad cambia el volumen operado y el momento de las cotizaciones, pero no se tradujo en una pérdida por ejecución distinta.
+
+Esta lectura es coherente con la teoría y con la evidencia reciente. En el marco de \citet{GlostenMilgrom1985}, el spread remunera la selección adversa; en BTC/USDT el spread es casi siempre de un tick, de modo que esa remuneración es mínima. \citet{AlbersEtAl2025} documentan, con experimentos en vivo en Binance, una relación negativa entre la probabilidad de ejecución y el retorno posterior, y \citet{DeLise2024} describe la deriva negativa del precio tras la ejecución de una orden límite. Que la precisión estadística no implique valor económico es un resultado conocido en la evaluación de pronósticos \citep{LeitchTanner1991}.
+
+Hay condiciones que podrían cambiar el resultado y que este trabajo no evaluó, o evaluó solo en parte; no se afirma que sean necesarias ni suficientes:
+\begin{itemize}[nosep]
+\item una devolución por proveer liquidez del orden de la pérdida por ejecución medida;
+\item información sobre la dirección posterior a la ejecución, que no se encontró con las covariables disponibles;
+\item cancelar órdenes en microsegundos antes de ser ejecutado: los datos de 100~ms no permiten simular esas carreras, que según la literatura se libran en microsegundos y concentran pocas firmas \citep{BudishCramtonShim2015,AquilinaBudishONeill2022};
+\item un mercado con spread más ancho o con otro diseño, como subastas por lotes.
+\end{itemize}
+Este trabajo describe lo observado para un participante sin devoluciones, con la regla de ejecución y los datos utilizados.
+
+\section{Limitaciones}
+
+\begin{itemize}[nosep]
+\item \textbf{Exposición previa del test.} El test del 4 al 20 de septiembre no es ciego en sentido estricto para P1: la especificación original de E3 ya se había evaluado en esas fechas dentro del primer test ciego, y una política de pausa se ejecutó en él antes de una orden de espera, sin que sus resultados se consultaran. Lo que confirma el test son las especificaciones nuevas, que nunca se evaluaron allí.
+\item \textbf{Periodo de la simulación.} Hasta el 6 de octubre, parte del periodo de simulación se usó en la fase exploratoria para evaluar una versión anterior del modelo. Ninguna decisión de los modelos finales se tomó con esos datos.
+\item \textbf{Asimetrías de estimación.} Los Hawkes se ajustaron con un tercio de los días por costo computacional, aunque sus capas de nivel, forma y señales usan todos. El ajuste de E3 usa un número fijo de ciclos de \textit{backfitting} y no verifica formalmente la convergencia del optimizador de la curva. Además, el gradiente analítico de $m(X)$ no incorporaba el recorte de $b^\top z$ a $\pm5$, que se activa en unos 30 de 5,8 millones de segundos del entrenamiento. Una verificación posterior corrigió el gradiente y comprobó la convergencia del último paso de la curva, con $g$ y $h$ fijos (no la convergencia conjunta de todo el \textit{backfitting}): la curva solo cambia en 15--20~bps (hasta 0,33 en logaritmo), con una ganancia de verosimilitud de unas $6\times10^{-6}$ unidades por segundo. La verosimilitud de entrenamiento aumenta en cada ciclo, pero el efecto de una convergencia incompleta sobre el desempeño fuera de muestra no se cuantificó y queda como incertidumbre.
+\item \textbf{Alcance frente a ejecución.} La respuesta mide el alcance de una cotización, no su ejecución con prioridad en la cola; la evaluación económica usa una regla conservadora validada con colas explícitas solo en agregados.
+\item \textbf{Política aproximada.} La HJB se aplica con coeficientes congelados, con la curva de distancia interpolada entre nueve nodos y extendida fuera de ellos, y mediante tablas numéricas; no incorpora la dinámica de $X_t$ como estado. GLFT usa además una aproximación exponencial local.
+\item \textbf{Calibración restante.} La calibración tras barridos no es estable: la celda ``comprador con tendencia bajista'' no se corrigió en el \textit{walk-forward}, y en la simulación la brecha tras barridos compradores fue de $+0{,}22$, fuera del límite de $\pm0{,}15$; la verosimilitud es compuesta porque los conteos están anidados en $\delta$, y los días no son independientes.
+\item \textbf{Un solo mercado y un participante lento.} Los resultados se refieren a BTC/USDT spot en Binance, el libro más competido, observado con 100~ms de resolución. La evaluación económica supone que la orden queda activa al inicio de cada segundo, sin latencia de envío; no reproduce a un participante con los ~130~ms de latencia de red medidos en la captura.
+\end{itemize}

@@ -1,0 +1,12 @@
+Modelo,"Vendedor, 1 h al alza","Vendedor, 1 h a la baja","Comprador, 1 h al alza","Comprador, 1 h a la baja"
+"E3 tesis (49 cov., f(δ)·k(X))",+0.223,+0.054,+0.027,-0.157
+"E3 f(δ)·k(X), 44 cov.",+0.349,+0.097,-0.018,-0.195
+"E3 base (−kδ, 44 cov.)",+0.469,+0.195,+0.164,-0.019
+AS base,+1.799,+1.024,+2.427,+0.608
+AS + hora + f(δ),+1.749,+1.083,+2.688,+0.608
+AS + 7 señales,-0.002,+0.122,+0.390,-0.405
+GLM lineal 49 cov.,+0.276,+0.216,+0.307,-0.092
+Hawkes 1 escala + hora + f(δ),+1.745,+1.077,+2.676,+0.606
+Hawkes 1 escala + señales,-0.014,+0.119,+0.389,-0.404
+Hawkes 2 escalas + hora + f(δ),+0.918,+0.400,+1.005,+0.016
+Hawkes 2 escalas + señales,-0.187,-0.112,+0.016,-0.516

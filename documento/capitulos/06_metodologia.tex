@@ -1,0 +1,76 @@
+% ═══════════════════════════════════════════════════════════════════════════
+\chapter{Metodología}
+\label{chap:metodologia}
+% ═══════════════════════════════════════════════════════════════════════════
+
+El diseño es cuantitativo, longitudinal y comparativo sobre una capa canónica del libro de órdenes y las transacciones de BTC/USDT, cuya construcción se describe en el Capítulo~\ref{chap:datos}. Responde por separado dos preguntas: cuánto mejora la propuesta la predicción de la intensidad (P1) y qué valor económico produce en una política de cotización (P2--P3).
+
+\section{Variable respuesta}
+La respuesta se define sobre \emph{eventos agresores}: transacciones con el mismo instante y el mismo lado, que corresponden a una orden agresiva que barre uno o varios niveles, con su precio extremo. Para cada segundo $[t,t+1)$ y cada distancia $\delta\in\{0{,}5;1;2;3;5;7{,}5;10;15;20\}$~bps se cuentan los eventos compradores que alcanzan $m_t(1+10^{-4}\delta)$ (lado ask) y los vendedores que alcanzan $m_t(1-10^{-4}\delta)$ (lado bid). Un segundo es válido solo si el libro es observable en todas sus filas. Que el precio alcance una cotización hipotética no implica que una orden pasiva se ejecute: la respuesta mide la intensidad de \emph{alcance}, que no depende de la posición en la cola y se utiliza como proxy de la intensidad de ejecución.
+
+\section{Partición y protocolo}
+\label{sec:particion}
+\begin{center}\small
+\begin{tabular}{@{}llp{.46\textwidth}@{}}\toprule
+Bloque & Fechas (2026) & Uso\\\midrule
+Entrenamiento & 29 jun.--3 sep. (67 días) & Desarrollo, \textit{walk-forward} y ajuste de los modelos finales\\
+Test & 4--20 sep. (17 días) & Evaluación de los modelos finales congelados, predictiva y económica\\
+Simulación & 21 sep.--26 oct. (36 días) & Evaluación única de los mismos modelos y políticas, sin ningún reajuste\\\bottomrule
+\end{tabular}
+\end{center}
+
+Dentro del entrenamiento se desarrolló la especificación de E3 (covariables, hiperparámetros, curva de distancia) y se reforzaron las referencias. Después, el orden fue fijo:
+\begin{enumerate}[nosep]
+\item \textit{walk-forward} con cinco ventanas semanales expansivas: se ajusta desde el 29 de junio hasta el 31 de julio, 7, 14, 21 y 28 de agosto, y se evalúa en los siete días siguientes (34 días fuera de muestra);
+\item ajuste de los modelos finales con todo el entrenamiento, que se guardan sin cambios posteriores;
+\item evaluación del test;
+\item simulación, una sola vez, con los modelos y las políticas congelados.
+\end{enumerate}
+Cada paso tuvo un protocolo con sus criterios escritos antes de correr. Antes de abrir la simulación se comprobó que su código reproduce exactamente un día del test.
+
+\paragraph{Versiones de los modelos.} Los resultados provienen de dos versiones del ajuste, que se identifican en cada tabla:
+\begin{itemize}[nosep]
+\item \textbf{ajuste original}: el \textit{walk-forward} y los modelos finales con los que se evaluó primero el test;
+\item \textbf{ajuste corregido}: una revisión posterior encontró que el último paso de la curva de E3 no verificaba la convergencia y que su gradiente omitía el recorte de $m(X)$. Se corrigió y se reestimó solo ese paso (la curva, su modulación y un ajuste de nivel) para E3 tesis y E3-fkX, con $g$ y $h$ fijos y convergencia comprobada de ese paso, sin tocar las demás variantes. El test predictivo repetido con el ajuste corregido coincide con el original a tres decimales en todas las métricas.
+\end{itemize}
+El \textit{walk-forward} se conserva con el ajuste original; la evaluación económica usa el ajuste corregido. Ningún parámetro ni hiperparámetro se estimó con el periodo de test. El periodo se evaluó más de una vez: las versiones posteriores corrigieron defectos del código señalados en revisiones, no se eligieron por su desempeño en el test y no cambiaron las conclusiones. El test no es ciego en sentido estricto, porque la versión original de E3 se había evaluado en esas fechas (Apéndice~\ref{app:ciegos}); lo que confirma son las especificaciones finales, que nunca se evaluaron allí.
+
+\section{Modelos comparados}
+\label{sec:modelos}
+Para que la comparación no favorezca a la propuesta, cada mejora aplicable a las referencias se les dio también: la curva de distancia, el nivel horario, un Hawkes de dos escalas, siete señales de barrido y tendencia, y un modelo lineal con las mismas covariables de E3. La Tabla~\ref{tab:modelos} resume las once variantes; todas comparten respuesta, distancias, segundos y datos, y se ajustan por lado.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Variantes comparadas. $\nu(\text{hora})$: nivel horario; $f(\delta)$: curva monótona \eqref{eq:f-cerrada}; S: siete señales (cinco de barrido, tendencia a 15~min y a 1~h); X49: las 49 covariables de E3 en un modelo lineal (GLM de Poisson).}
+\label{tab:modelos}
+\begin{tabular}{@{}lp{.60\textwidth}@{}}\toprule
+Variante & $\log\lambda_i(t,\delta)$\\\midrule
+AS base & $a_i-k_i\delta$\\
+AS + h + f & $\nu_i(\text{hora})+f_i(\delta)$\\
+AS + S & $\nu_i(\text{hora})+\beta_i^\top S_t+f_i(\delta)$\\
+GLM lineal & $\nu_i(\text{hora})+\beta_i^\top X_t+f_i(\delta)$, 49 covariables\\
+Hawkes 1 esc. + h + f / + S & $\log\Lambda_i(t)+\dots$, Hawkes de una escala \eqref{eq:lambda-predictiva}\\
+Hawkes 2 esc. + h + f / + S & $\log\Lambda_i(t)+\dots$, Hawkes de dos escalas \eqref{eq:hawkes-multi}\\
+E3 base & $g_i(X_t)+h_i(t)-k_i\delta$, 44 covariables\\
+E3-fkX & $g_i(X_t)+h_i(t)+m_i(X_t)f_i(\delta)$, 44 covariables\\
+\textbf{E3 tesis} & \eqref{eq:fkx} con 49 covariables (44 + 5 de barrido)\\\bottomrule
+\end{tabular}
+\end{table}
+
+$g_i$ es un \textit{HistGradientBoosting} con pérdida Poisson (tasa de aprendizaje 0,05; 15 hojas; al menos 2\,000 observaciones por hoja; 300 iteraciones; regularización L2 de 1) \citep{PedregosaEtAl2011}, con tres ciclos de \textit{backfitting}. En cada ciclo: (i) con la curva y $h$ fijas, se ajusta $g$ por Poisson sobre el total de eventos del segundo, usando como desplazamiento la suma de la curva sobre las distancias; (ii) se reestima $h$ como nivel por hora; (iii) con $g+h$ fijos, se estiman la curva $f$ y los coeficientes $b$ de $m(X)$ por máxima verosimilitud (L-BFGS con gradiente analítico). La identificación se obtiene fijando $f(\delta_1)=0$, centrando $h$ sobre las 24 horas y absorbiendo el nivel común en una constante. El número de ciclos es fijo; se verificó que la verosimilitud de entrenamiento aumenta en cada ciclo, sin un criterio formal de convergencia. Los Hawkes se estiman con un tercio de los días de cada ventana, por costo computacional; sus capas de nivel, forma y señales usan todos los días. La lista de covariables está en el Apéndice~\ref{app:trazabilidad}.
+
+\section{Evaluación predictiva}
+Se compara la log-verosimilitud \eqref{eq:ll-compuesta} por segundo, el AUC a $\delta=2$~bps (promedio de los AUC diarios) y la calibración tras barridos (Sección~\ref{sec:evaluacion-pronosticos}), con intervalos \textit{bootstrap} por días (2\,000 réplicas). Los criterios del \textit{walk-forward} son que E3 tesis supere a cada referencia en las cinco ventanas y con intervalo de confianza positivo. Los del test son cuatro: superar a las referencias principales con intervalo positivo, ganar al menos 14 de 17 días al mejor Hawkes, un AUC de al menos 0,80 y un error de calibración tras barridos de a lo sumo 0,15.
+
+\section{Evaluación económica}
+\label{sec:eval-economica}
+Todas las intensidades se evalúan en el test con el mismo simulador:
+\begin{itemize}[nosep]
+\item cada segundo y en cada lado se cotiza una orden de 0,01~BTC a la distancia que indica la política, redondeada al tick y siempre pasiva;
+\item la orden se ejecuta solo si, dentro de ese segundo, un agresor negocia a un precio \emph{estrictamente} más allá del suyo (regla de cruce estricto). La regla no modela la cola: omite las ejecuciones al mismo precio de la orden, por lo que tiende a contar menos ejecuciones, pero no garantiza que el PnL resultante sea conservador;
+\item la decisión usa el estado de la capa al inicio del segundo y la orden queda activa desde ese instante, sin latencia de envío; la sensibilidad a la latencia se estudió por separado en el entrenamiento (Sección~\ref{sec:p2-origen});
+\item el inventario se limita a $|q|\le10$ y se valora al último precio medio del día.
+\end{itemize}
+Se evalúan tres políticas: la regla miope $\delta^*=\arg\max_\delta\lambda(\delta)\,\delta$; la política HJB numérica (Sección~\ref{sec:hjb-teoria}) con $\gamma=0{,}01$, elegido en la fase de desarrollo con la versión original de los modelos, y $Q=10$; y su aproximación GLFT. Para la HJB, la intensidad de cada modelo se usa con su curva de distancia interpolada entre los nueve nodos (Sección~\ref{sec:politica}); GLFT, cuya forma cerrada solo existe para intensidades exponenciales, usa en cada segundo un ajuste exponencial en $\delta\le5$~bps. La volatilidad es una media móvil exponencial causal, común a todos, con vida media de 60~s. Unidades: distancias y precios en bps del precio medio, tiempo en segundos, $A_i$ en eventos por segundo, $k_i$ en bps$^{-1}$, $\sigma$ en bps$/\sqrt{\text{s}}$, inventario $q$ en órdenes de 0,01~BTC y $\gamma$ en bps$^{-1}$ por orden.
+
+Se reportan el PnL por ejecución y por día antes de comisiones, los días positivos, el número de ejecuciones, el inventario medio y el \textit{markout} a 10~s. El PnL de un día es el efectivo final más el inventario valorado al último precio medio, en USDT. El PnL por ejecución en bps es $10^4\times$ la suma del PnL de los días dividida por la suma del valor negociado (precio de cada ejecución por 0,01~BTC); su intervalo de confianza se obtiene remuestreando días.

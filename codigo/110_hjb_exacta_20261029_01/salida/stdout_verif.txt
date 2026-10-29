@@ -1,0 +1,83 @@
+[13:52:06] formas: dev. máx. de forma fija = 1.78e-15; segundos con tramo corregido: 0.0000
+[13:52:07] rango de m: día 2026-08-03 leído
+[13:52:09] rango de m: día 2026-08-10 leído
+[13:52:11] rango de m: día 2026-08-17 leído
+[13:52:13] rango de m: día 2026-08-24 leído
+[13:52:15] rango de m: día 2026-08-31 leído
+[13:52:15] rango de m: día 2026-09-03 leído
+[13:52:15] rangos m: {'E3-fkX+B|ask': [np.float64(0.5104251371360874), np.float64(1.4662598380532856)], 'E3-fkX+B|bid': [np.float64(0.46497095653452813), np.float64(1.5321522219915469)], 'E3-fkX|ask': [np.float64(0.5113815382113706), np.float64(1.4640683150350204)], 'E3-fkX|bid': [np.float64(0.4616980346042647), np.float64(1.529742582430791)]}
+[13:52:15] (a) máx |Δ| = 1.35e-14
+[13:52:15] (b) err rel máx = 1.86e-08 (1.85902372308658e-08, 'E3-fkX', 'bid', 0.0)
+[13:52:16] (c) violaciones: {'E3-fkX+B': 0, 'E3-fkX': 0, 'E3': 0, 'E1+X49': 0, 'E2m+S': 0, 'E2m+h-f': 0, 'E2+S': 0, 'E1+S': 0, 'E2+h-f': 0, 'E1+h-f': 0, 'E1': 0}
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:101: RuntimeWarning: invalid value encountered in subtract
+  th -= th[Q]
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:70: RuntimeWarning: invalid value encountered in subtract
+  P = np.vstack([theta[:-1] - theta[1:], theta[1:] - theta[:-1]])          # (2, 2Q): compra, venta
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:70: RuntimeWarning: invalid value encountered in subtract
+  P = np.vstack([theta[:-1] - theta[1:], theta[1:] - theta[:-1]])          # (2, 2Q): compra, venta
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:101: RuntimeWarning: invalid value encountered in subtract
+  th -= th[Q]
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:101: RuntimeWarning: invalid value encountered in subtract
+  th -= th[Q]
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:70: RuntimeWarning: invalid value encountered in subtract
+  P = np.vstack([theta[:-1] - theta[1:], theta[1:] - theta[:-1]])          # (2, 2Q): compra, venta
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:70: RuntimeWarning: invalid value encountered in subtract
+  P = np.vstack([theta[:-1] - theta[1:], theta[1:] - theta[:-1]])          # (2, 2Q): compra, venta
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:101: RuntimeWarning: invalid value encountered in subtract
+  th -= th[Q]
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:70: RuntimeWarning: invalid value encountered in subtract
+  P = np.vstack([theta[:-1] - theta[1:], theta[1:] - theta[:-1]])          # (2, 2Q): compra, venta
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:101: RuntimeWarning: invalid value encountered in subtract
+  th -= th[Q]
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:70: RuntimeWarning: invalid value encountered in subtract
+  P = np.vstack([theta[:-1] - theta[1:], theta[1:] - theta[:-1]])          # (2, 2Q): compra, venta
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:101: RuntimeWarning: invalid value encountered in subtract
+  th -= th[Q]
+[13:52:31] tabla 4D E3-fkX+B (16 s)
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:101: RuntimeWarning: invalid value encountered in subtract
+  th -= th[Q]
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:70: RuntimeWarning: invalid value encountered in subtract
+  P = np.vstack([theta[:-1] - theta[1:], theta[1:] - theta[:-1]])          # (2, 2Q): compra, venta
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:70: RuntimeWarning: invalid value encountered in subtract
+  P = np.vstack([theta[:-1] - theta[1:], theta[1:] - theta[:-1]])          # (2, 2Q): compra, venta
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:101: RuntimeWarning: invalid value encountered in subtract
+  th -= th[Q]
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:70: RuntimeWarning: invalid value encountered in subtract
+  P = np.vstack([theta[:-1] - theta[1:], theta[1:] - theta[:-1]])          # (2, 2Q): compra, venta
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:101: RuntimeWarning: invalid value encountered in subtract
+  th -= th[Q]
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:101: RuntimeWarning: invalid value encountered in subtract
+  th -= th[Q]
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:70: RuntimeWarning: invalid value encountered in subtract
+  P = np.vstack([theta[:-1] - theta[1:], theta[1:] - theta[:-1]])          # (2, 2Q): compra, venta
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:101: RuntimeWarning: invalid value encountered in subtract
+  th -= th[Q]
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:70: RuntimeWarning: invalid value encountered in subtract
+  P = np.vstack([theta[:-1] - theta[1:], theta[1:] - theta[:-1]])          # (2, 2Q): compra, venta
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:101: RuntimeWarning: invalid value encountered in subtract
+  th -= th[Q]
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:70: RuntimeWarning: invalid value encountered in subtract
+  P = np.vstack([theta[:-1] - theta[1:], theta[1:] - theta[:-1]])          # (2, 2Q): compra, venta
+[13:52:49] tabla 4D E3-fkX (17 s)
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:70: RuntimeWarning: invalid value encountered in subtract
+  P = np.vstack([theta[:-1] - theta[1:], theta[1:] - theta[:-1]])          # (2, 2Q): compra, venta
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:101: RuntimeWarning: invalid value encountered in subtract
+  th -= th[Q]
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:70: RuntimeWarning: invalid value encountered in subtract
+  P = np.vstack([theta[:-1] - theta[1:], theta[1:] - theta[:-1]])          # (2, 2Q): compra, venta
+/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Arena/Datos L/Avances/pruebas/macbook_as_20261018_01/50_coordinacion_antigravity_20261021_01/04_trabajo_antigravity/senales_condicionales_20261025_01/110_hjb_exacta_20261029_01/codigo/hjb_general.py:101: RuntimeWarning: invalid value encountered in subtract
+  th -= th[Q]
+[13:52:49] tabla 2D E3 id 0e10c720 (1 s)
+[13:52:50] tabla 2D E1+X49 id 99bab8bc (1 s)
+[13:52:50] (d) E3-fkX+B: |q|<=5 p99 0.0273 max 0.7863; |q|<=10 p99 0.0238 max 0.7863; recorte 0.000
+[13:52:51] (d) E3-fkX: |q|<=5 p99 0.0128 max 0.3693; |q|<=10 p99 0.0144 max 0.5357; recorte 0.000
+[13:52:51] (d) E3: |q|<=5 p99 0.0007 max 0.0010; |q|<=10 p99 0.0012 max 0.0016; recorte 0.000
+[13:52:51] (d) E1+X49: |q|<=5 p99 0.0037 max 0.3996; |q|<=10 p99 0.0034 max 0.5894; recorte 0.000
+[13:52:51] (d) E2m+S: |q|<=5 p99 0.0037 max 0.1633; |q|<=10 p99 0.0035 max 0.3955; recorte 0.000
+[13:52:51] (d) E2m+h-f: |q|<=5 p99 0.0039 max 0.1635; |q|<=10 p99 0.0034 max 0.3847; recorte 0.000
+[13:52:51] (d) E2+S: |q|<=5 p99 0.0038 max 0.1631; |q|<=10 p99 0.0033 max 0.1642; recorte 0.000
+[13:52:51] (d) E1+S: |q|<=5 p99 0.0037 max 0.1650; |q|<=10 p99 0.0033 max 0.1650; recorte 0.000
+[13:52:52] (d) E2+h-f: |q|<=5 p99 0.0038 max 0.1643; |q|<=10 p99 0.0035 max 0.3960; recorte 0.000
+[13:52:52] (d) E1+h-f: |q|<=5 p99 0.0035 max 0.1639; |q|<=10 p99 0.0032 max 0.3958; recorte 0.000
+[13:52:52] (d) E1: |q|<=5 p99 0.0010 max 0.0012; |q|<=10 p99 0.0014 max 0.0017; recorte 0.000
+[13:52:52] VERIFICACIONES: a=True b=True c=True d=True (48 s)

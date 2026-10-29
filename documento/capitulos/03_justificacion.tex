@@ -1,0 +1,45 @@
+% ═══════════════════════════════════════════════════════════════════════════
+\chapter{Justificación}
+% ═══════════════════════════════════════════════════════════════════════════
+
+La justificación de este proyecto se articula en tres dimensiones: teórica, empírica
+y de viabilidad.
+
+\textbf{Justificación teórica.} Los modelos clásicos de market making basados en
+procesos de Poisson condicionales con parámetros fijos presentan limitaciones
+estructurales documentadas. En
+primer lugar, \citet{BacryHawkes2015} revisan evidencia de fuerte endogeneidad y de
+dinámicas cercanas a la criticidad en diversas aplicaciones financieras de procesos
+de Hawkes, fenómenos que una intensidad sin memoria no puede capturar. En segundo lugar,
+\citet{ContKukanovStoikov2014} documentan que el desequilibrio del flujo de órdenes
+explica, en promedio, alrededor del 65\,\% de la variación de los cambios de precio
+a corto plazo en su muestra de acciones, lo que confirma la relevancia del estado
+observable del mercado. En tercer lugar, \citet{MorariuPatrichiPakkanen2022}
+encuentran que la excitación y la endogeneidad del flujo de órdenes dependen
+fuertemente de variables de estado como el spread y el desequilibrio de colas.
+Estas evidencias establecen la necesidad
+teórica de modelos de intensidad dinámicos y sensibles al estado del mercado.
+
+\textbf{Justificación empírica.} Los mercados de criptoactivos, en particular BTC/USDT
+en Binance, ofrecen un entorno idóneo para el desarrollo empírico de esta propuesta.
+\citet{BarucciEtAl2022} documentan patrones intradía en retornos, número de
+transacciones, volumen, volatilidad, spread y flujo de órdenes de mercados de
+Bitcoin, Ether y Tether, y muestran el papel central de los mercados denominados
+en USDT en la formación de precios. Por su parte, \citet{FabreToke2025} aplican
+estimación Hawkes no paramétrica a la microestructura de criptomonedas. Estas
+evidencias motivan el uso de modelos de intensidad flexibles. La
+disponibilidad de infraestructura pública de mercado para BTC/USDT en Binance Spot,
+mediante la cual se implementó una captura propia de datos históricos de alta
+frecuencia, permite desarrollar una validación empírica reproducible y reduce las
+barreras de acceso que enfrentarían enfoques sobre mercados de renta variable
+tradicional.
+
+\textbf{Justificación de viabilidad.} La integración propuesta de control estocástico,
+modelos semiparamétricos y aprendizaje estadístico es computacionalmente factible
+con las herramientas disponibles. \citet{GrinsztajnEtAl2022} demuestran que los
+métodos de Gradient Boosting y Random Forest son altamente eficientes en datos
+tabulares de dimensión moderada, exactamente el régimen de las covariables del estado
+del mercado $X_t$. Esto permite ciclos de estimación, validación y actualización del
+modelo compatibles con los recursos computacionales disponibles para la estimación
+y evaluación fuera de muestra.
+

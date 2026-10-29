@@ -1,0 +1,40 @@
+\chapter{Desarrollo y evaluación de la especificación original}
+\label{app:ciegos}
+
+\section{Fase de desarrollo}
+La Tabla~\ref{tab:intensidades} compara la especificación original de E3 con AS y con el Hawkes de una escala en la calibración interna (13--16 de julio), con hiperparámetros elegidos en ese mismo bloque.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Fase de desarrollo. Log-verosimilitud en calibración interna (4 días, 345\,600 intervalos por lado) y AUC medio ($\delta=2$~bps). Mayor es mejor.}
+\label{tab:intensidades}
+\begin{tabular}{@{}lrrrr@{}}\toprule
+Modelo & $\ell$ ask & $\ell$ bid & AUC ask & AUC bid\\\midrule
+E1: $Ae^{-k\delta}$ & $-903\,215$ & $-803\,621$ & 0,500 & 0,500\\
+E1 $+h$(hora) & $-789\,821$ & $-758\,297$ & 0,695 & 0,676\\
+E2: Hawkes de una escala & $-886\,725$ & $-794\,714$ & 0,643 & 0,653\\
+\textbf{E3: GBM} & $\mathbf{-418\,255}$ & $\mathbf{-468\,377}$ & \textbf{0,840} & \textbf{0,843}\\
+E3: \textit{Random Forest} & $-423\,078$ & $-467\,767$ & 0,840 & 0,844\\\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Validación y tests ciegos}
+
+Antes de reforzar los modelos, la especificación original de E3 se evaluó en tres bloques que no se usaron para elegirla. La Tabla~\ref{tab:ciegos} resume los resultados.
+
+\begin{table}[htbp]
+\centering\small
+\caption{E3 original frente a E1 en bloques posteriores al desarrollo: días en que gana E3, mejora por intervalo [IC95 por días] y AUC.}
+\label{tab:ciegos}
+\begin{tabular}{@{}lcccc@{}}\toprule
+Bloque & Días & Mejora ask & Mejora bid & AUC ask / bid\\\midrule
+Validación (17--23 jul.) & 7/7 & 0,85 [0,72; 1,03] & 0,92 [0,69; 1,26] & 0,806 / 0,802\\
+Ciego 1 (26 ago.--15 sep.) & 21/21 & 1,30 [0,96; 1,69] & 1,29 [0,87; 1,79] & 0,810 / 0,798\\
+Ciego 2 (16 sep.--6 oct.) & 21/21 & 1,13 [0,79; 1,51] & 1,39 [0,95; 1,88] & 0,831 / 0,828\\\bottomrule
+\end{tabular}
+\end{table}
+
+E3 superó a E1 y a E1 con efecto horario en todos los días de los tres bloques y en ambos lados. Los veredictos preregistrados fueron: validación cumplida; ciego~1 no cumplido; ciego~2 cumplido. En el ciego~1 fallaron dos criterios. El AUC del lado bid quedó en 0,798, por debajo del umbral de 0,80. El cociente entre la mejora del bloque y la de referencia quedó en 0,23--0,25, porque la referencia elegida (18--21 de agosto) correspondía a días extremos; fue un error de diseño del protocolo, que se reporta sin cambios.
+
+Un GLM lineal con las mismas 44 covariables recuperaba el 88--93\,\% de la mejora de E3, pero con un AUC de 0,78--0,79, por debajo del umbral; E3 le ganó en AUC todos los días.
+

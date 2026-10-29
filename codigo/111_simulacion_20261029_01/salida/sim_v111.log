@@ -1,0 +1,39 @@
+[14:30:32] control 4 sep: predicción dif. relativa máx 0.00e+00; economía dif. máx (ejecuciones/PnL) 0.00e+00
+[14:30:45] 2026-09-21 (13 s): AUC E3 ask 0.846 | HJB E3 -1.15 bps, 6634 ejec.
+[14:30:57] 2026-09-22 (12 s): AUC E3 ask 0.791 | HJB E3 -1.24 bps, 3383 ejec.
+[14:31:09] 2026-09-23 (12 s): AUC E3 ask 0.845 | HJB E3 -1.15 bps, 3325 ejec.
+[14:31:21] 2026-09-24 (12 s): AUC E3 ask 0.830 | HJB E3 -1.39 bps, 3216 ejec.
+[14:31:33] 2026-09-25 (13 s): AUC E3 ask 0.840 | HJB E3 -1.26 bps, 2685 ejec.
+[14:31:45] 2026-09-26 (12 s): AUC E3 ask 0.705 | HJB E3 -0.28 bps, 466 ejec.
+[14:31:57] 2026-09-27 (12 s): AUC E3 ask 0.802 | HJB E3 -0.64 bps, 872 ejec.
+[14:32:10] 2026-09-28 (13 s): AUC E3 ask 0.857 | HJB E3 -1.11 bps, 3518 ejec.
+[14:32:22] 2026-09-29 (12 s): AUC E3 ask 0.821 | HJB E3 -1.01 bps, 2158 ejec.
+[14:32:35] 2026-09-30 (13 s): AUC E3 ask 0.885 | HJB E3 -1.20 bps, 3245 ejec.
+[14:32:47] 2026-10-01 (12 s): AUC E3 ask 0.840 | HJB E3 -1.38 bps, 2571 ejec.
+[14:33:00] 2026-10-02 (13 s): AUC E3 ask 0.866 | HJB E3 -1.44 bps, 3634 ejec.
+[14:33:11] 2026-10-03 (12 s): AUC E3 ask 0.836 | HJB E3 -0.60 bps, 335 ejec.
+[14:33:23] 2026-10-04 (12 s): AUC E3 ask 0.860 | HJB E3 -0.57 bps, 770 ejec.
+[14:33:36] 2026-10-05 (13 s): AUC E3 ask 0.847 | HJB E3 -1.04 bps, 2427 ejec.
+[14:33:49] 2026-10-06 (13 s): AUC E3 ask 0.863 | HJB E3 -1.21 bps, 1564 ejec.
+[14:34:04] 2026-10-07 (15 s): AUC E3 ask 0.879 | HJB E3 -1.69 bps, 2355 ejec.
+[14:34:18] 2026-10-08 (14 s): AUC E3 ask 0.893 | HJB E3 -1.37 bps, 4163 ejec.
+[14:34:30] 2026-10-09 (13 s): AUC E3 ask 0.844 | HJB E3 -1.09 bps, 1770 ejec.
+[14:34:43] 2026-10-10 (12 s): AUC E3 ask 0.719 | HJB E3 -0.03 bps, 397 ejec.
+[14:34:55] 2026-10-11 (12 s): AUC E3 ask 0.871 | HJB E3 -0.89 bps, 588 ejec.
+[14:35:07] 2026-10-12 (13 s): AUC E3 ask 0.855 | HJB E3 -1.76 bps, 2174 ejec.
+[14:35:20] 2026-10-13 (13 s): AUC E3 ask 0.854 | HJB E3 -1.21 bps, 2885 ejec.
+[14:35:33] 2026-10-14 (13 s): AUC E3 ask 0.877 | HJB E3 -0.84 bps, 2844 ejec.
+[14:35:46] 2026-10-15 (13 s): AUC E3 ask 0.878 | HJB E3 -1.36 bps, 5043 ejec.
+[14:35:58] 2026-10-16 (12 s): AUC E3 ask 0.850 | HJB E3 -1.86 bps, 2441 ejec.
+[14:36:10] 2026-10-17 (12 s): AUC E3 ask 0.861 | HJB E3 -1.15 bps, 640 ejec.
+[14:36:22] 2026-10-18 (12 s): AUC E3 ask 0.835 | HJB E3 -0.99 bps, 1514 ejec.
+[14:36:35] 2026-10-19 (12 s): AUC E3 ask 0.843 | HJB E3 -1.67 bps, 1798 ejec.
+[14:36:48] 2026-10-20 (13 s): AUC E3 ask 0.892 | HJB E3 -1.17 bps, 2738 ejec.
+[14:37:01] 2026-10-21 (13 s): AUC E3 ask 0.862 | HJB E3 -1.24 bps, 2428 ejec.
+[14:37:14] 2026-10-22 (13 s): AUC E3 ask 0.852 | HJB E3 -1.42 bps, 2536 ejec.
+[14:37:27] 2026-10-23 (13 s): AUC E3 ask 0.880 | HJB E3 -1.37 bps, 2106 ejec.
+[14:37:39] 2026-10-24 (12 s): AUC E3 ask 0.892 | HJB E3 -1.21 bps, 2076 ejec.
+[14:37:51] 2026-10-25 (12 s): AUC E3 ask 0.875 | HJB E3 -1.52 bps, 1008 ejec.
+[14:38:04] 2026-10-26 (13 s): AUC E3 ask 0.868 | HJB E3 -1.37 bps, 3200 ejec.
+[14:38:04] criterios: {'C1_jerarquia': True, 'C2_dias_vs_E2m+S_>=30de36': True, 'C3_auc>=0,80': True, 'C4_rebote<=0,15': False}
+[14:38:04] FIN (498 s)

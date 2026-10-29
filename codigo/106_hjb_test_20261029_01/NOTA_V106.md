@@ -1,0 +1,13 @@
+# NOTA v106 — política HJB y GLFT en el test 4–20 sep (29 oct; informativo)
+- La HJB numérica de v49 (γ = 0,01, Q = 10) se aplica a los 11 modelos v103 con intensidad exponencial local por segundo. Tabla: tablas_tesis/T7_hjb_test.md.
+- **Todas pierden lo mismo por ejecución:** −1,23 a −1,34 bps, con 0/17 días positivos en las 22 combinaciones (11 modelos × HJB/GLFT). Las diferencias pareadas frente a E3 tesis incluyen 0, salvo E3-fkX con HJB (−0,03 bps, mínima).
+- **E3 sí cambia la política:**
+  - con la HJB, E3 tesis cotiza más cerca en q = 0 (mediana de δ_a 1,27 frente a 1,55 de AS) y se retira en los momentos de flujo desbalanceado;
+  - opera menos: 1 729 ejecuciones/día frente a 2 218 de AS;
+  - pierde menos por día: −176 frente a −219 USDT.
+  - Es menos volumen perdedor, no mejor ejecución. Coincide con v49 en calibración.
+- **GLFT:** la distancia base no depende de A, así que los modelos con f(δ) quedan casi iguales a AS. E3-fkX(+B) con GLFT opera más (3 012 ejecuciones/día) por su k(X) menor.
+- **Lectura para OE4–OE5:**
+  - la política data-driven existe y se diferencia de AS (P3);
+  - el PnL neto es negativo con cualquier intensidad (P2);
+  - la mejora predictiva no reduce la selección adversa por ejecución.

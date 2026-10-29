@@ -1,0 +1,876 @@
+{
+ "fuente": "00_DATOS_BTCUSDT_100MS_20260629_20261026 (carpeta can\u00f3nica unificada; su README: \u00fanica fuente para c\u00f3digo nuevo)",
+ "dias": {
+  "2026-06-29": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "d2767a93d82bc1d72cf10fd3389cfe425fb4aef235215d3904b85ff255fe97aa"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "a794d74115c41235182e89ff6df20c291423722e7ec905d9fb9c62785818ba22"
+    }
+   },
+   "npz_sha256": "5b174f835345967f1927f121517bd56c704cbd3a4d5acea46a02c0a78ab6b6a8"
+  },
+  "2026-06-30": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "85e288de96a783c89082bd2ca2d76c466f60def909c1c6d266ae68bb81e577be"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "4e1fc27b4bf3eddef821eb1301c990e64179a01a7b7cf2dd355da06a63eabdde"
+    }
+   },
+   "npz_sha256": "835905a8e763808be4d8cb751d32f058393f4b010b7b7f7d7e365ebd9c469e9a"
+  },
+  "2026-07-01": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "07420e8a75a3b0524c122df588be75f61b4ca19236ce970f25bd8f7f3d9aa215"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "bac6e8771e7fd567925ac502063e7d16b374ee24428ac34748c36055cde70605"
+    }
+   },
+   "npz_sha256": "7cb030d03a7164a0d7a60d3489d15fe92cede7e8375ae03a234d3af2644da729"
+  },
+  "2026-07-02": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "73bdacf99dba9e7a58a1e768d56035f603b7b51388472857e7bec05c28a28a20"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "7311388db9dc18c352942194972858b26fcefef6280346cf7f323f23850e8ea0"
+    }
+   },
+   "npz_sha256": "f912d4bec5333ca9ecfc0a38468082c90fdbc4178330cbd8972c23bc24807165"
+  },
+  "2026-07-03": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "d5e4220c97809910def0357eee0a3e297f6c1a83cd703566815484949a920f31"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "5d6af79424e96231e944a44fc106989ba1b80458b85691e459c32224915f0a72"
+    }
+   },
+   "npz_sha256": "241d1791a13bd49871d367fc310c2882c7332f3eed89548c44c4da89fb3af73a"
+  },
+  "2026-07-04": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "d123a487ab7e5b159da4f1ecf4e3bc6da4c713c2b42fd1bdb22f3c2bb2313627"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "45996677db9809738c0ab28bf389c1b42879aae7b1afce2b9859815081259fb0"
+    }
+   },
+   "npz_sha256": "2687ba7249742cdcca82cf4c0e2e7a8427b612825394fb05e7fc61cb2bd9d9ca"
+  },
+  "2026-07-05": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "de00ac17631a349441816d4a0ab337ac2d21ace84b39b493ce63efbbdf80e2c5"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "3b103f3f62c3f388e4be43e9f7b726e7b93063cf1947a0ef7c5d3de917e2de8a"
+    }
+   },
+   "npz_sha256": "e2122cc0adb55ce35b32ec9aae1d0280cce90c9a15ee884964aa7be7e2b1db6c"
+  },
+  "2026-07-06": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "4c66d07b62a8a511ed79b77ca25925f66ba1fcabf9744792ae45338c0c781436"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "073bbc5c60e3de72a6fe263abcb931bdafbc58ef0078d6892db730ec87b2e943"
+    }
+   },
+   "npz_sha256": "e8889b0d1de0b9b4892520cfd7ff61043a4938d269cfbfa70fa42d084852db82"
+  },
+  "2026-07-07": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "db6f2c7a142065afe7241c546a8ff5ca09c8ed867ab67702c38b16e7359ffac1"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "132132c67ebc538e2138c4887003d9d84a470e9cc74b0effaa8a34772de47753"
+    }
+   },
+   "npz_sha256": "408a67abbb96ac23fd51adcaae5c986ad54ca24d71f78228a10280da5a0bc11a"
+  },
+  "2026-07-08": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "beeaf2aa7397d0b81b1fa3b7363c523cb20588717aaad4d28c69ef88e2277122"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "c34129afeb5b7a01a484e6d6cb509da96c0cc08c7b99c7e6a67d8ad302920414"
+    }
+   },
+   "npz_sha256": "2ab4f8620308e256f023bd3b31e70c01c8238a2b2780eb6895b28c4c9a2631f3"
+  },
+  "2026-07-09": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "b656f08cb2fd0760284eac3a5be71071cc82f6484dfd7d2dc0b064700e837be5"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "12752fcfd0a7cbcca32647d32ee0ff1e3c6f34ee7c12c781bea96b45ea9b23c6"
+    }
+   },
+   "npz_sha256": "8dc32d9bd99864b98f62629a14e6b2f6afed1d89af5baf6cd9055db7fa11a75e"
+  },
+  "2026-07-10": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "27116ceb1e1b824ec7cb37b3cfd615a37e8fccfbc0874f60a39302ff9899d84d"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "1899220b7ed76378dffd8ef2440ea07a652f5f64d54932270c28bd5fc8583785"
+    }
+   },
+   "npz_sha256": "f0f50fb1ab0b43ad480473bf0305693c8011f662475943355ffed26188beeca8"
+  },
+  "2026-07-11": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "54e885aeace68f451d1c204210ad6bd41870d8ff86727c9a6547d5ece095de97"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "52163ea61e1aa2a39426f4729faba2f6676fc78f6aa3dd70baf81454b0aa2391"
+    }
+   },
+   "npz_sha256": "bc06bbcdddb77e2aeeb729313d1cec1f883cfd69d5c825d82ba2c0b2052602b7"
+  },
+  "2026-07-12": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "49ab3fbb6d87d3a855b013d02235f8603ae9dcbcc36801a1aab8b382ec5854a1"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "7a7a9739c248dbdf459dbd726cf3cb974cf7413f3096f6e4e52cadf260cbd67a"
+    }
+   },
+   "npz_sha256": "735accf1767654b54a3b9d873ab4f283eaecd923bc8feb93036733d291e0e110"
+  },
+  "2026-07-13": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "3f6e637cd26c10aaa082889c8cf63be64e16c412735dfac86290ac4fc1e88087"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "a2daf10a68987bcda75411f632615c9f4c12a386a33dad839367fa01eb054354"
+    }
+   },
+   "npz_sha256": "32291a8b82ad63a4002f8f531681a7583f052e1f458d339f76aecace2c93939c"
+  },
+  "2026-07-14": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "089ff272f1a89673a21da3e6a5432a4eec221de6ad440dc4a1aa3fe625608846"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "88c3c9f8f1bce1c40494563095aa4b891cab0445e19d00ddd5bbaa19353d8e0a"
+    }
+   },
+   "npz_sha256": "ce66d16053a9e4910d67ba0c1a4981159572f25151c7d53f00670b02399db021"
+  },
+  "2026-07-15": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "68ed929c8091cc292b3cc33aff4ed26ca23b7ec9810ce0aae1c6e2cc178a16dc"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "a4b55c1f9a9852b338c5190276659645c85769a4038f4f15dd008a135265c0f2"
+    }
+   },
+   "npz_sha256": "cac61ca60dacef664d221c221f4336e7053e8e42ab2bd05b60dbca545d2d4c03"
+  },
+  "2026-07-16": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "78dc5b75f2f85e78a9845686ac294589d81ede18f2c007437e93e492f65ebbec"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "843186b9ecbdfe1042329d179b28e893f1d9712000899ab70fbe6c66391536a2"
+    }
+   },
+   "npz_sha256": "6e2a77716ec71d6cfb9b74badbe76805e1b4174f91bc4812b330b0e579702d40"
+  },
+  "2026-07-17": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "be7415eabbd6bfb13a9f703c0a193e3eff21ed217091c73845a5255f86c69447"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "42e64d785eb92ba4db165b5656c3d9063f5e36c68e30f5b38f622b9e99d61a29"
+    }
+   },
+   "npz_sha256": "187e6340baa65ced51ae58c5d39a07a1eabd4c54e0dacb2fe9e0abb1b6e8e39b"
+  },
+  "2026-07-18": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "d30aa6861523fdbe315616c30ded0d3c541c299d3d5de9df20511c2472cc44db"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "6f228d4ed99726355a89a43b8916d19e5447cfd7c372fa76c87dc72c3d9ee303"
+    }
+   },
+   "npz_sha256": "1ef5ef3e2b8654efdce1ca7cab516ace5901cda3eaa2c801fbd2bcba8604b744"
+  },
+  "2026-07-19": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "9d3e62ef0a12858e7a593508988e6ae74a6df77141df1342b10ba8d67ac71b11"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "db8c6e091bc4fbae277212f20b813c1e4610b110aba7f8e9f2973e1529b71ee6"
+    }
+   },
+   "npz_sha256": "4b768fd498bf5690b43746282c88ee6615a5c0aa2ad33eaa15bfab4d02a33000"
+  },
+  "2026-07-20": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "2d40498d1d3e6fdddb3471925e1e860306f452e1e3df37b4944153a27dec70fb"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "41305bb6cf726cd2f335bb80e1353410ce6016c5db3f7f774a88e78a7dbdb266"
+    }
+   },
+   "npz_sha256": "0bbc09075c9b820466d82042837475415fac490c4a569ccf3318307dec927bbe"
+  },
+  "2026-07-21": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "6b6dafcee0e44ea426248f997c890dbb7c3dc2d3059cb9fe28140ace527ccf6e"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "5f31e892f3ec687e9221a1f19224ff1c5d92d7fdfaedec8c93c0daca7a7aeffb"
+    }
+   },
+   "npz_sha256": "758478da0973e9e3fd626771033b10e15e75ddc3f0737d40898fd65dfaf1c481"
+  },
+  "2026-07-22": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "549a5015d49cabc2319b261730ec08d60dc4f9d13cf5205b8b60086905b4a558"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "abdc09216c367f3ad5f8d42deea7ca69790d7749926fb8334a704374fd15ab7b"
+    }
+   },
+   "npz_sha256": "163ca0d4de5a9d9007a64995a61061ee4c221d4bbe910fa65fe34e8b21fb85c3"
+  },
+  "2026-07-23": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "d5548b9fe2232db96162ad52e33db3c82a76bb32840c3624623c7d336bdc919b"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "1ade293cdf3b1979c1e5ec72b841813afcc79cb42cb3ff14dc2573970b99ce84"
+    }
+   },
+   "npz_sha256": "6cc26d4848e1df4c8178c5e68090a9503340f8e4c1ec597491cf51f78c490bfa"
+  },
+  "2026-07-24": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "d4475620f6112cb49664693419fe46369b8685a93205c7003884f67419ea8a75"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "33c5214c2f16bc17fe6de15d9823aeb0aa5d3ab006a57540f8077ac22ea10335"
+    }
+   },
+   "npz_sha256": "8fb30a7e5380231ec4acbbc5c787443ca065a05f1b348dc16c1dc5627f785f6f"
+  },
+  "2026-07-25": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "c7a007591f46ec59bdbe3fa243be9c326c02f0d5c6ea7cb4dc81bffabd328b61"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "e27ea8c91b3d4a06440cbc070b2e4a92420133b43a5e881ae63a56b2d43e8804"
+    }
+   },
+   "npz_sha256": "969f0a779548170d222235141fc801beffca0c4c5a04da399a4bce32f5067e98"
+  },
+  "2026-07-26": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "a9d917b2f0334c6156dde5c5b40c17fc4a014c262d3fb92db52b75b18b56a3c0"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "46a1c4316494a465c7842b90312a0a389c0c9643f6ec39568187b06ab3d1742e"
+    }
+   },
+   "npz_sha256": "c550e94a8584753e6e2fb27c5fd2d0257d42af1e3c3df9d31d1a849312234ca9"
+  },
+  "2026-07-27": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "f2fb96364a40a54bb3de344170ac39a133e53203c534e797cbe16c8ac3a3cce9"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "7ae351a685fc66b0d9b99169f605df968a3fd9a5410f2e84ea3dd3de6353b363"
+    }
+   },
+   "npz_sha256": "77bf90262300a184d77f6637bae2f5c31b7b6cf00577b3f63f73745846229e08"
+  },
+  "2026-07-28": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "100624c16f2b46bb12bb10a637356d7d93669497f14b9d957cfe6186860cf1b1"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "f14d7fb3861a7f781dcdd5edbe054c7ffd608618ae2876040a8043fa59db3a00"
+    }
+   },
+   "npz_sha256": "6165a14977ed6273cd075ff4ac661813e9e6604e30220502c8bff01c38141a80"
+  },
+  "2026-07-29": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "56a0ca604ac94ffc33aa7f7e74fae32151ecbb1b22eb0fd02d1e8a8f3704a8e7"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "97bdf97827bc92b48598e14222848e75ee44fd24f4bc206461338db5ce6b7b7c"
+    }
+   },
+   "npz_sha256": "3a3a70417f0f29b8ade364a689b9386a1982c5e3fbb1562a80cffee422053aba"
+  },
+  "2026-07-30": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "3ea2c12bc738c3264aec827fb31242871c1270adc2a5f8bf322c5c561d19c48a"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "34105fc9376b0d0a4333fc51d7f25111845c9ee1382e120b1dd118bca5add518"
+    }
+   },
+   "npz_sha256": "e8ba62fa379be45a3c55c30a82a0b5b3f5a13f77a29d015368ca58155eba93d2"
+  },
+  "2026-07-31": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "4352a36186b1634c1c4588d16858b2328ca409877f7b5cf474472ba872b74140"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "4482fdffad407e7fd03c089531a5784aadb3be59082e3cdfffe5432358f92b13"
+    }
+   },
+   "npz_sha256": "2056b8faaf2c52598a6df30626d2d58656ee31d91311e3bac7e450b8eef6dc7d"
+  },
+  "2026-08-01": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "4d11cf2748d200dcb1f630fc9e70845b598c1b01f56fa4b6e101ebbc3f640ae3"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "29de8fc27d4519b54a5d89d5f4f6369e5ba98120dfa09b14eb8e2463344d7790"
+    }
+   },
+   "npz_sha256": "eec0e0155d6c0b9093264debb9831ee454b93d2bf081b2e44befd7279e32fc7f"
+  },
+  "2026-08-02": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "096e32077123fbd5b1000c7b3dea23ad770b9471564e9ebba5c6adc81eba3d6f"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "e09edc02b8824edaa4debecfe17aaf2dcc8c775b566e6d9b8bc6a762b6307884"
+    }
+   },
+   "npz_sha256": "30a794955180972156dcc8b1c6254045b34a70daeb1fb7c67856181463e8d0cc"
+  },
+  "2026-08-03": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "381ce2d12e84a374c90a2aaeafcde3ccb874e739fa299a2353a58d4022457033"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "de153280c968c0353ff3ec65726d2f8a7eadbd9c068ff944c71201edd1843778"
+    }
+   },
+   "npz_sha256": "b6f6ddee8e7ccd3d4a53bd0eb89990aa98a181684722eefce2cbbed350300cb1"
+  },
+  "2026-08-04": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "ac2495cc969db574deddddb10468ff2dd70cf5ecc276b16b6999d8e4d7ca2f70"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "6b39f2c411677d305bef7701269666120f7db676ec2f54fc48468616704349f5"
+    }
+   },
+   "npz_sha256": "4622569a92f061a41517cf36e0b4d81b1fec4d55fd21f2b569e58e011dfa5e18"
+  },
+  "2026-08-05": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "926bdf602f21e86f533747936e8d4fc162a3294550ee1c28ec11183e7cd3bd59"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "eb0c41930f003688687aa26e5362458c09d7cefd2719f7006b88b5d37ccef8e0"
+    }
+   },
+   "npz_sha256": "3c88c9d34d03af950c42adb3f592e2a5cdb00660ed400eb6bc377fc0cd0dab29"
+  },
+  "2026-08-06": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "c36ae3bb9c1b48103020ffa191b8ab32720fabd0907e8b11a6c5b2a849919d8b"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "c97d3e5ac676489d70491113ddb950df3a0f76d96a92a34f4c5732dbbfca83f1"
+    }
+   },
+   "npz_sha256": "c326debc64c337c523df37783c1ed6db339ac011fb387e4c4f8d88249f323a8a"
+  },
+  "2026-08-07": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "132444f617c2cbf247bdf58134fb8a3338fa269e99b09741c040d508bcb8ca3d"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "858ed5d7bf9aa7020f56592d2c1a4f75ded3a26d314b09a568cddb9204458004"
+    }
+   },
+   "npz_sha256": "65cf50c857fb5f7a097a2428a8f8aa8817afa03df02bc4197745a23cebf78c74"
+  },
+  "2026-08-08": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "6dd414c11b0230c17b3fd72124ef28300c4686a76bfa24231c9b5e93a079578a"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "4217419ffee076e046a5bdf9caba92ad676dcd7d575e0d028eb475b4d33789e9"
+    }
+   },
+   "npz_sha256": "3e0cacb028485995bfbb7c82d1a68e7bc37ce9ea77c0c3e4689869d10219ef52"
+  },
+  "2026-08-09": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "0a1ed600bb55e1908b49d05f85de2b32ed8b0e6cbe588814a8eb45b30c7be9d0"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "bb173292beb1d64f3618c3f8b728c9f233e540ea14d330a2ad7d36e19a6b9e18"
+    }
+   },
+   "npz_sha256": "c85d3ae3e3ea3feb2bbffee55a938ae09d7e50ae4d06726b0b48a605b3c1fd9c"
+  },
+  "2026-08-10": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "d731dabf839aed1da4b8e7c321d7f1510802ffcab8c75850bd0159fbe060b7b5"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "764180417be15aae721a2698963178e39d859b4f519b7bd5936445e7a7cf530e"
+    }
+   },
+   "npz_sha256": "41fffccdec012544d03a17fd1c456ffc7de54a6f92c8e5ec9d11eefed337e0fd"
+  },
+  "2026-08-11": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "3132f5e1ba2f7faf63145ae71dc1de587bfac817f1dc2077335804ae147dbde5"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "c1fa604e43cf86e075aadbe9136d9db5773d7490409bbf15aee7931ab5946821"
+    }
+   },
+   "npz_sha256": "cb34a9d2b60faf09a6afe874c876176f6f8d9581668b734b740c9be196f15b5e"
+  },
+  "2026-08-12": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "802a6fb6e15d3c6b2e005025296f20221d8dc7a0b3568cad1d799d60e5a06965"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "1d5b26299888fc7ce46b9d60b1a2bd13a34f332d03ca4a659adb9016898f7dd1"
+    }
+   },
+   "npz_sha256": "39dd29f614f1ea45b530f02c18379df0994f72d7652ef0da544e41de1bfa5fed"
+  },
+  "2026-08-13": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "b8890b7213c129b03a7374613c8c880709d7f1df4d3600936225b771b2c5a428"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "3edcd1ac1c0881d260400bb188dcdb83cc88309b15ac86395d8073392072e3aa"
+    }
+   },
+   "npz_sha256": "9b75c83fcfa7a0231d8b7b97085bf3190f677f70761354ccaa0e8b2f885860ee"
+  },
+  "2026-08-14": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "8be6f459fb43ae3c771e9c41485af9e41caccca46298523603ca639df05d3be9"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "7bb8474543dd56b5dee37d11710aefb478ecfbb882a74ba2c0cc5a501083d68c"
+    }
+   },
+   "npz_sha256": "de4c4ec947503155db8ab5652d081d13f556f4014702476813a7f6dccae02076"
+  },
+  "2026-08-15": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "2f995824b0abf5dcf87ac82c695bedb2a71c73bad99bda72a068ea84654dcfa8"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "69636e4e15b90c0831e5e9cbc371ed092327fbc2c7b48a2cc95dc243435a994c"
+    }
+   },
+   "npz_sha256": "fad40acf7eeb101dfe63ffa75c66c490a62a3178e5cbb3aca92048e7aae4c80b"
+  },
+  "2026-08-16": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "a08daf34cd16d3c43daaa34d59c42a1a315e8ac614a13eec5544f7c3d1e94611"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "8845ec594af0312e7760bd88806b139203f360a90b9290e83d2ecb20149df4b7"
+    }
+   },
+   "npz_sha256": "cdfe809150f5aa3d0b60491f02bb9542be659aa05e3725a7ee4ce7283a111da9"
+  },
+  "2026-08-17": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "ffa299982855696af5eb2e12612cdfcc9069b8d0491c4d8ee6b39bb42f1a3ec1"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "76d160837f57b58e9492569a2207ecbc482a488c041bd8b02ee4137c81148c3b"
+    }
+   },
+   "npz_sha256": "4eb9bfc21fef7be1673c14e7020419f1583bb5219de594f0e729a3bb3d4d6ae4"
+  },
+  "2026-08-18": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "1304d2b9c8f8c744f76482a15e89bcd8b8965978481b6f69dfc345509ebd97e9"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "6d6bd3058b3fa604163a4219cb2a8fc3f1c476778b3e69dea26b28d9132e6b37"
+    }
+   },
+   "npz_sha256": "3a92eb4f0c491677a217752f7a826cd9b8c28b5b5ade5e3f04d049bb3102e811"
+  },
+  "2026-08-19": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "c27559c68fcf70b2a8e7a0c4457a6b119021c1aa241313676d95d095b27f093d"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "621a71c3245ed6e44e40a95bbb52feee0641e3a282d5009fd5d4ce21308618d3"
+    }
+   },
+   "npz_sha256": "aaf81d31938b96e52272e206c5e9530767f53c3d3024bbea3ca892682b27bb73"
+  },
+  "2026-08-20": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "6fbccaba03cbe4516c9ce947e13a6d1b29b7aaf755e7a3c6cf7dcb1de9a86e7f"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "92e812a20e841d63b991a8f619468aae47aceb2393ce4148eab4a1abc3a6739b"
+    }
+   },
+   "npz_sha256": "bbcc2f673d866b681b82ceef1d0bae161add8e48487971473b8cb87f0178c32a"
+  },
+  "2026-08-21": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "f52559a2fc5faed447a8697a7313848478262399f154c4747f96fbc93243a6b7"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "1716be411e4f7def2cd1f2ded6d194ab586076b924c8f4bda73dd7d38688fd54"
+    }
+   },
+   "npz_sha256": "4b49da3a0c30c7e1532dc369e84674a1db5336a675237dcfd74747badcf264c0"
+  },
+  "2026-08-22": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "933c13a8273677b6323b61268a05779d3bb6f856393101961134f0d717c46317"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "1f0ddc1272656f35f7296dec5f2cc8adb9eb8660e4b4ccf09305ae11891a382f"
+    }
+   },
+   "npz_sha256": "bc15164c7a170bc4221843d402d48d72348b7140ecf854ac231e8d058bf946c5"
+  },
+  "2026-08-23": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "v1_unified",
+     "sha256": "3d35ac6c8df0cf068ef1f910522675babc9c4a3b9a268007b14d50f64ba56116"
+    },
+    "trades_event": {
+     "capa_origen": "v1_unified",
+     "sha256": "1dce91d280583208f7edea0cf79c126123ac29a242b04e0dadb405bb1d92550e"
+    }
+   },
+   "npz_sha256": "3c5d2ace31c3aefbb4336258cfaa5421eef40ef788cf9d851d2937d25108c475"
+  },
+  "2026-08-24": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "ext_v2 (paquete Drive)",
+     "sha256": "d3cd270889671a940f9a4230b38b2bc0ff835c714b30922983f892e6a0999191"
+    },
+    "trades_event": {
+     "capa_origen": "ext_v2 (paquete Drive)",
+     "sha256": "4a79a4df7b74a3efeead94666d823bfbbf25a2ff8488b38bc6facd5c457ac5bf"
+    }
+   },
+   "npz_sha256": "08bcf53081594e8b39975df568ec32f5912160246a29c745a5315536954cdd6b"
+  },
+  "2026-08-25": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "ext_v2 (paquete Drive)",
+     "sha256": "a0a3a490812581784f2693daea05f1e2b37715cd8cd4b852c2972576b88aab4e"
+    },
+    "trades_event": {
+     "capa_origen": "ext_v2 (paquete Drive)",
+     "sha256": "1c9bec26777e89a4ca6a805f2bc65c4cc73244fbbfe4969777506520f252e0e3"
+    }
+   },
+   "npz_sha256": "7c44940233f951c9106cb313943bd41a8c09b3eb84802d65cd4fb9df6ac4357f"
+  },
+  "2026-08-26": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "ext_v2",
+     "sha256": "e8b2a5b01ac46272d16178998082451fd7262d6ff0e10b2c3cd9ad7b2c6d7b7d"
+    },
+    "trades_event": {
+     "capa_origen": "ext_v2",
+     "sha256": "ec6ed059f7e529e162aecde82979358ec1d0375199902e954f84403dbd8572b6"
+    }
+   },
+   "npz_sha256": "61f8ae30f8f80393f1b04996e17e32a3cdcbc3bd059a94b362f1e208559c015e"
+  },
+  "2026-08-27": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "ext_v2",
+     "sha256": "5e082bbc368d8c971f56d1df17d5a1da89a79b8e65523b4dd8b7f615eb7a1cf3"
+    },
+    "trades_event": {
+     "capa_origen": "ext_v2",
+     "sha256": "dc11c723aa10b9d359024af847b3533f3878a34a0f51872d279d5333aad80716"
+    }
+   },
+   "npz_sha256": "1d83dd99db186b97b2dce01b69d7648451ffeca24c39ee538bc463fcada67dd8"
+  },
+  "2026-08-28": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "ext_v2",
+     "sha256": "3963912a25d771259b3a42caac682cc9872512e67a5bf17f3506a94df70cac75"
+    },
+    "trades_event": {
+     "capa_origen": "ext_v2",
+     "sha256": "585cbf2d4620151464202caeda7a422762b78bd73d836dc5ee5b9f8b58c4c73d"
+    }
+   },
+   "npz_sha256": "c484a53441270432ccb9724b6f279118f914617a1a0c43632dd4d76542c7aab7"
+  },
+  "2026-08-29": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "ext_v2",
+     "sha256": "f3df6ca107bdc0cf43ca1c0414126a4222fc76fee90e1c7a9cd2bbe09a5d016d"
+    },
+    "trades_event": {
+     "capa_origen": "ext_v2",
+     "sha256": "cf27be94741ede198c9acb2f77a03758b6d9b7a558388c06ccff2641bd60b5d1"
+    }
+   },
+   "npz_sha256": "0805f85d85122309b7fce1ee94e526ea48f30df97a05e22cedb96acc584ff858"
+  },
+  "2026-08-30": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "ext_v2",
+     "sha256": "282c965248c7d49c4bd303045fc51b4f2cb4ee9b394bf85c2717672c7b23f8e3"
+    },
+    "trades_event": {
+     "capa_origen": "ext_v2",
+     "sha256": "c9e0a6d01225c83b0b4fd16b4d93176b48cd6b8375cad1e19b384e8567d3f399"
+    }
+   },
+   "npz_sha256": "e67cddd71e2a4815790f5f404dc15f3e613a0272d3d17f60367152e031c718d2"
+  },
+  "2026-08-31": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "ext_v2",
+     "sha256": "dc222dfd99875da325232be1bf3371d711423da445e5a0e20fc5b7cf739f517c"
+    },
+    "trades_event": {
+     "capa_origen": "ext_v2",
+     "sha256": "5c6eb5a861e7e5f2dbca38c8ba314d5d3f82f4c7c9ab2a5924f43e31ed6be4c7"
+    }
+   },
+   "npz_sha256": "35ccd56c56aa3f4644ad4a575abb66d345092ba7911f0b877f1a5cb43bf25fe5"
+  },
+  "2026-09-01": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "ext_v2",
+     "sha256": "2c592e016aac8d0592bb747699b3b414f14fd8b75a5f4bd840e250731712eab3"
+    },
+    "trades_event": {
+     "capa_origen": "ext_v2",
+     "sha256": "23c22b3e0ad9cbb53982dc8c5115b30124719bde28d743c003c17d2863a06c99"
+    }
+   },
+   "npz_sha256": "e12f528fb144dc0e29585ad90ecf4970bbbb2d50da2e94cac36fd3eba5e5978f"
+  },
+  "2026-09-02": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "ext_v2",
+     "sha256": "d1e974a53912bafd03b7f7827485b679c77fc7ef2e740373df66545aa4f52564"
+    },
+    "trades_event": {
+     "capa_origen": "ext_v2",
+     "sha256": "8c526d05b2fac9276c75f70e07a8d1e194fc15e1dc5367213133ef7f72a5c0b3"
+    }
+   },
+   "npz_sha256": "58b3ce861190ab4d8cb8c118b5cc9ef21f21373919dff8b8c6a86db7bd42ffb8"
+  },
+  "2026-09-03": {
+   "canonico": {
+    "market_features_100ms": {
+     "capa_origen": "ext_v2",
+     "sha256": "0ea0d5cd9a894f53f51778e74c29ba185f2f61c72f7f0adf9dd1d4f16496f2be"
+    },
+    "trades_event": {
+     "capa_origen": "ext_v2",
+     "sha256": "a35b0753c816c8f8025dd062c2de5a6779850fd8f3419cc5348a3441a6d69b2d"
+    }
+   },
+   "npz_sha256": "bd1500088107c3a98fe180688aa9d5a2d3f5b20963295a350fb597b91cac49ca"
+  }
+ }
+}

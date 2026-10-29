@@ -1,0 +1,21 @@
+[13:54:59] tabla aprox 4d (31 s)
+[13:55:00] tabla aprox ('2d', 0.67757, 0.681495) (1 s)
+[13:55:02] tabla aprox ('2d', 0.683998, 0.684366) (1 s)
+[13:55:07] 2026-09-04 (43 s): E3-fkX+B|HJBx: 3499 ej, -1.35 bps | E3-fkX+B|HJBa: 2475 ej, -1.52 bps | E1|HJBx: 3199 ej, -1.33 bps | E1|MIOPE: 1702 ej, -0.61 bps
+[13:55:15] 2026-09-05 (8 s): E3-fkX+B|HJBx: 762 ej, -0.58 bps | E3-fkX+B|HJBa: 518 ej, -0.42 bps | E1|HJBx: 545 ej, -0.30 bps | E1|MIOPE: 273 ej, +0.95 bps
+[13:55:24] 2026-09-06 (9 s): E3-fkX+B|HJBx: 904 ej, -1.25 bps | E3-fkX+B|HJBa: 592 ej, -1.38 bps | E1|HJBx: 729 ej, -0.95 bps | E1|MIOPE: 338 ej, +1.87 bps
+[13:55:34] 2026-09-07 (9 s): E3-fkX+B|HJBx: 1619 ej, -1.94 bps | E3-fkX+B|HJBa: 1113 ej, -2.32 bps | E1|HJBx: 1340 ej, -1.47 bps | E1|MIOPE: 538 ej, -3.50 bps
+[13:55:43] 2026-09-08 (10 s): E3-fkX+B|HJBx: 2726 ej, -1.05 bps | E3-fkX+B|HJBa: 1878 ej, -0.87 bps | E1|HJBx: 2260 ej, -0.90 bps | E1|MIOPE: 959 ej, +0.78 bps
+[13:55:52] 2026-09-09 (9 s): E3-fkX+B|HJBx: 3012 ej, -1.45 bps | E3-fkX+B|HJBa: 2103 ej, -1.53 bps | E1|HJBx: 2494 ej, -1.66 bps | E1|MIOPE: 1290 ej, -1.02 bps
+[13:56:01] 2026-09-10 (9 s): E3-fkX+B|HJBx: 2832 ej, -1.00 bps | E3-fkX+B|HJBa: 1948 ej, -0.97 bps | E1|HJBx: 2447 ej, -1.13 bps | E1|MIOPE: 1168 ej, -1.10 bps
+[13:56:10] 2026-09-11 (9 s): E3-fkX+B|HJBx: 4569 ej, -1.42 bps | E3-fkX+B|HJBa: 3418 ej, -1.40 bps | E1|HJBx: 4339 ej, -1.37 bps | E1|MIOPE: 2551 ej, -2.82 bps
+[13:56:18] 2026-09-12 (8 s): E3-fkX+B|HJBx: 464 ej, -0.40 bps | E3-fkX+B|HJBa: 338 ej, -0.32 bps | E1|HJBx: 331 ej, -0.18 bps | E1|MIOPE: 161 ej, +0.30 bps
+[13:56:27] 2026-09-13 (8 s): E3-fkX+B|HJBx: 754 ej, -1.18 bps | E3-fkX+B|HJBa: 512 ej, -1.21 bps | E1|HJBx: 657 ej, -1.31 bps | E1|MIOPE: 324 ej, -2.18 bps
+[13:56:36] 2026-09-14 (9 s): E3-fkX+B|HJBx: 2881 ej, -1.26 bps | E3-fkX+B|HJBa: 2009 ej, -1.10 bps | E1|HJBx: 2716 ej, -1.58 bps | E1|MIOPE: 1371 ej, -1.65 bps
+[13:56:45] 2026-09-15 (9 s): E3-fkX+B|HJBx: 4736 ej, -1.40 bps | E3-fkX+B|HJBa: 3504 ej, -1.22 bps | E1|HJBx: 4574 ej, -1.31 bps | E1|MIOPE: 2795 ej, -0.66 bps
+[13:56:54] 2026-09-16 (9 s): E3-fkX+B|HJBx: 4118 ej, -1.41 bps | E3-fkX+B|HJBa: 3036 ej, -1.39 bps | E1|HJBx: 4009 ej, -1.27 bps | E1|MIOPE: 2382 ej, -0.96 bps
+[13:57:03] 2026-09-17 (9 s): E3-fkX+B|HJBx: 2007 ej, -1.13 bps | E3-fkX+B|HJBa: 1308 ej, -1.01 bps | E1|HJBx: 1935 ej, -0.97 bps | E1|MIOPE: 951 ej, -1.59 bps
+[13:57:12] 2026-09-18 (9 s): E3-fkX+B|HJBx: 4128 ej, -1.30 bps | E3-fkX+B|HJBa: 2901 ej, -1.34 bps | E1|HJBx: 3767 ej, -1.17 bps | E1|MIOPE: 2092 ej, -2.04 bps
+[13:57:21] 2026-09-19 (8 s): E3-fkX+B|HJBx: 1125 ej, -1.08 bps | E3-fkX+B|HJBa: 722 ej, -1.01 bps | E1|HJBx: 933 ej, -0.98 bps | E1|MIOPE: 412 ej, -2.11 bps
+[13:57:29] 2026-09-20 (9 s): E3-fkX+B|HJBx: 1539 ej, -1.89 bps | E3-fkX+B|HJBa: 993 ej, -1.94 bps | E1|HJBx: 1433 ej, -1.50 bps | E1|MIOPE: 634 ej, -2.25 bps
+[13:57:30] FIN 186 s

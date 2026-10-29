@@ -1,0 +1,107 @@
+\documentclass[12pt,oneside]{book}
+
+% ─── Paquetes de Estética y Tipografía ─────────────────────────────────────
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{microtype}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+\usepackage[round, authoryear]{natbib}   % citas tipo (Autor, año)
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% ─── Configuración de Página ───────────────────────────────────────────────
+\geometry{
+    paper=a4paper,
+    top=3cm,
+    bottom=3cm,
+    left=3.5cm,
+    right=2.5cm
+}
+\onehalfspacing
+\setlength{\emergencystretch}{2em}
+
+% ─── Estilo de títulos de capítulos ───────────────────────────────────────
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{-20pt}{40pt}
+
+% ─── Teoremas y Operadores ─────────────────────────────────────────────────
+\newtheorem{definition}{Definición}[chapter]
+\newtheorem{remark}{Observación}[chapter]
+\DeclareMathOperator{\E}{\mathbb{E}}
+\DeclareMathOperator{\Prob}{\mathbb{P}}
+\newcommand{\bps}{\,\text{bps}}
+
+\graphicspath{{figuras/}}
+
+\begin{document}
+
+% ─── PORTADA INSTITUCIONAL ─────────────────────────────────────────────────
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    {\Large \textbf{PONTIFICIA UNIVERSIDAD JAVERIANA}} \\
+    \vspace{0.5cm}
+    {\large FACULTAD DE CIENCIAS} \\
+    {\large DEPARTAMENTO DE MATEMÁTICAS} \\
+    \vfill
+    {\LARGE \textbf{Market Making con Aprendizaje Estadístico:}} \\
+    \vspace{0.4cm}
+    {\Large \textit{Un Enfoque Semiparamétrico para la Estimación Dinámica
+    de Intensidades de Órdenes}} \\
+    \vfill
+    {\large \textbf{Santiago Rueda}} \\
+    \vfill
+    Trabajo de grado para optar al título de: \\
+    \textbf{Científico de Datos} \\
+    \vfill
+    Tutor: \\
+    \textbf{Vladimir Moreno} \\
+    \vfill
+    Bogotá D.C., Colombia \\
+    2026
+\end{titlepage}
+
+% ─── ÍNDICES ───────────────────────────────────────────────────────────────
+\frontmatter
+\tableofcontents
+\listoftables
+\listoffigures
+
+\mainmatter
+
+\input{capitulos/00_resumen}
+\input{capitulos/01_introduccion}
+\input{capitulos/02_problema}
+\input{capitulos/03_justificacion}
+\input{capitulos/04_objetivos}
+\input{capitulos/05_marco}
+\input{capitulos/06_metodologia}
+\input{capitulos/07_datos}
+\input{capitulos/08_resultados}
+\input{capitulos/09_discusion}
+\input{capitulos/10_conclusiones}
+
+\appendix
+\input{capitulos/A_apendice}
+\input{capitulos/B_ciegos}
+\input{capitulos/C_p2_exploratorio}
+
+\backmatter
+\bibliographystyle{plainnat}
+\bibliography{references_final}
+\end{document}

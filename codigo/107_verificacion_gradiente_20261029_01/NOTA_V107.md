@@ -1,0 +1,11 @@
+# NOTA v107 — verificación del gradiente y la convergencia de la curva de E3 (29 oct; solo entrenamiento)
+- **Gradiente analítico:** coincide con diferencias finitas (error relativo máximo 1e-4). El único defecto es que no incorporaba el recorte a ±5.
+- **El recorte sí se activa:** en ~30 de 5,8 M segundos (0,0005 %), con |b'z| máximo de 6,8–8,6. El "≤ 1,6" escrito antes salió de revisar solo 1 de cada 4 días y era incorrecto.
+- **Convergencia:**
+  - el paso original se detenía por tolerancia relativa a las 1–3 iteraciones, y en un caso (E3 tesis bid) terminaba de forma anormal;
+  - con el gradiente corregido y maxiter 2000 converge en 70–102 iteraciones.
+- **Efecto:**
+  - f cambia solo en la cola: hasta −0,33 en log a 20 bps y +0,10 a 15 bps; ≤ 0,005 para δ ≤ 5 bps;
+  - b cambia ≤ 0,001;
+  - ganancia de verosimilitud de ~6e-6 por segundo (despreciable).
+- **Criterio del plan:** no se cumple por Δf en la cola, así que se informó a Santiago. Su decisión: versión 2 (v108).

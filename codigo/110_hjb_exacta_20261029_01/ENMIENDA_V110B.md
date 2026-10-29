@@ -1,0 +1,11 @@
+# Enmienda B a PLAN_V110 (29 oct; escrita antes de correr cualquier verificación o el test; PLAN_V110.md queda sellado y sin editar)
+Solicitada por revisión externa. Donde choque con PLAN_V110.md, manda esta enmienda.
+
+1. **Dominio admisible de δ: [−5; 40] bps.** El supremo de H se toma sobre ese dominio (el tramo izquierdo empieza en −5 y el derecho termina en 40, con extensión de pendiente del primer/último tramo). Por tanto δ* nunca sale del dominio; se cuenta y reporta la fracción de decisiones (segundo × q × lado) con δ* igual a un borde (±1e-9). (Sustituye −100/2000 del plan.)
+2. **Tramos con k_s ≤ 0:** se fuerza k_s = k_min = 0,01 bps⁻¹ (k_s' = máx(k_s, k_min)) y se reconstruye la curva acumulando las pendientes corregidas desde g(0,5)=0 (continua). Se reporta, por modelo y lado, el número de tramos afectados y la fracción de segundos con al menos uno (para formas m·f: con la m de cada segundo). No se aborta.
+3. **Fuera de las tablas:** recorte al borde de la rejilla; se reporta por modelo la fracción de segundos recortados (total y por eje m_a, m_b en 4D).
+4. **Rango de m (4D):** percentiles 0,1–99,9 de m calculados con 6 días de entrenamiento (3, 10, 17, 24 y 31 ago y 3 sep), ampliados ×0,9/×1,1, por lado; se reporta la fracción de segundos del test fuera de ese rango. Igual para el rango de k de la HJB aproximada de control.
+5. **Verificación (d):** error de δ* (tabla vs exacta, 150 segundos del 3 sep por modelo) con p50, p99 y máx en |q| ≤ 5 (criterio p99 < 0,05 bps) y en todo |q| ≤ 10 (criterio p99 < 0,1 bps). Si no se cumple, se detiene antes del test.
+6. **Comparación exacta vs aproximada (ambas con modelos v108, test):** por modelo, % de decisiones (segundo × q × lado, y por separado q = 0) con distinto precio cotizado tras redondear al tick; cambio en ejecuciones/día y |q| medio; PnL por ejecución bruto y neto (comisión maker 7,5 y 10 bps por ejecución) y PnL neto diario en USDT, con IC95 bootstrap por días de la diferencia pareada exacta − aproximada.
+7. **Predicciones v103 vs v108 en el test** (E3-fkX+B y E3-fkX): máx y p99 de |Δ log λ̂| por δ (curva completa g+h+m·f), separando δ ≤ 5 y δ ≥ 15. v103 se carga solo para esta comparación (sha verificado contra su manifiesto).
+8. La NOTA_V110.md reporta números, sin interpretaciones.

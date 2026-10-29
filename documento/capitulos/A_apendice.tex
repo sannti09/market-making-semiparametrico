@@ -1,0 +1,26 @@
+% ═══════════════════════════════════════════════════════════════════════════
+\chapter{Covariables y disponibilidad del código}
+\label{app:trazabilidad}
+% ═══════════════════════════════════════════════════════════════════════════
+
+\section{Covariables de E3}
+Las 49 covariables se calculan con información disponible antes de cada decisión (Tabla~\ref{tab:covariables}). Las ventanas \texttt{past\_*} excluyen el intervalo actual. Las covariables de barrido usan transacciones estrictamente anteriores y superan la prueba automática de truncamiento.
+
+\begin{table}[htbp]
+\centering\footnotesize
+\caption{Covariables de $g(X_t)$ por grupo.}
+\label{tab:covariables}
+\begin{tabular}{@{}p{.15\textwidth}rp{.68\textwidth}@{}}\toprule
+Grupo & $n$ & Variables\\\midrule
+Libro & 15 & spread; desequilibrio en los niveles 1, 5 y 20 y ponderado; prima del microprecio; profundidad de compra y venta en 5 y 20 niveles; pendiente del libro por lado; entropía de la profundidad por lado; antigüedad del libro\\
+OFI & 4 & OFI ponderado en 1, 5 y 20 niveles; OFI de 5 niveles\\
+Volatilidad & 5 & volatilidad realizada a 1, 5, 10 y 60~s; variación del precio medio en 100~ms\\
+Flujo & 20 & número y volumen de compras y ventas agresoras, y volumen firmado, en ventanas de 1, 5, 30 y 60~s\\
+Barridos & 5 & recorrido firmado, volumen y tiempo desde el último barrido (evento agresor que recorre al menos 0,5~bps, en los últimos 60~s); spread máximo del último segundo; variación del precio medio en el último segundo\\\bottomrule
+\end{tabular}
+\end{table}
+
+La modulación $m(X)$ usa cuatro covariables estandarizadas: volatilidad realizada a 10~s, $\log(1+\text{transacciones en 5~s})$, logaritmo de la profundidad propia en cinco niveles y desequilibrio en cinco niveles. Las siete señales S de las referencias son las cinco de barrido y las variaciones del precio medio en 15~min y 1~h.
+
+\section{Disponibilidad y verificación}
+El código, los protocolos de cada etapa y los modelos finales se publican en el repositorio del proyecto en GitHub. Cada protocolo se escribió y fechó antes de correr la etapa correspondiente, y el código comprueba al ejecutarse que el protocolo no cambió. Los modelos finales se guardaron antes de leer el test. El repositorio incluye además el catálogo de los archivos de datos, que permite verificar que cualquier réplica usa exactamente los mismos datos.

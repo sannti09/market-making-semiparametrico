@@ -1,0 +1,6 @@
+{
+ "C1_estabilidad_5_ventanas": true,
+ "C2_global_IC>0": true,
+ "C3_sobreajuste_marcado": false,
+ "verificacion": "Ventana 1 frente a v98/v100b (1–7 ago): diferencia relativa máxima 0.0e+00"
+}

@@ -1,0 +1,14 @@
+\chapter{Pruebas exploratorias de la parte económica}
+\label{app:p2-exploratorio}
+
+Estas pruebas se hicieron en el entrenamiento, o en bloques ya vistos, para buscar una vía rentable o entender la pérdida. Ninguna fue rentable después de comisiones; algunas variantes agresivas tuvieron un resultado bruto positivo. Se resumen para que el lector conozca qué se intentó.
+
+\paragraph{Por qué algunos \textit{backtests} intermedios parecieron mucho mejores.} Un simulador que daba por ejecutadas como pasivas cotizaciones que en realidad habrían cruzado el libro reducía artificialmente la pérdida de $-1{,}26$ a $-0{,}2$~bps por ejecución; la validación con cola explícita lo detectó y ese resultado se retiró. Otras métricas excluían las operaciones perdedoras (por ejemplo, contar solo ciclos cerrados con un precio mínimo de salida) o comparaban con mantener la posición, lo que mide la dirección del inventario y no la provisión de liquidez.
+
+\paragraph{Pausa defensiva.} Retirar las cotizaciones cuando un modelo de saltos anticipa alta probabilidad de un movimiento brusco reduce la pérdida entre 0,03 y 0,09~bps por ejecución, con intervalos que excluyen el cero, pero la mejor combinación queda en $-1{,}03$~bps y ningún día es positivo. Saber \emph{cuándo} habrá un salto es posible (AUC 0,81--0,91); saber \emph{hacia dónde} acierta el 58--60\,\% de las veces, frente al 54\,\% que se obtiene prediciendo siempre la dirección más frecuente.
+
+\paragraph{Spreads anchos.} Un spread de al menos 1~bps aparece en promedio 1,4~s al día. El 85--96\,\% de esos episodios los abre un barrido, tras el cual el precio sigue en la dirección del barrido. Incluso suponiendo una ejecución asegurada en esos instantes, el resultado a 10~s es de $-3{,}9$ a $-5{,}9$~bps.
+
+\paragraph{Operar como agresor.} Una señal de dirección a 10~s construida con las covariables de E3 captura entre 0,65 y 0,8~bps por orden antes de comisiones; seguir la dirección de un barrido tras un spread ancho no supera de forma robusta el umbral de comisión. Ninguna variante probada cubre la comisión de ida y vuelta de un participante minorista.
+
+\paragraph{Información externa.} En las pruebas realizadas, los perpetuos de otras plataformas mejoraron la predicción de dirección frente a un modelo lineal simple, pero no frente a un GBM con las covariables propias del libro; otras criptomonedas, índices bursátiles y opciones no mostraron una anticipación útil a los horizontes evaluados.

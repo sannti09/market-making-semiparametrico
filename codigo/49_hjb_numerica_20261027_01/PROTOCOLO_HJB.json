@@ -1,0 +1,129 @@
+{
+ "version": "v49",
+ "fecha": "2026-10-27",
+ "estado": "pre-registrado antes de correr sobre datos reales (los tests y el chequeo de la tabla usaron solo parametros sinteticos)",
+ "objetivo": "OE4: resolver NUMERICAMENTE la HJB bajo las intensidades semiparametricas estimadas y compararla con la aproximacion cerrada GLFT de v41.",
+ "problema": "u=-exp(-g(x+qS+theta(t,q))); d_tau theta(q) = -1/2 g s^2 q^2 + 1[q<Q] H_b(theta(q)-theta(q+1)) + 1[q>-Q] H_a(theta(q)-theta(q-1)), theta(tau=0)=0; H_i(p)=A_i(1+g/k_i)^(-k_i/g) e^(-k_i p)/(k_i+g); delta_i*=p+ln(1+g/k_i)/g. Politica estacionaria (tau grande): diferencias de theta, theta(0)=0.",
+ "solucion_numerica": "Euler implicito linealizado con paso creciente (matriz I-dt J M-matriz, incondicionalmente estable) + Newton ergodico F(theta)=c. Verificada contra la solucion lineal de Gueant (w=e^{k theta}), RK4 temporal, y limites analiticos (test_hjb.py).",
+ "politica_coeficientes_congelados": "en cada decision de 1 s se usa la politica estacionaria con los A_a(t), A_b(t), sigma_t (y k_a(X), k_b(X) en E3kX) vigentes; supone que los coeficientes son constantes durante la ventana de reversion del inventario",
+ "modelos": {
+  "E1": "A,k constantes (ajuste, 14 dias), sigma constante = media del ajuste",
+  "E1s": "control: E1 con sigma_t causal (aisla el efecto de sigma_t en E2/E3)",
+  "E2": "A_lado(t)=Lambda_lado(t)*exp(a_lado), Lambda predictivo Hawkes de 1 s con historia estrictamente anterior a la fila de decision; mu,alpha,beta,a,k de ESPECIFICACION_E2_CONGELADA.json; sigma_t",
+  "E3": "A_t=exp(g(X)+h(hora)) por lado, k escalar por lado; GBM congelado v45 (h solo en ask) reajustado en ajuste; sigma_t",
+  "E3kX": "variante secundaria: k_i(X)=exp(c_i+b_i.z) de v47 (backfit sin convergencia completa), A_t=exp(eta); sigma_t"
+ },
+ "e3": {
+  "especificacion": "45_congelar_e3_p1_20261027_01/ESPECIFICACION_E3_CONGELADA.json",
+  "usar_h": {
+   "ask": true,
+   "bid": false
+  },
+  "hiperparametros": {
+   "learning_rate": 0.05,
+   "max_leaf_nodes": 15,
+   "min_samples_leaf": 2000,
+   "max_iter": 300,
+   "l2_regularization": 1.0
+  }
+ },
+ "e2": {
+  "especificacion": "46_e2_hawkes_congelado_20261027_01/ESPECIFICACION_E2_CONGELADA.json"
+ },
+ "gamma": [
+  0.01,
+  0.1,
+  1.0
+ ],
+ "kappa_senal": 0,
+ "Q": 10,
+ "politicas": {
+  "glft": "aproximacion cerrada v41: delta_b=base_b+(q+1/2)w_b, delta_a=base_a-(q-1/2)w_a (mismos A_t, k, sigma_t del modelo)",
+  "hjb": "HJB numerica estacionaria con coeficientes congelados (tabla de busqueda)"
+ },
+ "simulador": "identico a 41_hjb_inventario (simular): decision cada 1 s con la fila t-100 ms, cotizacion redondeada a tick y pasiva, regla 'atraviesa' (evento agresor estrictamente mas alla), una ejecucion por bin y lado, |q|<=10, PnL=caja+q*mid de cierre en bps del mid por unidad; se verifica igualdad exacta con V41.simular para GLFT",
+ "tabla": {
+  "invariancia": "theta_inf no cambia al escalar (sigma^2,A_a,A_b) por s>0; ejes u=ln(sigma^2/A_a), v=ln(A_b/A_a)",
+  "2d": {
+   "u": [
+    -7.0,
+    4.0,
+    74
+   ],
+   "v": [
+    -5.0,
+    5.0,
+    41
+   ],
+   "nota": "k_a,k_b fijos por modelo (E1s,E2,E3)"
+  },
+  "4d": {
+   "u": [
+    -7.0,
+    4.0,
+    37
+   ],
+   "v": [
+    -5.0,
+    5.0,
+    21
+   ],
+   "k_min": 0.3,
+   "k_max": 1.6,
+   "n_k": 9,
+   "nota": "ejes ln k_a, ln k_b equiespaciados (E3kX)"
+  },
+  "interpolacion": "multilineal en los ejes log; fuera de rejilla se recorta al borde y se reporta la fraccion recortada",
+  "chequeo": "150 bins reales por (modelo, gamma) del primer dia de ajuste: error |delta_tabla-delta_exacto| (p50,p99,max) para |q|<=5 y todo q"
+ },
+ "datos": {
+  "ajuste": [
+   "2026-06-29",
+   "2026-06-30",
+   "2026-07-01",
+   "2026-07-02",
+   "2026-07-03",
+   "2026-07-04",
+   "2026-07-05",
+   "2026-07-06",
+   "2026-07-07",
+   "2026-07-08",
+   "2026-07-09",
+   "2026-07-10",
+   "2026-07-11",
+   "2026-07-12"
+  ],
+  "calibracion_interna": [
+   "2026-07-13",
+   "2026-07-14",
+   "2026-07-15",
+   "2026-07-16"
+  ],
+  "nota": "solo bloques ajuste y calibracion_interna"
+ },
+ "seleccion": {
+  "donde": "ajuste",
+  "regla": "para cada (modelo, politica): gamma con mayor PnL medio diario con >=100 ejecuciones/dia",
+  "min_ejecuciones_dia": 100
+ },
+ "evaluacion": "una sola evaluacion en calibracion_interna por (modelo, politica) con su gamma seleccionado",
+ "medidas": [
+  "PnL/dia (bps*unidad)",
+  "dias positivos (de 4)",
+  "ejecuciones/dia",
+  "PnL por ejecucion (markout a cierre)",
+  "|q| medio",
+  "cuantiles 5/25/50/75/95 de la distancia cotizada",
+  "en calibracion y para todo gamma (descriptivo, sin simular): distribucion de delta_a*, delta_b* en q=0 por modelo y politica, diferencia absoluta media frente a E1 y entre HJB y GLFT"
+ ],
+ "criterios": "ninguno de aceptacion: comparacion descriptiva HJB vs GLFT y E2/E3/E3kX vs E1; sin umbrales de rentabilidad. 5 modelos x 3 gamma x 2 politicas = 30 configuraciones en ajuste, todas reportadas",
+ "enmiendas": [
+  {
+   "n": 1,
+   "que": "rejilla de la tabla ampliada: u de [-5,4] a [-7,4], v de [-3,3] a [-5,5]",
+   "por_que": "la primera corrida (abortada por un error de codigo en k vectorial antes de simular calibracion) mostro en el chequeo de interpolacion de E3 errores p99 de 0.4-0.8 bps por recorte a la rejilla; los percentiles de ln(sigma^2/A_a) y ln(A_b/A_a) en ajuste (solo intensidades, sin PnL) indicaron que ln(A_b/A_a) de E3 llega a +-4 (1% fuera de +-3.2)",
+   "no_cambia": "modelos, gamma, simulador, regla de seleccion, evaluacion unica en calibracion interna. Antes de la enmienda solo se vieron resultados de ajuste para E1 (sin tabla) y E1s/E2 (tabla sin recorte relevante); ninguna evaluacion en calibracion se habia ejecutado",
+   "protocolo_original_sha256": "e1db8904a642d8096052ef45b88d03df7cf1072f0d0488be13e27778d25f9694"
+  }
+ ]
+}

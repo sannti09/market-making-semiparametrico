@@ -1,0 +1,28 @@
+% ═══════════════════════════════════════════════════════════════════════════
+\chapter{Problema a Trabajar}
+% ═══════════════════════════════════════════════════════════════════════════
+
+Sea $m_t$ el precio medio del activo y $X_t \in \mathbb{R}^d$ un vector de variables
+de mercado observables en el instante $t$ (spread actual, desequilibrio del libro de
+órdenes, volatilidad realizada y volumen en ventanas causales). Se denotan por
+$\lambda_0^a(t\mid X_t)$ y $\lambda_0^b(t\mid X_t)$ las intensidades base de trades
+agresores que pueden alcanzar, respectivamente, una cotización pasiva en el ask o en
+el bid. La intensidad de fill a una distancia elegida $\delta$ combina esa intensidad
+base con una función decreciente de la distancia y una regla conservadora de ejecución
+reconstruida mediante replay del LOB.
+
+El problema central de este trabajo se articula en cuatro preguntas de investigación:
+
+\begin{enumerate}[label=\textbf{P\arabic*.}]
+  \item \textquestiondown{}Cómo modelar $\lambda_0^a(t\mid X_t)$ y $\lambda_0^b(t\mid X_t)$ como
+        funciones del estado del mercado $X_t$ y del tiempo $t$ usando un enfoque
+        semiparamétrico que preserve la interpretabilidad del modelo de control
+        estocástico?
+  \item \textquestiondown{}Qué diferencias en PnL neto y control de inventario se obtienen frente a
+        Avellaneda--Stoikov y frente a una política basada en intensidades Hawkes?
+  \item \textquestiondown{}Cómo impacta la estimación data-driven de las intensidades en la política
+        óptima de cotización derivada vía la ecuación HJB?
+  \item \textquestiondown{}El desempeño del estimador de $g(X_t)$ se mantiene fuera de muestra ante
+        cambios de régimen, costos, latencia y especificaciones de inventario?
+\end{enumerate}
+

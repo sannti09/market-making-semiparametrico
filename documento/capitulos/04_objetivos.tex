@@ -1,0 +1,32 @@
+% ═══════════════════════════════════════════════════════════════════════════
+\chapter{Objetivos}
+% ═══════════════════════════════════════════════════════════════════════════
+
+\section{Objetivo General}
+
+Desarrollar un modelo de market making que integre control estocástico, métodos
+semiparamétricos y machine learning para la estimación dinámica de intensidades de
+órdenes, evaluando su desempeño empírico sobre datos de alta frecuencia de mercados
+de criptoactivos.
+
+\section{Objetivos Específicos}
+
+\begin{enumerate}[label=\textbf{OE\arabic*.}]
+  \item Analizar el modelo de \citet{AvellanedaStoikov2008} como caso base,
+        identificando la forma exponencial en la distancia, los parámetros fijos y
+        sus implicaciones sobre la política óptima de cotización.
+  \item Proponer un modelo semiparamétrico para las intensidades de órdenes de la
+        forma $\lambda_0(t) = \exp\bigl(g(X_t) + h(t)\bigr)$, especificando el vector
+        de covariables $X_t$ y el componente temporal $h(t)$ a partir de propiedades
+        documentadas de los datos de alta frecuencia.
+  \item Implementar y comparar métodos de machine learning como Gradient Boosting
+        y Random Forest para la estimación del componente no
+        paramétrico $g(X_t)$, usando datos L2 históricos de BTC/USDT en Binance Spot.
+  \item Derivar y resolver numéricamente la ecuación HJB bajo las intensidades
+        semiparamétricas estimadas, obteniendo la política óptima de cotización
+        data-driven.
+  \item Evaluar el impacto del modelo propuesto frente a Avellaneda--Stoikov y a una
+        política basada en Hawkes mediante las métricas de PnL neto, riesgo de
+        inventario y robustez ante cambios de régimen de mercado.
+\end{enumerate}
+

@@ -1,0 +1,17 @@
+test_H_cerrada_y_delta_optimo (test_hjb.TestHJB.test_H_cerrada_y_delta_optimo)
+H_i(p) en forma cerrada = sup numérico; el argmax es p + (1/γ)ln(1+γ/k). ... ok
+test_a_gueant_lineal (test_hjb.TestHJB.test_a_gueant_lineal)
+(a) k y A simétricos: ODE temporal y estacionario coinciden con w = e^{kθ}, ∂_τ w = M w. ... ok
+test_b_glft_en_el_centro (test_hjb.TestHJB.test_b_glft_en_el_centro)
+(b) γ pequeño y Q grande: la aproximación GLFT es cercana en el centro del rango de inventario. ... ok
+test_c_monotonia (test_hjb.TestHJB.test_c_monotonia)
+(c) δ_b*(q) creciente en q y δ_a*(q) decreciente, también con k, A y σ distintos por lado. ... ok
+test_d_cero_inventario (test_hjb.TestHJB.test_d_cero_inventario)
+(d) q = 0 simétrico: δ* = (1/γ)ln(1+γ/k) + corrección pequeña ≥ 0; con σ → 0 la corrección es de borde exacta. ... ok
+test_e_tabla_interpolacion (test_hjb.TestHJB.test_e_tabla_interpolacion)
+La tabla 2D reproduce la solución exacta en puntos aleatorios (error de interpolación acotado). ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 4.474s
+
+OK
