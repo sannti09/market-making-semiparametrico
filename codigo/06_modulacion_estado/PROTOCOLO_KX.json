@@ -1,0 +1,28 @@
+{
+ "version": "v47",
+ "fecha": "2026-10-27",
+ "objetivo": "Contrastar si una decaimiento dependiente del estado k_i(X) mejora el ajuste de E3 (especificacion congelada v45) en calibracion_interna.",
+ "forma_k": {
+  "k_i(X)": "exp(c_i + b_i . z)",
+  "z_estandarizadas_con_media_sd_de_ajuste": [
+   "realized_vol_10000ms",
+   "log1p(past_n_buy_sum_5000ms + past_n_sell_sum_5000ms)",
+   "log(depth_ask_top5) para ask / log(depth_bid_top5) para bid (profundidad propia; piso 1e-9)",
+   "imbalance_top5"
+  ],
+  "nota": "conjunto a priori, fijo; no se anade ni quita ninguna covariable tras ver datos"
+ },
+ "estimacion": {
+  "g": "HistGradientBoosting Poisson con hiperparametros congelados v45 (lr .05, leaves 15, min_leaf 2000, iter 300, l2 1, todos los X)",
+  "h": "hora UTC si usar_h (ask=True, bid=False), centrado, forma cerrada con S_i por bin",
+  "backfit": "3 iteraciones: g (peso E*S_i*e^h, objetivo Y/peso), h, Newton amortiguado para (a,c,b) maximizando ll Poisson dado eta; a se acumula en el nivel c0",
+  "S_i": "sum_delta exp(-k_i(X) delta)",
+  "referencia": "E3 escalar congelado reajustado en el mismo script (totales v45: ask -418255, bid -468377)"
+ },
+ "criterio_inclusion_por_lado": "incluir k(X) solo si ll_pp en calibracion_interna supera al E3 congelado en >=3 de 4 dias Y la mejora total >= 0.5% de |ll_pp E3 congelado|. Si no, E3 se mantiene con k escalar.",
+ "reportes_adicionales": [
+  "AUC (metricas.auc, delta=2 bps, media por dia)",
+  "rango de la distancia base GLFT (1/gamma) ln(1+gamma/k(X)), gamma=0.1, en cuantiles 5/50/95% de k(X) en calibracion_interna"
+ ],
+ "bloques_accesibles": ["ajuste", "calibracion_interna"]
+}

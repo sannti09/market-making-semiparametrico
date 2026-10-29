@@ -1,0 +1,19 @@
+{
+  "fuente": "Preliminar/AnteP_2026_30-8.pdf, sección 6.3",
+  "capa": "Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12",
+  "bloques": {
+    "ajuste":              {"desde": "2026-06-29", "hasta": "2026-07-12"},
+    "calibracion_interna": {"desde": "2026-07-13", "hasta": "2026-07-16"},
+    "validacion_externa":  {"desde": "2026-07-17", "hasta": "2026-07-23"},
+    "test_cerrado":        {"desde": "2026-07-24", "hasta": "2026-07-30"},
+    "robustez_temporal":   {"desde": "2026-07-31", "hasta": "2026-08-11"}
+  },
+  "bloques_abiertos": ["ajuste", "calibracion_interna"],
+  "reserva_bloqueada": {"desde": "2026-08-22", "hasta": "2026-08-25"},
+  "fin_exclusivo_capa_utc": "2026-08-24T12:00:00Z",
+  "exposicion_previa_documentada": [
+    "v35 (mandato 12 fechas) ajustó con F05=2026-07-20 (validación externa del anteproyecto) y cargó trades de F06=2026-07-25 (test cerrado; excluida por LOB no acreditado, no entró en ajuste).",
+    "Anteproyecto 7.4: el modelo congelado del piloto ya se aplicó al bloque posterior para un backtesting separado."
+  ],
+  "regla": "Abrir validacion_externa, test_cerrado o robustez_temporal requiere autorización explícita de Santiago y editar bloques_abiertos en una versión nueva."
+}

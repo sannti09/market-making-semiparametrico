@@ -1,6 +1,6 @@
 # datos pesados (no se suben; ver codigo/00_DATOS_*/README.md)
 *.parquet
-codigo/99_colab_e1_e2_20261029_01/paquete/dias/
+codigo/07_modelos_as_hawkes/paquete/dias
 **/salida/cache/
 __pycache__/
 *.pyc
@@ -13,3 +13,9 @@ documento/*.lof
 documento/*.out
 documento/*.bbl
 documento/*.blg
+
+# derivados pesados que se regeneran con el código
+codigo/04_covariables_barrido/eventos_barridos/salida/
+codigo/18_hjb_curva_interpolada/salida/tablas_v110.pkl
+codigo/00_datos_canonicos/market_features_100ms
+codigo/00_datos_canonicos/trades_event
