@@ -1,78 +1,146 @@
-# Market Making con Aprendizaje Estadístico: intensidades semiparamétricas de órdenes en BTC/USDT
+# Market Making with Statistical Learning: semiparametric order-arrival intensities in BTC/USDT
 
-Trabajo de grado, Ciencia de Datos, Pontificia Universidad Javeriana (2026). Autor: Santiago Rueda. Tutor: Vladimir Moreno.
+Undergraduate thesis, Data Science, Pontificia Universidad Javeriana (2026). Author: Santiago Rueda. Advisor: Vladimir Moreno.
 
-El repositorio contiene el documento y el código, los protocolos y los resultados de la fase final del trabajo. La fase exploratoria anterior está resumida en los apéndices B y C del documento.
+The thesis document is in Spanish (`documento/`). This repository contains it together with the code, sealed protocols and results of the final phase of the work. The earlier exploratory phase is summarised in appendices B and C of the document.
 
-## Estructura
+## The question
+
+A market maker quotes a buy and a sell price around the mid and earns the spread when aggressive orders hit them. The classical models assume how often that happens:
+- Avellaneda–Stoikov (E1): a constant intensity that decays exponentially with distance;
+- Hawkes (E2): self-exciting order flow.
+
+The thesis proposes **E3**, a semiparametric intensity:
+
+**log λ(t, δ) = g(X_t) + h(t) + m(X_t)·f(δ)**
+
+- g: gradient boosting on 49 market covariates (order flow, book, volatility, sweeps);
+- h: hour-of-day effect;
+- f: a free monotone curve in the distance δ;
+- m: a state modulation of that curve.
+
+It then asks two separate questions:
+1. **Prediction:** does E3 estimate the arrival of aggressive orders better than AS and Hawkes?
+2. **Economics:** does that better estimate produce value under an optimal quoting policy (HJB)?
+
+## Main results
+
+| | Result | Folder |
+|---|---|---|
+| Walk-forward (34 days) | E3 beats all 10 benchmarks in all 5 windows, on both sides | [`10_`](codigo/10_walk_forward/) |
+| Pre-registered test (4–20 Sep) | All 4 criteria met; AUC 0.813; E3 beats the best Hawkes on 17 of 17 days | [`17_`](codigo/17_test_predictivo/) |
+| Simulation (21 Sep–26 Oct, 36 new days) | Still the best predictor (AUC 0.848 / 0.842); the rebound criterion fails after buyer sweeps | [`19_`](codigo/19_simulacion/) |
+| Economic value | Every model and policy loses about 1.1–1.3 bps per fill before fees; E3 does not win on PnL | [`18_`](codigo/18_hjb_curva_interpolada/), [`19_`](codigo/19_simulacion/) |
+| Why | Adverse selection: whatever is captured by quoting farther is lost when the price keeps moving, mostly within the first second | [`20_`](codigo/20_seleccion_adversa/) |
+
+**In short:** a clear predictive contribution and a negative economic result, both supported.
+
+## Model names
+
+| Name | Model |
+|---|---|
+| **E3-fkX+B** | **The thesis model** (49 covariates, curve f(δ), modulation m(X)) |
+| E3-fkX, E3 | E3 without sweep covariates (44); E3 base with −kδ |
+| E1 | Avellaneda–Stoikov |
+| E1+h-f, E1+S, E1+X49 | AS + hour + f(δ); + 7 signals; Poisson GLM with E3's 49 covariates |
+| E2+h-f, E2+S | Hawkes, one scale, + hour + f(δ); + signals |
+| E2m+h-f, E2m+S | Hawkes, two scales, + hour + f(δ); + signals |
+
+## Structure
 
 ```
-documento/                      Tesis en LaTeX (main.tex, capitulos/, figuras/) y PDF
-captura_datos/                  Captura en el servidor: scripts de Python, servicios systemd y comandos Shell
+documento/                      Thesis in LaTeX (main.tex, capitulos/, figuras/) and PDF (Spanish)
+captura_datos/                  Data capture on the server: Python scripts, systemd services and shell commands
 codigo/
-  00_datos_canonicos/           Catálogo de los 120 días (huella SHA-256 por archivo); los datos no se incluyen
-  01_nucleo_e3/                 Capa de datos, convenciones y modelo E3 base (g + h − kδ)
-  02_conteos_respuesta/         Conteo de eventos agresores que alcanzan cada distancia (variable respuesta)
-  03_cargador_datos/            Cargador de la capa canónica con guarda de fechas
-  04_covariables_barrido/       Covariables de barrido y tendencia; eventos_barridos/ genera los barridos
-  05_curva_distancia/           Curva monótona f(δ) y modulación m(X) (versión original)
-  06_modulacion_estado/         Variante k(X) de la fase de desarrollo
-  07_modelos_as_hawkes/         Avellaneda–Stoikov y Hawkes de 1 y 2 escalas
-  08_hjb_exponencial/           Solucionador HJB con intensidad exponencial y sus pruebas
-  09_protocolo_test/            Preregistro del test y funciones comunes (GLM, señales, evaluación)
-  10_walk_forward/              Walk-forward de cinco ventanas (11 modelos)
-  11_modelos_finales/           Ajuste de los modelos finales (29 jun–3 sep)
+  00_datos_canonicos/           Catalogue of the 120 days (SHA-256 per file); the data are not included
+  01_nucleo_e3/                 Data layer, conventions and base E3 model (g + h − kδ)
+  02_conteos_respuesta/         Counts of aggressor events reaching each distance (the response)
+  03_cargador_datos/            Loader of the canonical layer with a date guard
+  04_covariables_barrido/       Sweep and trend covariates; eventos_barridos/ detects the sweeps
+  05_curva_distancia/           Monotone curve f(δ) and modulation m(X) (original version)
+  06_modulacion_estado/         k(X) variant from the development phase
+  07_modelos_as_hawkes/         Avellaneda–Stoikov and Hawkes with one and two scales
+  08_hjb_exponencial/           HJB solver with exponential intensity and its tests
+  09_protocolo_test/            Test pre-registration and shared functions (GLM, signals, evaluation)
+  10_walk_forward/              Five-window walk-forward (11 models)
+  11_modelos_finales/           Fit of the final models (29 Jun–3 Sep)
   12_test_predictivo_ajuste_original/
   13_pnl_miope_ajuste_original/
   14_pnl_hjb_aproximada_ajuste_original/
-  15_verificacion_gradiente/    Verificación del gradiente y la convergencia de la curva de E3
-  16_curva_e3_corregida/        Curva de E3 corregida; modelos finales usados en la tesis (modelos_finales_v108.pkl)
-  17_test_predictivo/           Test predictivo con el ajuste corregido
-  18_hjb_curva_interpolada/     HJB con la curva de distancia interpolada: verificaciones y test económico
-  19_simulacion/                Simulación del 21 sep al 26 oct con modelos y políticas congelados
-  20_seleccion_adversa/         Descomposición de la pérdida por ejecución
+  15_verificacion_gradiente/    Gradient and convergence check of the E3 curve
+  16_curva_e3_corregida/        Corrected E3 curve; final models used in the thesis (modelos_finales_v108.pkl)
+  17_test_predictivo/           Predictive test with the corrected fit
+  18_hjb_curva_interpolada/     HJB with the interpolated distance curve: checks and economic test
+  19_simulacion/                Simulation 21 Sep–26 Oct with frozen models and policies
+  20_seleccion_adversa/         Decomposition of the loss per fill
 ```
 
-Cada carpeta numerada contiene su protocolo (`PLAN_*.md` o `ENMIENDA_*.md`, con su `.sha256`), su código, su nota de resultados (`NOTA_*.md`) y sus salidas resumidas. Al ejecutarse, cada script comprueba que su protocolo no cambió.
+Each numbered folder has an English `README.md` with its purpose and results. It also contains:
+- its protocol (`PLAN_*.md` or `ENMIENDA_*.md`, sealed with a `.sha256`; each script checks on start-up that the protocol has not changed);
+- its code;
+- its run note (`NOTA_*.md`) and summarised outputs.
 
-## Correspondencia con el documento
+Protocols and notes are in Spanish, as they were sealed.
 
-| Documento | Carpeta |
+**Data partition:**
+
+| Period | Dates | Use |
+|---|---|---|
+| Training | 29 Jun–3 Sep | Walk-forward validation inside it: 1 Aug–3 Sep |
+| Test | 4–20 Sep | Pre-registered |
+| Simulation | 21 Sep–26 Oct | Run once with everything frozen |
+
+## Correspondence with the document
+
+| Document | Folder |
 |---|---|
-| Cap. 6, metodología: respuesta, modelos y evaluación | `02_`, `05_`, `07_`, `09_` |
-| Cap. 7, datos: captura y capa canónica | `captura_datos/`, `00_datos_canonicos/`, `03_cargador_datos/` |
-| §8.1, especificación final de E3 | `01_` a `06_` |
+| Ch. 6, methodology: response, models and evaluation | `02_`, `05_`, `07_`, `09_` |
+| Ch. 7, data: capture and canonical layer | `captura_datos/`, `00_datos_canonicos/`, `03_cargador_datos/` |
+| §8.1, final E3 specification | `01_` to `06_` |
 | §8.2, walk-forward | `10_walk_forward/` |
-| §8.3–8.4, test predictivo y calibración tras barridos | `17_test_predictivo/` (idéntico a `12_` a tres decimales) |
-| §8.5, política HJB | `08_hjb_exponencial/`, `18_hjb_curva_interpolada/` |
-| §8.6, valor económico en el test | `18_hjb_curva_interpolada/` (versiones anteriores: `13_`, `14_`) |
-| §8.7, simulación | `19_simulacion/` |
-| §8.8, origen de la pérdida | `20_seleccion_adversa/` |
-| Apéndice A, covariables | `01_nucleo_e3/`, `04_covariables_barrido/` |
-| Verificación del gradiente y la convergencia | `15_`, `16_` |
+| §8.3–8.4, predictive test and post-sweep calibration | `17_test_predictivo/` (identical to `12_` to three decimals) |
+| §8.5, HJB policy | `08_hjb_exponencial/`, `18_hjb_curva_interpolada/` |
+| §8.6, economic value in the test | `18_hjb_curva_interpolada/` (earlier versions: `13_`, `14_`) |
+| §8.7, simulation | `19_simulacion/` |
+| §8.8, origin of the loss | `20_seleccion_adversa/` |
+| Appendix A, covariates | `01_nucleo_e3/`, `04_covariables_barrido/` |
+| Gradient and convergence check | `15_`, `16_` |
 
-## Datos
+## Data
 
-Los datos (unos 45 GB: libro reconstruido cada 100 ms y 337 millones de transacciones de BTC/USDT en Binance Spot, 29 jun–26 oct de 2026) no se incluyen en Git. Esta sección resume cómo se obtuvieron y cómo se usan.
+The data are not in Git. They cover BTC/USDT on Binance Spot, 29 Jun–26 Oct 2026, about 45 GB:
+- the order book reconstructed every 100 ms;
+- 337 million trades.
 
-### 1. Captura en el servidor
+This section summarises how they were obtained and how to use them.
 
-Los datos se capturaron en vivo en un servidor Linux dedicado, con dos capturas en paralelo (primaria y de respaldo) por flujo, servicios systemd y rotación de archivos cada 12 horas. Los scripts de Python, las unidades systemd y los comandos de instalación y operación están en [`captura_datos/`](captura_datos/README.md):
+### 1. Capture on the server
+
+The data were captured live on a dedicated Linux server:
+- two parallel captures (primary and backup) per stream;
+- each capture runs as a systemd service;
+- files rotate every 12 hours.
+
+The Python scripts, the systemd units and the install and operation commands are in [`captura_datos/`](captura_datos/README.md):
 
 ```bash
-# libro: wss://data-stream.binance.vision/ws/btcusdt@depth@100ms (+ instantáneas REST /api/v3/depth)
+# order book: wss://data-stream.binance.vision/ws/btcusdt@depth@100ms (+ REST snapshots /api/v3/depth)
 python captura_datos/python/live_lob_capture.py --exchange binance --symbol BTCUSDT --rotate-hours 12 --root /opt/lob_system
 
-# transacciones: wss://data-stream.binance.vision/ws/btcusdt@trade
+# trades: wss://data-stream.binance.vision/ws/btcusdt@trade
 python captura_datos/python/live_trade_capture.py --exchange binance --storage-stream binance_trades --symbol BTCUSDT \
   --binance-stream trade --rotate-hours 12 --root /opt/lob_system
 ```
 
-El libro se reconstruye siguiendo el procedimiento oficial de Binance: instantánea REST y diferenciales en orden de secuencia `U/u`; los huecos no cubiertos se marcan como inválidos y no se interpolan. El código de reconstrucción y de las capas está en el repositorio público del proyecto, [Market-Making-with-Statistical-Learning](https://github.com/sannti09/Market-Making-with-Statistical-Learning) (`src/reconstruction/`, `src/trades/`, `src/features/`).
+The book is rebuilt following Binance's official procedure:
+- a REST snapshot, then the diffs in `U/u` sequence order;
+- uncovered gaps are marked invalid and never interpolated.
 
-### 2. Transacciones oficiales (Binance Vision)
+The reconstruction and feature-layer code is in the project's public repository, [Market-Making-with-Statistical-Learning](https://github.com/sannti09/Market-Making-with-Statistical-Learning) (`src/reconstruction/`, `src/trades/`, `src/features/`).
 
-Las transacciones se verifican y completan con el archivo diario oficial, que incluye su suma de verificación:
+### 2. Official trades (Binance Vision)
+
+Trades are checked and completed with the official daily file, which ships with its checksum:
 
 ```bash
 D=2026-09-04
@@ -81,86 +149,94 @@ curl -sO "$URL" && curl -sO "$URL.CHECKSUM"
 shasum -a 256 -c "BTCUSDT-trades-$D.zip.CHECKSUM"
 ```
 
-En el servidor, esta descarga corría cada día a las 04:00 UTC (temporizador systemd). Para un rango de fechas: `python captura_datos/python/download_binance_vision_trades.py --root /ruta --symbol BTCUSDT --start-date AAAA-MM-DD --end-date AAAA-MM-DD`, que verifica cada archivo contra su suma de verificación.
+On the server this download ran every day at 04:00 UTC (systemd timer). For a date range use the command below; it verifies every file against its checksum.
 
-### 3. Uso en este repositorio
+```bash
+python captura_datos/python/download_binance_vision_trades.py --root /path --symbol BTCUSDT \
+  --start-date YYYY-MM-DD --end-date YYYY-MM-DD
+```
 
-Colocar la capa canónica dentro de `codigo/00_datos_canonicos/`, con un archivo por día:
+### 3. Use in this repository
+
+Place the canonical layer inside `codigo/00_datos_canonicos/`, one file per day:
 
 ```
 codigo/00_datos_canonicos/
-  market_features_100ms/binance_market_features_100ms_BTCUSDT_AAAA-MM-DD.parquet   # 864 000 filas, 202 columnas
-  trades_event/binance_trades_events_BTCUSDT_AAAA-MM-DD.parquet                     # una fila por transacción
+  market_features_100ms/binance_market_features_100ms_BTCUSDT_YYYY-MM-DD.parquet   # 864,000 rows, 202 columns
+  trades_event/binance_trades_events_BTCUSDT_YYYY-MM-DD.parquet                     # one row per trade
   CATALOGO.json
 ```
 
-Si los datos están en otro disco, basta con enlaces simbólicos:
+If the data live on another disk, symbolic links are enough:
 
 ```bash
 cd codigo/00_datos_canonicos
-ln -s /ruta/datos/market_features_100ms market_features_100ms
-ln -s /ruta/datos/trades_event trades_event
+ln -s /path/data/market_features_100ms market_features_100ms
+ln -s /path/data/trades_event trades_event
 ```
 
-Verificar la integridad de los 240 archivos contra el catálogo:
+Check the integrity of the 240 files against the catalogue:
 
 ```bash
 cd codigo/00_datos_canonicos
 python - <<'EOF'
 import json, hashlib
 from pathlib import Path
-cat = json.load(open("CATALOGO.json"))["dias"]; malos = 0
-for d, capas in cat.items():
-    for capa, info in capas.items():
-        nombre = (f"binance_market_features_100ms_BTCUSDT_{d}.parquet" if capa == "market_features_100ms"
-                  else f"binance_trades_events_BTCUSDT_{d}.parquet")
-        h = hashlib.sha256(Path(capa, nombre).read_bytes()).hexdigest()
-        malos += h != info["sha256"]
-print("archivos que no coinciden:", malos)
+cat = json.load(open("CATALOGO.json"))["dias"]; bad = 0
+for d, layers in cat.items():
+    for layer, info in layers.items():
+        name = (f"binance_market_features_100ms_BTCUSDT_{d}.parquet" if layer == "market_features_100ms"
+                else f"binance_trades_events_BTCUSDT_{d}.parquet")
+        h = hashlib.sha256(Path(layer, name).read_bytes()).hexdigest()
+        bad += h != info["sha256"]
+print("files that do not match:", bad)
 EOF
 ```
 
-Lectura de un día. Los archivos son grandes; conviene leer solo las columnas necesarias, con PyArrow o DuckDB, en lugar de concatenar todo en un DataFrame:
+Reading one day: the files are large, so read only the columns you need with PyArrow or DuckDB instead of concatenating everything into one DataFrame.
 
 ```bash
 python - <<'EOF'
 import pyarrow.parquet as pq
 d = "2026-09-04"
-libro = pq.read_table(f"codigo/00_datos_canonicos/market_features_100ms/binance_market_features_100ms_BTCUSDT_{d}.parquet",
-                      columns=["ts_ms", "state_valid", "best_bid", "best_ask", "mid"])
+book = pq.read_table(f"codigo/00_datos_canonicos/market_features_100ms/binance_market_features_100ms_BTCUSDT_{d}.parquet",
+                     columns=["ts_ms", "state_valid", "best_bid", "best_ask", "mid"])
 trades = pq.read_table(f"codigo/00_datos_canonicos/trades_event/binance_trades_events_BTCUSDT_{d}.parquet",
                        columns=["event_time_us", "price", "qty", "aggressor_buy"])
-print(libro.num_rows, trades.num_rows)
+print(book.num_rows, trades.num_rows)
 EOF
 ```
 
-En la capa, el libro en el instante `t` es el estado conocido en `t`; las variables `past_*` excluyen el intervalo actual. Las filas con `state_valid = False` (resincronizaciones) deben descartarse, nunca interpolarse.
+In the layer:
+- the book at time `t` is the state known at `t`;
+- `past_*` variables exclude the current interval;
+- rows with `state_valid = False` (resynchronisations) must be dropped, never interpolated.
 
-## Archivos que se regeneran
+## Regenerated files
 
-No se incluyen por su tamaño; los genera el propio código:
+These files are not included because of their size; the code itself produces them:
 
-| Archivo | Cómo se genera |
+| File | How it is generated |
 |---|---|
 | `codigo/04_covariables_barrido/eventos_barridos/salida/eventos_v92.pkl` | `eventos_barridos/codigo/eventos_v92.py` |
-| `codigo/07_modelos_as_hawkes/paquete/dias/` | `07_modelos_as_hawkes/exportar_paquete.py` (eventos para el Hawkes) |
+| `codigo/07_modelos_as_hawkes/paquete/dias/` | `07_modelos_as_hawkes/exportar_paquete.py` (events for the Hawkes fit) |
 | `codigo/18_hjb_curva_interpolada/salida/tablas_v110.pkl` | `18_hjb_curva_interpolada/codigo/verif_v110.py` |
-| Cachés `salida/cache/` | se crean automáticamente |
+| `salida/cache/` caches | created automatically |
 
-## Orden de ejecución
+## Execution order
 
-1. `04_.../eventos_barridos/codigo/eventos_v92.py` y `07_.../exportar_paquete.py`: insumos.
-2. `10_walk_forward/codigo/wf_v102.py`, después `tablas_v102.py`.
-3. `11_modelos_finales/codigo/entrenar_v103.py`, después `16_curva_e3_corregida/codigo/actualizar_curva_v108.py`.
+1. `04_.../eventos_barridos/codigo/eventos_v92.py` and `07_.../exportar_paquete.py`: inputs.
+2. `10_walk_forward/codigo/wf_v102.py`, then `tablas_v102.py`.
+3. `11_modelos_finales/codigo/entrenar_v103.py`, then `16_curva_e3_corregida/codigo/actualizar_curva_v108.py`.
 4. `17_test_predictivo/codigo/test_v109.py`.
-5. `18_hjb_curva_interpolada/codigo/verif_v110.py`, después `econ_v110.py`.
+5. `18_hjb_curva_interpolada/codigo/verif_v110.py`, then `econ_v110.py`.
 6. `19_simulacion/codigo/sim_v111.py`.
 7. `20_seleccion_adversa/codigo/sa_v112.py`.
 
-**Comprobación de reproducibilidad:** desde esta estructura, con cachés construidas desde cero, el código reproduce exactamente un día del test (4 sep): diferencia nula en la predicción, en las ejecuciones y en el PnL.
+**Reproducibility check:** from this structure, with caches built from scratch, the code exactly reproduces one test day (4 Sep). Prediction, fills and PnL all match with zero difference.
 
-Los nombres de archivo conservan el número de versión con que se ejecutaron (por ejemplo, `wf_v102.py`), porque los protocolos sellados y las notas se refieren a ellos.
+File names keep the version number they were run with (for example `wf_v102.py`), because the sealed protocols and notes refer to them.
 
-## Entorno
+## Environment
 
-Python 3.14; versiones en `requirements.txt`.
+Python 3.14; versions in `requirements.txt`.

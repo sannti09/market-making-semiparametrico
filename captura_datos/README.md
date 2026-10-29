@@ -1,32 +1,32 @@
-# Captura de datos en el servidor
+# Data capture on the server
 
-Los datos de la tesis se capturaron en vivo en un servidor Linux dedicado en Alemania, desde los flujos públicos de Binance Spot para BTC/USDT. Esta carpeta contiene los scripts que corrían allí, copiados sin cambios del repositorio público del proyecto, [Market-Making-with-Statistical-Learning](https://github.com/sannti09/Market-Making-with-Statistical-Learning). Ese repositorio contiene también la reconstrucción del libro (`src/reconstruction/`) y la construcción de las capas (`src/trades/`, `src/features/`).
+The thesis data were captured live on a dedicated Linux server in Germany, from Binance Spot's public BTC/USDT streams. This folder holds the scripts that ran there. They are copied unchanged from the project's public repository, [Market-Making-with-Statistical-Learning](https://github.com/sannti09/Market-Making-with-Statistical-Learning), which also contains the book reconstruction (`src/reconstruction/`) and the construction of the layers (`src/trades/`, `src/features/`).
 
-## Qué corría en el servidor
+## What ran on the server
 
-| Proceso | Script | Servicio systemd |
+| Process | Script | systemd service |
 |---|---|---|
-| Libro, captura primaria (`depth@100ms` + instantáneas REST) | `python/live_lob_capture.py` | `systemd-lob-capture-binance.service` |
-| Libro, captura de respaldo | `python/live_lob_capture.py --storage-exchange binance_backup` | `systemd-lob-capture-binance-backup.service` |
-| Transacciones, captura primaria (`@trade`) | `python/live_trade_capture.py` | `systemd-lob-capture-binance-trades.service` |
-| Transacciones, captura de respaldo | `python/live_trade_capture.py --storage-stream binance_trades_backup` | `systemd-lob-capture-binance-trades-backup.service` |
-| Descarga diaria del archivo oficial de transacciones (Binance Vision), 04:00 UTC | `python/run_daily_binance_vision_trades.py` → `python/download_binance_vision_trades.py` | `systemd-lob-binance-vision-trades-daily.service` + `.timer` |
+| Order book, primary capture (`depth@100ms` + REST snapshots) | `python/live_lob_capture.py` | `systemd-lob-capture-binance.service` |
+| Order book, backup capture | `python/live_lob_capture.py --storage-exchange binance_backup` | `systemd-lob-capture-binance-backup.service` |
+| Trades, primary capture (`@trade`) | `python/live_trade_capture.py` | `systemd-lob-capture-binance-trades.service` |
+| Trades, backup capture | `python/live_trade_capture.py --storage-stream binance_trades_backup` | `systemd-lob-capture-binance-trades-backup.service` |
+| Daily download of the official trade file (Binance Vision), 04:00 UTC | `python/run_daily_binance_vision_trades.py` → `python/download_binance_vision_trades.py` | `systemd-lob-binance-vision-trades-daily.service` + `.timer` |
 
-- Las cuatro capturas corren como servicios permanentes: se reinician solas si fallan (`Restart=always`) y rotan sus archivos cada 12 horas.
-- Cada mensaje se guarda sin modificar, en formato JSONL, junto con su hora de recepción (`recv_ns`): los archivos abiertos van en `raw_live/` y, al cerrarse, se comprimen en `raw_done/`.
-- Primaria y respaldo son capturas separadas del mismo flujo. Al reconstruir el libro se combinan por número de secuencia (`U/u`), de modo que un mensaje perdido en una puede recuperarse de la otra.
+- The four captures run as permanent services: they restart on failure (`Restart=always`) and rotate their files every 12 hours.
+- Every message is stored unmodified, as JSONL, with its receive time (`recv_ns`). Open files live in `raw_live/`; when closed they are compressed into `raw_done/`.
+- Primary and backup are separate captures of the same stream. The reconstruction merges them by sequence number (`U/u`), so a message lost by one can be recovered from the other.
 
-## Instalación en el servidor (Shell)
+## Installing on the server (shell)
 
 ```bash
-# usuario y estructura
+# user and layout
 sudo useradd --system --create-home --home-dir /opt/lob_system lob
 sudo -u lob mkdir -p /opt/lob_system/scripts
 sudo -u lob python3 -m venv /opt/lob_system/venv
 sudo -u lob /opt/lob_system/venv/bin/pip install websockets
 sudo cp python/*.py /opt/lob_system/scripts/
 
-# servicios
+# services
 sudo cp systemd/systemd-lob-capture-binance.service                /etc/systemd/system/lob-capture-binance.service
 sudo cp systemd/systemd-lob-capture-binance-backup.service         /etc/systemd/system/lob-capture-binance-backup.service
 sudo cp systemd/systemd-lob-capture-binance-trades.service         /etc/systemd/system/lob-capture-binance-trades.service
@@ -38,25 +38,25 @@ sudo systemctl enable --now lob-capture-binance lob-capture-binance-backup lob-c
 sudo systemctl enable --now lob-binance-vision-trades-daily.timer
 ```
 
-Los capturadores solo necesitan `websockets`; la descarga diaria usa solo la biblioteca estándar.
+The capture scripts only need `websockets`; the daily download uses the standard library only.
 
-## Operación y control (Shell)
+## Operation and monitoring (shell)
 
 ```bash
-systemctl status lob-capture-binance lob-capture-binance-backup        # estado de las capturas
-journalctl -u lob-capture-binance --since "1 hour ago"                 # registro de un servicio
-systemctl list-timers lob-binance-vision-trades-daily.timer            # próxima descarga diaria
-ls -lh /opt/lob_system/raw_done/                                       # archivos cerrados (rotación de 12 h)
+systemctl status lob-capture-binance lob-capture-binance-backup        # state of the captures
+journalctl -u lob-capture-binance --since "1 hour ago"                 # log of one service
+systemctl list-timers lob-binance-vision-trades-daily.timer            # next daily download
+ls -lh /opt/lob_system/raw_done/                                       # closed files (12 h rotation)
 ```
 
-Las rutas exactas de salida y los nombres de archivo los fija cada script con `--root`, `--storage-exchange` y `--storage-stream`.
+Exact output paths and file names are set by each script through `--root`, `--storage-exchange` and `--storage-stream`.
 
-## Del servidor a la tesis
+## From the server to the thesis
 
-1. **Captura:** archivos JSONL inmutables (libro y transacciones, primaria y respaldo).
-2. **Transacciones oficiales:** archivo diario de Binance Vision, con su suma de verificación.
-3. **Reconstrucción del libro:** instantánea REST más diferenciales en orden `U/u`. Los huecos sin cubrir se marcan como inválidos y no se interpolan (repositorio público, `src/reconstruction/`).
-4. **Capa canónica de 100 ms:** 120 días y 202 columnas, más las transacciones por evento. Su catálogo de huellas está en `codigo/00_datos_canonicos/`.
-5. **Modelos y evaluación:** carpetas `codigo/01_` a `codigo/20_` de este repositorio.
+1. **Capture:** immutable JSONL files (book and trades, primary and backup).
+2. **Official trades:** the daily Binance Vision file, with its checksum.
+3. **Book reconstruction:** a REST snapshot plus diffs in `U/u` order. Uncovered gaps are marked invalid and never interpolated (public repository, `src/reconstruction/`).
+4. **Canonical 100 ms layer:** 120 days and 202 columns, plus trades by event. Its fingerprint catalogue is in `codigo/00_datos_canonicos/`.
+5. **Models and evaluation:** folders `codigo/01_` to `codigo/20_` of this repository.
 
-Los archivos no incluyen credenciales: los flujos de Binance son públicos y no requieren clave.
+No credentials are involved: Binance's streams are public and need no key.
