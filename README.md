@@ -240,3 +240,9 @@ File names keep the version number they were run with (for example `wf_v102.py`)
 ## Environment
 
 Python 3.14; versions in `requirements.txt`.
+
+## License
+
+- **Code** (`codigo/`, `captura_datos/`): [MIT License](LICENSE).
+- **Thesis document** (`documento/`): [CC BY 4.0](documento/LICENSE.md). It can be shared and adapted with credit to the author.
+- The market data are not included; they come from Binance's public streams and Binance Vision files, subject to Binance's terms.
