@@ -35,6 +35,35 @@ It then asks two separate questions:
 
 **In short:** a clear predictive contribution and a negative economic result, both supported.
 
+## How well each model predicts
+
+All 11 models predict the same thing: how many aggressive orders will reach each of 9 distances from the mid in the next second. They are fitted on the same data (29 Jun–3 Sep) and evaluated on days they never saw.
+
+| Model | What it uses | AUC, test (4–20 Sep) | AUC, simulation (21 Sep–26 Oct) | Share of E3's gain, test / simulation |
+|---|---|---|---|---|
+| **E3-fkX+B (thesis)** | **Gradient boosting on 49 covariates + hour + f(δ) + m(X)** | **0.813** | **0.845** | **100 % / 100 %** |
+| E3-fkX | Same, without sweep covariates (44) | 0.813 | 0.845 | 99 % / 100 % |
+| E3 base | Gradient boosting + exponential −kδ | 0.811 | 0.845 | 95 % / 94 % |
+| E1+X49 | Linear Poisson GLM with the same 49 covariates | 0.800 | 0.838 | 91 % / 90 % |
+| E2m+S | Hawkes, two time scales, + 7 signals | 0.763 | 0.784 | 74 % / 70 % |
+| E2m+h-f | Hawkes, two time scales, + hour + f(δ) | 0.748 | 0.764 | 61 % / 60 % |
+| E2+S | Hawkes, one time scale, + 7 signals | 0.718 | 0.745 | 45 % / 43 % |
+| E1+S | Avellaneda–Stoikov + 7 signals | 0.715 | 0.741 | 43 % / 41 % |
+| E2+h-f | Hawkes, one time scale, + hour + f(δ) | 0.627 | 0.654 | 12 % / 16 % |
+| E1+h-f | Avellaneda–Stoikov + hour + f(δ) | 0.613 | 0.642 | 10 % / 14 % |
+| E1 | Avellaneda–Stoikov (constant intensity) | 0.500 | 0.500 | 0 % / 0 % |
+
+How to read the table:
+- **AUC** is computed at δ = 2 bps, averaged over the ask and bid sides. It measures how well the model ranks the seconds in which an order arrives above those in which none does: 0.5 is chance, 1 is perfect.
+- **Share of E3's gain** is how much of E3's log-likelihood improvement over plain Avellaneda–Stoikov each model recovers.
+- **Takeaways:**
+  - E3 beats every Avellaneda–Stoikov and Hawkes variant on every test day (17/17) and every simulation day (36/36). It beats the linear GLM on 16 of 17 test days and 32–35 of 36 simulation days.
+  - A linear model with the same covariates gets about 90 % of the way, so most of the gain comes from the covariates. The flexible fit adds the rest.
+  - The best Hawkes model reaches about 70–74 %.
+  - Prediction did not degrade on the 36 new days: the AUC rose from 0.813 to 0.845.
+
+Details: [`10_`](codigo/10_walk_forward/) (walk-forward), [`17_`](codigo/17_test_predictivo/) (test), [`19_`](codigo/19_simulacion/) (simulation).
+
 ## Model names
 
 | Name | Model |
