@@ -1,18 +1,10 @@
-% ═══════════════════════════════════════════════════════════════════════════
-\chapter{Problema a Trabajar}
-% ═══════════════════════════════════════════════════════════════════════════
+\chapter{Planteamiento del problema}
 
-Sea $m_t$ el precio medio del activo y $X_t \in \mathbb{R}^d$ un vector de variables
-de mercado observables en el instante $t$ (spread actual, desequilibrio del libro de
-órdenes, volatilidad realizada y volumen en ventanas causales). Se denotan por
-$\lambda_0^a(t\mid X_t)$ y $\lambda_0^b(t\mid X_t)$ las intensidades base de trades
-agresores que pueden alcanzar, respectivamente, una cotización pasiva en el ask o en
-el bid. La intensidad de fill a una distancia elegida $\delta$ combina esa intensidad
-base con una función decreciente de la distancia y una regla conservadora de ejecución
-reconstruida mediante replay del LOB.
+Sea $m_t$ el precio medio de un activo y $X_t\in\mathbb R^d$ el estado observable del mercado antes de decidir: profundidad, desequilibrio, volatilidad y flujo reciente. El problema estadístico consiste en estimar, para cada lado y distancia $\delta$, la intensidad de eventos agresores que alcanzan una cotización hipotética. El problema de decisión consiste en usar esa estimación para cotizar y administrar inventario.
 
-El problema central de este trabajo se articula en cuatro preguntas de investigación:
+La distinción entre ambos problemas es necesaria. Que una transacción alcance un precio no garantiza la ejecución de una orden propia: también intervienen el volumen negociado y la prioridad en la cola. A su vez, una ejecución no garantiza beneficio, porque el precio puede moverse después en contra. La hipótesis de trabajo es que una intensidad dependiente del estado mejora la predicción respecto de parámetros fijos; su efecto económico debe comprobarse por separado.
 
+Las preguntas de investigación, formuladas en el anteproyecto, son:
 \begin{enumerate}[label=\textbf{P\arabic*.}]
   \item \textquestiondown{}Cómo modelar $\lambda_0^a(t\mid X_t)$ y $\lambda_0^b(t\mid X_t)$ como
         funciones del estado del mercado $X_t$ y del tiempo $t$ usando un enfoque
@@ -26,3 +18,4 @@ El problema central de este trabajo se articula en cuatro preguntas de investiga
         cambios de régimen, costos, latencia y especificaciones de inventario?
 \end{enumerate}
 
+Su alcance se delimita así: P1 se responde con la intensidad de alcance, no con la de ejecución propia; P2, con el PnL bruto y neto de las comisiones evaluadas bajo reglas de ejecución comunes; P3, con la política HJB aplicada con coeficientes congelados (Sección~\ref{sec:hjb-teoria}); P4, con la estabilidad entre periodos y la sensibilidad a la regla de ejecución. La sensibilidad a motores y latencia procede solo del desarrollo y no equivale a una evaluación exhaustiva de las condiciones de operación.

@@ -50,7 +50,12 @@
 
 \graphicspath{{figuras/}}
 
+\hypersetup{pdftitle={Market Making con Aprendizaje Estadístico},pdfauthor={Santiago Rueda}}
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
 \begin{document}
+\hypersetup{pageanchor=false}
 
 % ─── PORTADA INSTITUCIONAL ─────────────────────────────────────────────────
 \begin{titlepage}
@@ -80,6 +85,7 @@
 
 % ─── ÍNDICES ───────────────────────────────────────────────────────────────
 \frontmatter
+\hypersetup{pageanchor=true}
 \tableofcontents
 \listoftables
 \listoffigures
@@ -92,8 +98,8 @@
 \input{capitulos/03_justificacion}
 \input{capitulos/04_objetivos}
 \input{capitulos/05_marco}
-\input{capitulos/06_metodologia}
-\input{capitulos/07_datos}
+\input{capitulos/06_datos}
+\input{capitulos/07_metodologia}
 \input{capitulos/08_resultados}
 \input{capitulos/09_discusion}
 \input{capitulos/10_conclusiones}
@@ -103,6 +109,9 @@
 \input{capitulos/B_ciegos}
 
 \backmatter
+\begingroup
+\raggedright
 \bibliographystyle{plainnat}
 \bibliography{references_final}
+\endgroup
 \end{document}

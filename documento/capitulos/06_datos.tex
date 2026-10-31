@@ -3,7 +3,7 @@
 \label{chap:datos}
 % ═══════════════════════════════════════════════════════════════════════════
 
-Los datos de este trabajo no provienen de un proveedor comercial: se capturaron en vivo desde la infraestructura pública de Binance y se reconstruyó con ellos el libro de órdenes completo de BTC/USDT en Binance Spot. Este capítulo describe cómo se hizo y cómo se verificó.
+Los datos de este trabajo no provienen de un proveedor comercial: se capturaron en vivo desde la infraestructura pública de Binance y se reconstruyó con ellos el libro de órdenes completo de BTC/USDT en Binance Spot. Este capítulo establece qué información está disponible, cómo se reconstruyó y qué verificaciones respaldan su uso. La partición y los modelos se presentan después, en el Capítulo~\ref{chap:metodologia}.
 
 \section{Captura en vivo}
 Un servidor dedicado en Alemania se conectó de forma continua a dos flujos públicos de Binance Spot para BTC/USDT: el flujo de profundidad, que publica cada 100~ms los cambios del libro, y el flujo de transacciones, que publica cada operación con su precio, cantidad, lado agresor y hora del motor de negociación. Cada flujo se capturó dos veces en paralelo (captura primaria y de respaldo), de modo que un mensaje perdido por una conexión pudiera recuperarse de la otra. Los archivos se rotaron cada 12 horas y cada mensaje se guardó sin modificar, junto con su hora de recepción local. Periódicamente se descargaron instantáneas completas del libro, que sirven de punto de partida para la reconstrucción.
@@ -27,7 +27,7 @@ La Tabla~\ref{tab:volumen} resume el volumen de datos. El inventario del servido
 
 \begin{table}[htbp]
 \centering\small\setlength{\tabcolsep}{4pt}
-\caption{Volumen de los datos crudos y de la capa canónica.}
+\caption[Volumen de datos crudos y canónicos.]{Volumen de los datos crudos y de la capa canónica.}
 \label{tab:volumen}
 \begin{tabular}{@{}lrrr@{}}
 \toprule
@@ -46,7 +46,7 @@ La Tabla~\ref{tab:auditoria} resume las verificaciones.
 
 \begin{table}[htbp]
 \centering\small
-\caption{Verificaciones de la reconstrucción y de la capa canónica.}
+\caption[Verificaciones de los datos.]{Verificaciones de la reconstrucción y de la capa canónica.}
 \label{tab:auditoria}
 \begin{tabular}{@{}p{.70\textwidth}r@{}}
 \toprule Verificación & Resultado\\\midrule
@@ -81,4 +81,4 @@ Las covariables deben usar solo información anterior a cada decisión. Para com
 \label{fig:reloj}
 \end{figure}
 
-No hay fuga detectable: el libro va unos 90~ms detrás del reloj de las transacciones, por la publicación en lotes de 100~ms. Un participante real vería además el estado con el retraso de red. Por eso se verificó, con la versión original de E3, que un retraso adicional de 200~ms en las covariables conserva entre el 81 y el 90\,\% de su ventaja predictiva.
+Esta comprobación no detecta anticipación del barrido en el libro: el libro va unos 90~ms detrás del reloj de las transacciones, por la publicación en lotes de 100~ms. Un participante real vería además el estado con el retraso de red. Por eso se verificó, con la versión original de E3, que un retraso adicional de 200~ms en las covariables conserva entre el 81 y el 90\,\% de su ventaja predictiva.

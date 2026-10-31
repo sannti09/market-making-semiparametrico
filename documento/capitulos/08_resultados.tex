@@ -3,7 +3,7 @@
 \label{chap:resultados}
 % ═══════════════════════════════════════════════════════════════════════════
 
-El capítulo sigue el orden de las preguntas. La Sección~\ref{sec:especificacion-final} resume cómo se llegó a la especificación final de E3; es la única parte exploratoria del capítulo. Las Secciones~\ref{sec:walkforward} a~\ref{sec:rebote} responden P1 (mejora predictiva), la Sección~\ref{sec:politica} responde P3 (efecto sobre la política), las Secciones~\ref{sec:p2} y~\ref{sec:p2-origen} responden P2 (valor económico), y la Sección~\ref{sec:simulacion} repite ambas evaluaciones en un periodo posterior. Las diferencias de log-verosimilitud se expresan por segundo, sumando las nueve distancias; un valor positivo favorece a E3 tesis.
+El capítulo distingue desarrollo, evaluación predictiva y evaluación económica. Primero se resume la selección de la especificación dentro del entrenamiento. Después se presentan el \textit{walk-forward}, el test y la calibración tras barridos. La segunda parte estudia cómo cambian las cotizaciones y el PnL, y termina con el diagnóstico de las pérdidas y la sensibilidad a la ejecución. La evaluación posterior repite los modelos congelados sin reajustes. Las diferencias de log-verosimilitud se expresan por segundo, sumando las nueve distancias; un valor positivo favorece a E3 tesis. Los análisis de desarrollo y de sensibilidad se distinguen de las comparaciones principales.
 
 \section{Especificación final de E3}
 \label{sec:especificacion-final}
@@ -21,16 +21,16 @@ La especificación se desarrolló dentro del entrenamiento, comparando siempre f
 La especificación final, \textbf{E3 tesis}, es \eqref{eq:fkx} con 49 covariables, $h$ horaria en el ask, curva $f$ monótona y $m(X)=\exp(b^\top z)$ con cuatro covariables. Sus coeficientes de modulación son pequeños ($|b_j|\le0{,}10$).
 
 
-\section{P1: comparación con referencias reforzadas}
+\section{P1: \textit{walk-forward} con referencias reforzadas}
 \label{sec:walkforward}
 
 Las referencias reciben las mismas mejoras aplicables que E3 (Tabla~\ref{tab:modelos}). El Hawkes de dos escalas ajustado con todo el entrenamiento elige memorias de 1~s y 3,3~ms ($\beta=1$ y $300$~s$^{-1}$) con radio espectral 0,74; el de una escala elige solo la escala rápida.
 
-La Tabla~\ref{tab:wf} y la Figura~\ref{fig:wf-parte} resumen los 34 días fuera de muestra del \textit{walk-forward}. La ventana 1 reproduce exactamente los resultados obtenidos antes con el mismo ajuste (diferencia relativa nula), lo que verifica el código.
+La Tabla~\ref{tab:wf} resume los 34 días fuera de muestra del \textit{walk-forward}. La ventana 1 reproduce exactamente los resultados obtenidos antes con el mismo ajuste (diferencia relativa nula), lo que verifica el código.
 
 \begin{table}[htbp]
 \centering\footnotesize
-\caption{\textit{Walk-forward} (cinco ventanas semanales, 34 días fuera de muestra; ajuste original). Parte de la mejora de E3 tesis sobre AS base que recupera cada modelo, ventaja de E3 tesis por intervalo [IC95 por días] y AUC a $\delta=2$~bps.}
+\caption[Comparación predictiva en el walk-forward.]{\textit{Walk-forward} (cinco ventanas semanales, 34 días fuera de muestra; ajuste original). Parte de la mejora de E3 tesis sobre AS base que recupera cada modelo, ventaja de E3 tesis por intervalo [IC95 por días] y AUC a $\delta=2$~bps.}
 \label{tab:wf}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}lrrccrr@{}}\toprule
@@ -51,12 +51,7 @@ AS base & 0\,\% & 0\,\% & $+1{,}743$ [1,122; 2,483] & $+1{,}684$ [1,061; 2,440] 
 \end{tabular}}
 \end{table}
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=.86\textwidth]{F1_parte_mejora_wf.pdf}
-\caption{Parte de la mejora de E3 tesis sobre AS base que recupera cada modelo en el \textit{walk-forward}.}
-\label{fig:wf-parte}
-\end{figure}
+
 
 Se cumplen los dos criterios principales del protocolo. \emph{Estabilidad}: E3 tesis supera a cada uno de los diez modelos en las cinco ventanas y en ambos lados (Figura~\ref{fig:wf-ventanas}). \emph{Diferencia global}: el intervalo de confianza de la ventaja es positivo frente a todos; frente a E3-fkX gana 25 y 23 de 34 días, y frente a los demás, 33 o 34 de 34. La ventaja crece en las semanas agitadas (15--28 de agosto), en las que una intensidad constante falla más.
 
@@ -69,7 +64,7 @@ Se cumplen los dos criterios principales del protocolo. \emph{Estabilidad}: E3 t
 
 El diagnóstico de sobreajuste compara la ventaja de E3 sobre el GLM lineal en la semana siguiente con la de la última semana ajustada. El cociente está por debajo de 0,5 en dos de cinco ventanas (V4 y V5), en las que la semana ajustada incluye el periodo agitado del 15 al 28 de agosto y la ventaja dentro de muestra se infla; el umbral del protocolo (tres ventanas) no se alcanza. En la ventana 3 el cociente supera 2, porque la semana evaluada es la agitada.
 
-Tres lecturas se desprenden de la Tabla~\ref{tab:wf}. Primera, el estado del libro explica la mayor parte de la mejora: el GLM lineal con las mismas covariables recupera el 90--91\,\%. La no linealidad de $g$ aporta el resto, mejora la discriminación (AUC 0,834 frente a 0,821) y, entre los modelos evaluados, es la que mejor corrige el rebote (Sección~\ref{sec:rebote}). Segunda, la memoria importa, pero con la escala correcta: el Hawkes de dos escalas recupera el 61--62\,\% frente al 9\,\% del de una escala. Tercera, las variables de barrido aportan poco a la verosimilitud global (E3-fkX recupera el 98,6--99,5\,\%), porque los barridos son eventos raros; su valor está en la calibración tras esos eventos.
+Tres lecturas se desprenden de la Tabla~\ref{tab:wf}. Primera, el estado del libro explica la mayor parte de la mejora: el GLM lineal con las mismas covariables recupera el 90--91\,\%. La especificación de E3 aporta una ventaja adicional, mejora la discriminación (AUC 0,834 frente a 0,821) y, entre los modelos evaluados, es la que mejor corrige el rebote (Sección~\ref{sec:rebote}). Segunda, la memoria importa, pero con la escala correcta: el Hawkes de dos escalas recupera el 61--62\,\% frente al 9\,\% del de una escala. Tercera, las variables de barrido aportan poco a la verosimilitud global (E3-fkX recupera el 98,6--99,5\,\%), porque los barridos son eventos raros; su valor está en la calibración tras esos eventos.
 
 
 \section{P1: test final}
@@ -85,7 +80,7 @@ Con los once modelos ajustados en todo el entrenamiento y congelados antes de le
 
 \begin{table}[htbp]
 \centering\footnotesize
-\caption{Test final (4--20 sep., 17 días; modelos congelados con el ajuste corregido; las ventajas por intervalo y el AUC coinciden con el ajuste original a tres decimales). Parte de la mejora sobre AS base, ventaja de E3 tesis por intervalo [IC95 por días] y días en que gana E3 tesis (ask / bid).}
+\caption[Comparación predictiva en el test.]{Test final (4--20 sep., 17 días; modelos congelados con el ajuste corregido; las ventajas por intervalo y el AUC coinciden con el ajuste original a tres decimales). Parte de la mejora sobre AS base, ventaja de E3 tesis por intervalo [IC95 por días] y días en que gana E3 tesis (ask / bid).}
 \label{tab:test}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}lrrccc@{}}\toprule
@@ -105,14 +100,9 @@ AS base & 0\,\% & 0\,\% & $+1{,}316$ [0,880; 1,810] & $+1{,}340$ [0,835; 1,953] 
 \end{tabular}}
 \end{table}
 
-El orden de los modelos es el mismo que en el \textit{walk-forward} (Figura~\ref{fig:test-parte}) y el AUC baja de 0,83 a 0,81, una degradación moderada en datos nuevos. Frente a E3-fkX, la ventaja en el lado ask no es significativa: las variables de barrido no mejoran la predicción global en ese lado, aunque sí la calibración del rebote. Los AUC de las referencias en el test son 0,80 (GLM), 0,76--0,77 (Hawkes 2 escalas + S), 0,74--0,75 (Hawkes 2 escalas + h + f), 0,71--0,72 (AS + S), 0,61--0,63 (AS y Hawkes 1 escala con h y f) y 0,50 (AS base).
+El orden global de las referencias principales es el mismo que en el \textit{walk-forward} y el AUC baja de 0,83 a 0,81, una diferencia moderada entre periodos. Frente a E3-fkX, la ventaja en el lado ask no es significativa: las variables de barrido no mejoran la predicción global en ese lado, aunque sí la calibración del rebote. Los AUC de las referencias en el test son 0,80 (GLM), 0,76--0,77 (Hawkes 2 escalas + S), 0,74--0,75 (Hawkes 2 escalas + h + f), 0,71--0,72 (AS + S), 0,61--0,63 (AS y Hawkes 1 escala con h y f) y 0,50 (AS base).
 
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=.86\textwidth]{F4_parte_mejora_test.pdf}
-\caption{Parte de la mejora de E3 tesis sobre AS base que recupera cada modelo en el test final.}
-\label{fig:test-parte}
-\end{figure}
+
 
 
 \section{P1: calibración tras barridos}
@@ -133,7 +123,7 @@ Los modelos sin covariables de estado (AS y Hawkes con h y f) subestiman fuertem
 \section{P3: política HJB con intensidades estimadas}
 \label{sec:politica}
 
-La HJB \eqref{eq:hjb-theta} se resolvió numéricamente con un esquema de Euler implícito linealizado, incondicionalmente estable porque la matriz del sistema es una M-matriz, seguido de un paso de Newton sobre el régimen ergódico. El Hamiltoniano se calcula con la curva de distancia de cada modelo interpolada: $\log\Lambda_i(\delta)$ es lineal a trozos entre los nueve nodos de $\delta$ y se extiende con la pendiente del primer y del último tramo; en cada tramo el máximo de $\Lambda_i(\delta)(1-e^{-\gamma(\delta-p)})/\gamma$ tiene forma cerrada, y $H_i$ es el máximo sobre los tramos, con $\delta$ restringida a $[-5;40]$~bps. Para aplicarla cada segundo se precalculan tablas en $(\ln\sigma^2/A_a,\ln A_b/A_a)$ y, para E3 tesis y E3-fkX, también en $(m_a,m_b)$, con rangos tomados de seis días de entrenamiento. Antes de usarla en el test se verificó en el entrenamiento que:
+Bajo la aproximación de coeficientes congelados, la HJB \eqref{eq:hjb-theta} se resolvió numéricamente con un esquema de Euler implícito linealizado, incondicionalmente estable porque la matriz del sistema es una M-matriz, seguido de un paso de Newton sobre el régimen ergódico. El Hamiltoniano se calcula con la curva de distancia de cada modelo interpolada: $\log\Lambda_i(\delta)$ es lineal a trozos entre los nueve nodos de $\delta$ y se extiende con la pendiente del primer y del último tramo; en cada tramo el máximo de $\Lambda_i(\delta)(1-e^{-\gamma(\delta-p)})/\gamma$ tiene forma cerrada, y $H_i$ es el máximo sobre los tramos, con $\delta$ restringida a $[-5;40]$~bps. Para aplicarla cada segundo se precalculan tablas en $(\ln\sigma^2/A_a,\ln A_b/A_a)$ y, para E3 tesis y E3-fkX, también en $(m_a,m_b)$, con rangos tomados de seis días de entrenamiento. Antes de usarla en el test se verificó en el entrenamiento que:
 \begin{itemize}[nosep]
 \item con forma exponencial reproduce la solución de la Sección~\ref{sec:hjb-teoria} (diferencia máxima $10^{-14}$), que a su vez reproduce la solución lineal de \citet{Gueant2017};
 \item el máximo por tramos coincide con una búsqueda exhaustiva en una rejilla fina (error relativo máximo $2\times10^{-8}$);
@@ -144,7 +134,7 @@ Ninguna pendiente de tramo resultó menor que 0,16~bps$^{-1}$ y ninguna distanci
 
 \begin{table}[htbp]
 \centering\small
-\caption{Distancia óptima en el ask con inventario nulo (bps), mediana en el test; $\gamma=0{,}01$, ajuste corregido. La HJB usa la curva de distancia interpolada; GLFT, una exponencial local.}
+\caption[Distancias HJB y GLFT con inventario nulo.]{Distancia óptima en el ask con inventario nulo (bps), mediana en el test; $\gamma=0{,}01$, ajuste corregido. La HJB usa la curva de distancia interpolada; GLFT, una exponencial local.}
 \label{tab:hjb}
 \begin{tabular}{@{}lcc@{}}\toprule
 Intensidad & HJB & GLFT\\\midrule
@@ -157,13 +147,13 @@ E3 tesis & 0,85 & 1,25\\\bottomrule
 
 Tres resultados responden a P3. Primero, en GLFT la distancia base no depende del nivel $A$, de modo que las referencias apenas mueven las cotizaciones respecto de AS. Segundo, la forma de la curva sí importa en la solución numérica: con la curva interpolada, los modelos con $f(\delta)$ cotizan unos 0,4~bps más cerca que con una exponencial, y E3 tesis, cuya pendiente cerca del precio medio depende del estado, unos 0,7~bps más cerca. Frente a la versión que aproxima cada intensidad por una exponencial local, el precio cotizado cambia en el 86--99\,\% de las decisiones de esos modelos. Tercero, el cociente $A_b/A_a$ que predice E3 sesga la política hacia un lado incluso con inventario nulo. Los valores negativos de la distancia, que cruzarían el precio medio, se acotan al mejor precio para mantener la orden pasiva.
 
-\section{Valor económico en el test}
+\section{P2: valor económico en el test}
 \label{sec:p2}
 La Tabla~\ref{tab:pnl} y la Figura~\ref{fig:pnl} muestran el desempeño en el test de las tres políticas con las intensidades de los modelos del ajuste corregido, todas con el mismo simulador, la misma orden de 0,01~BTC y el mismo límite de inventario. El precio medio de BTC en el test fue de unos 78\,000~USDT, de modo que cada orden vale unos 780~USDT.
 
 \begin{table}[htbp]
 \centering\footnotesize
-\caption{PnL de market making en el test (17 días), bruto de comisiones; ajuste corregido. HJB con curva de distancia interpolada; GLFT con exponencial local. PnL por ejecución con IC95 por días.}
+\caption[PnL en el test con cruce estricto.]{PnL de market making con cruce estricto en el test (17 días), bruto de comisiones; ajuste corregido. HJB con curva de distancia interpolada; GLFT con exponencial local. PnL por ejecución con IC95 por días.}
 \label{tab:pnl}
 \setlength{\tabcolsep}{3.5pt}
 \resizebox{\textwidth}{!}{%
@@ -200,14 +190,14 @@ Política & Intensidad & Ejec./día & PnL/día (USDT) & PnL por ejec. (bps) & D�
 \item \textbf{Las comisiones agravan el resultado.} Con la comisión maker estándar de un participante minorista (7,5--10~bps por ejecución), todas las combinaciones pierden entre 9 y 11~bps por ejecución.
 \end{itemize}
 
-\section{Simulación del 21 de septiembre al 26 de octubre}
+\section{P1 y P2: periodo posterior (21 sep.--26 oct.)}
 \label{sec:simulacion}
 
 Con los mismos modelos y políticas, sin ningún reajuste, se evaluaron los 36 días posteriores al test, cuya primera parte se había usado antes en evaluaciones exploratorias de versiones anteriores del modelo (Sección~\ref{sec:limitaciones}). Antes de evaluar el periodo se comprobó que el código reproduce exactamente un día del test (diferencia nula en predicción, ejecuciones y PnL).
 
 \begin{table}[htbp]
 \centering\footnotesize
-\caption{Simulación (21 sep.--26 oct., 36 días; modelos congelados). Parte de la mejora sobre AS base, ventaja de E3 tesis por segundo [IC95 por días], días ganados y AUC (ask / bid).}
+\caption[Comparación predictiva en el periodo posterior.]{Simulación (21 sep.--26 oct., 36 días; modelos congelados). Parte de la mejora sobre AS base, ventaja de E3 tesis por segundo [IC95 por días], días ganados y AUC (ask / bid).}
 \label{tab:sim}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}lrrcccc@{}}\toprule
@@ -230,11 +220,11 @@ AS base & 0\,\% & 0\,\% & $+1{,}164$ [0,946; 1,419] & $+1{,}286$ [1,016; 1,575] 
 
 \paragraph{Predicción.} El orden de los modelos se mantiene y el AUC de E3 tesis sube a 0,85, sin degradación semana a semana (0,81 a 0,87 en las cinco semanas; 0,83 a 0,87 en las tres semanas desde el 5 de octubre). E3 tesis supera a todas las referencias con intervalos que excluyen el cero, salvo a E3-fkX en el lado ask, como en el test. De los cuatro criterios del test, escalados a 36 días, se cumplen los tres primeros (jerarquía, consistencia y AUC). El de calibración tras barridos no se cumple: la brecha es $+0{,}11$ tras barridos vendedores y $+0{,}22$ tras compradores, frente al límite de $\pm0{,}15$.
 
-\paragraph{Valor económico.} Los resultados repiten los del test (Tabla~\ref{tab:sim-pnl}). Ninguna combinación de modelo y política es rentable. Con la HJB, las diferencias por ejecución entre E3 tesis y las referencias no son significativas. Con la regla miope, E3 tesis pierde $0{,}08$~bps más por ejecución que los modelos que cotizan siempre a 1~bps (IC95 $[-0{,}128; -0{,}028]$), porque se acerca al precio medio en los momentos de mayor intensidad predicha. Las tablas de la HJB cubren el periodo: en promedio, el 0,3--0,5\,\% de los segundos cae fuera de sus rangos.
+\paragraph{Valor económico con cruce estricto.} Los resultados repiten los del test (Tabla~\ref{tab:sim-pnl}): ninguna combinación de modelo y política tiene PnL agregado positivo bajo esta regla. La sensibilidad a otras reglas se presenta en la Sección~\ref{sec:sensibilidad-ejecucion}. Con la HJB, las diferencias por ejecución entre E3 tesis y las referencias no son significativas. Con la regla miope, E3 tesis pierde $0{,}08$~bps más por ejecución que los modelos que cotizan siempre a 1~bps (IC95 $[-0{,}128; -0{,}028]$), porque se acerca al precio medio en los momentos de mayor intensidad predicha. Las tablas de la HJB cubren el periodo: en promedio, el 0,3--0,5\,\% de los segundos cae fuera de sus rangos.
 
 \begin{table}[htbp]
 \centering\footnotesize
-\caption{PnL en la simulación (36 días), bruto de comisiones; modelos congelados, HJB con curva interpolada. PnL por ejecución con IC95 por días.}
+\caption[PnL en el periodo posterior con cruce estricto.]{PnL con cruce estricto en la simulación (36 días), bruto de comisiones; modelos congelados, HJB con curva interpolada. PnL por ejecución con IC95 por días.}
 \label{tab:sim-pnl}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}llrrcr@{}}\toprule
@@ -251,14 +241,20 @@ Política & Intensidad & Ejec./día & PnL/día (USDT) & PnL por ejec. (bps) & D�
 \end{tabular}}
 \end{table}
 
-\section{Origen de la pérdida}
+\section{P2: diagnóstico de las pérdidas con cruce estricto}
 \label{sec:p2-origen}
 
-Cada ejecución puede descomponerse en dos partes: la distancia capturada respecto del precio medio en el momento de la decisión y el movimiento posterior del precio medio. Su suma es el \textit{markout} \eqref{eq:markout}. La Tabla~\ref{tab:sa} la presenta para las ejecuciones del test y de la simulación.
+Para estudiar las pérdidas se descompone el \textit{markout}, no el PnL completo de cartera. Si $t$ es el instante de decisión y $\tau$ el de ejecución, el markout de una venta a precio $p$ satisface
+\begin{equation}
+ \mathrm{MK}_H=\underbrace{10^4\frac{p-m_t}{p}}_{\text{captura frente al mid de decisión}}
+ +\underbrace{10^4\frac{m_t-m_{\tau+H}}{p}}_{\text{movimiento desde la decisión hasta }\tau+H}.
+ \label{eq:descomposicion-markout}
+\end{equation}
+Para una compra se invierten los signos. El segundo término incluye el cambio entre decisión y ejecución: no es exclusivamente movimiento posterior al fill. La Tabla~\ref{tab:sa} presenta esta identidad en el test y en la simulación. El PnL de cartera depende además de la trayectoria y duración del inventario, y se calcula por separado.
 
 \begin{table}[htbp]
 \centering\footnotesize
-\caption{Descomposición de la pérdida por ejecución (bps; media por ejecución): distancia capturada, movimiento posterior del precio medio y \textit{markout} a 10~s. Modelos congelados.}
+\caption[Captura, movimiento del precio y markout.]{Descomposición de la pérdida por ejecución (bps; media por ejecución): distancia capturada frente al mid de decisión, movimiento desde ese mid hasta 1 y 10~s después de ejecutar, y \textit{markout} a 10~s. Modelos congelados.}
 \label{tab:sa}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}llrrrrr@{}}\toprule
@@ -274,13 +270,15 @@ Periodo & Combinación & Capturada & Mov. 1~s & Mov. 10~s & \textit{Markout} 10~
 \end{tabular}}
 \end{table}
 
-En los dos periodos y en todas las combinaciones se repite la misma regularidad. Lo que se captura de más al cotizar más lejos (de $+0{,}9$ a $+2{,}0$~bps) se pierde en un movimiento posterior mayor (de $-2{,}1$ a $-3{,}3$~bps), y el \textit{markout} queda entre $-1{,}16$ y $-1{,}31$~bps. Una cotización alejada solo se ejecuta cuando un barrido grande la atraviesa, y tras ese barrido el precio sigue en la misma dirección. Entre el 80 y el 90\,\% del movimiento a 10~s ocurre en el primer segundo, y solo entre el 23 y el 32\,\% de las ejecuciones resulta ganador. En BTC/USDT el spread es de un tick el 99,96\,\% del tiempo, así que el margen por cotizar procede únicamente de la distancia elegida, y esa distancia queda compensada por el movimiento posterior.
+En los dos periodos y en todas las combinaciones se repite la misma regularidad. Lo que se captura de más al cotizar más lejos (de $+0{,}9$ a $+2{,}0$~bps) se pierde en un movimiento medido mayor (de $-2{,}1$ a $-3{,}3$~bps), y el \textit{markout} queda entre $-1{,}16$ y $-1{,}31$~bps. La regla selecciona ejecuciones en las que una transacción atraviesa la cotización. En promedio, el movimiento asociado supera el margen capturado; esto es compatible con continuación del precio en la dirección adversa al maker, sin afirmar que ocurra en todas las ejecuciones. Entre el 80 y el 90\,\% del movimiento medido hasta 10~s ya está presente al medir a 1~s; ambos se calculan desde el mid de decisión hasta el horizonte posterior a la ejecución. Solo entre el 23 y el 32\,\% de las ejecuciones resulta ganador. En BTC/USDT el spread es de un tick el 99,96\,\% del tiempo, por lo que el spread visible ofrece muy poco margen. La captura frente al mid de decisión refleja principalmente la distancia elegida, pero no basta para compensar el movimiento asociado a los cruces.
 
-La pérdida tampoco depende de la intensidad que predice el modelo. Ordenando las ejecuciones de E3 tesis con la HJB por su intensidad predicha a 2~bps, la distancia capturada sube del decil más bajo al más alto (de 0,4 a 2,2~bps en el test), pero el \textit{markout} se mantiene entre $-1{,}0$ y $-1{,}4$~bps en el test y entre $-1{,}15$ y $-1{,}30$~bps en la simulación. Con la regla miope, el decil de mayor intensidad es el que más pierde ($-1{,}39$~bps en el test y $-1{,}25$~bps en la simulación).
+La intensidad predicha no identifica un grupo con markout medio positivo bajo cruce estricto. Ordenando las ejecuciones de E3 tesis con la HJB por su intensidad predicha a 2~bps, la distancia capturada sube del decil más bajo al más alto (de 0,4 a 2,2~bps en el test), pero el \textit{markout} se mantiene entre $-1{,}0$ y $-1{,}4$~bps en el test y entre $-1{,}15$ y $-1{,}30$~bps en la simulación. Con la regla miope, el decil de mayor intensidad es el que más pierde ($-1{,}39$~bps en el test y $-1{,}25$~bps en la simulación). Este patrón es compatible con los mecanismos descritos por \citet{AlbersEtAl2025} y \citet{DeLise2024}, pero no constituye una réplica directa de la relación entre probabilidad de ejecución y retorno: aquí se estima intensidad de alcance y se aplican reglas simuladas de ejecución, sin observar la prioridad real de una orden propia.
 
-En las configuraciones probadas en el entrenamiento, el resultado fue robusto al simulador, al modelo de cola y a la latencia. La regla de ejecución usada aquí coincide con simuladores que modelan la cola explícitamente: con hftbacktest, a 0,01--0,06~bps por ejecución; con NautilusTrader, entre $-1{,}22$ y $-1{,}27$~bps frente a $-1{,}26$. Reducir la latencia simulada de 100~ms a 10~$\mu$s deja la pérdida entre $-1{,}21$ y $-1{,}28$~bps. Estas comprobaciones, con políticas simétricas cerca del mejor precio, no cubren el test ni otras políticas, y los datos de 100~ms no permiten simular cancelaciones en microsegundos. En la fase exploratoria se probaron otras variantes económicas, ninguna rentable después de comisiones, que no se reportan aquí. Una salvedad metodológica de esa fase sí afecta a la lectura de los resultados: un simulador intermedio que daba por ejecutadas como pasivas cotizaciones que habrían cruzado el libro reducía artificialmente la pérdida de $-1{,}26$ a $-0{,}2$~bps por ejecución; la validación con cola explícita lo detectó y ese resultado se retiró.
+\paragraph{Comprobaciones auxiliares en entrenamiento.} En configuraciones anteriores, el signo y el orden de magnitud de la pérdida se mantuvieron al cambiar simulador, modelo de cola y latencia. La regla de ejecución usada aquí coincide con simuladores que modelan la cola explícitamente: con hftbacktest, a 0,01--0,06~bps por ejecución; con NautilusTrader, entre $-1{,}22$ y $-1{,}27$~bps frente a $-1{,}26$. Reducir la latencia simulada de 100~ms a 10~$\mu$s deja la pérdida entre $-1{,}21$ y $-1{,}28$~bps. Estas comprobaciones, con políticas simétricas cerca del mejor precio, no cubren el test ni otras políticas, y los datos de 100~ms no permiten simular cancelaciones en microsegundos. Las variantes exploratorias completas se conservan en el repositorio; aquí se retienen las comprobaciones necesarias para interpretar las políticas finales. Una salvedad metodológica de esa fase sí afecta a la lectura de los resultados: un simulador intermedio que daba por ejecutadas como pasivas cotizaciones que habrían cruzado el libro reducía artificialmente la pérdida de $-1{,}26$ a $-0{,}2$~bps por ejecución; la validación con cola explícita lo detectó y ese resultado se retiró.
 
-\paragraph{Sensibilidad a la cola en el test y la simulación.} Para comprobar si la regla de cruce estricto condiciona el resultado, se repitió la evaluación económica de los dos periodos con los modelos y las políticas congelados, cambiando solo la regla de ejecución. El protocolo se fijó antes de correr; es un análisis de robustez, no confirmatorio, porque ambos periodos ya se habían evaluado. La capa canónica muestra veinte niveles por lado, que llegan a unos 0,5~bps del precio medio, mientras que las políticas cotizan a 0,85--2~bps (mediana). La posición real en la cola no se puede reconstruir, de modo que se examina con tres reglas, que son escenarios de sensibilidad y no se ha demostrado que acoten el PnL real:
+\section{P2: sensibilidad a la regla de ejecución}
+\label{sec:sensibilidad-ejecucion}
+ Para comprobar si la regla de cruce estricto condiciona el resultado, se repitió la evaluación económica de los dos periodos con los modelos y las políticas congelados, cambiando solo la regla de ejecución. El protocolo se fijó antes de correr; es un análisis de robustez, no confirmatorio, porque ambos periodos ya se habían evaluado. La capa canónica muestra veinte niveles por lado, que llegan a unos 0,5~bps del precio medio, mientras que las políticas cotizan a 0,85--2~bps (mediana). La posición real en la cola no se puede reconstruir, de modo que se examina con tres reglas, que son escenarios de sensibilidad y no se ha demostrado que acoten el PnL real:
 \begin{itemize}[nosep]
 \item \textbf{R0, cruce estricto}: la regla de la tesis; reproduce exactamente los resultados anteriores;
 \item \textbf{R2, FIFO aproximada con profundidad imputada}: además de los cruces, la orden se ejecuta si el volumen agresor negociado exactamente a su precio dentro del segundo supera la cantidad que tiene delante más la propia. Esa cantidad es la mostrada en el libro o, si el precio está más allá de los veinte niveles, la mediana de los niveles visibles; la cola solo avanza con transacciones y la prioridad se pierde al recotizar;
@@ -289,7 +287,7 @@ En las configuraciones probadas en el entrenamiento, el resultado fue robusto al
 
 \begin{table}[htbp]
 \centering\small
-\caption{PnL bruto por ejecución de la política HJB con tres reglas de ejecución (bps, IC95 por días); modelos y políticas congelados. R0: cruce estricto; R2: FIFO aproximada con profundidad imputada; R1: ejecución optimista al toque.}
+\caption[Sensibilidad del PnL a la regla de ejecución.]{PnL bruto por ejecución de la política HJB con tres reglas de ejecución (bps, IC95 por días); modelos y políticas congelados. R0: cruce estricto; R2: FIFO aproximada con profundidad imputada; R1: ejecución optimista al toque.}
 \label{tab:cola}
 \begin{tabular}{@{}llcc@{}}\toprule
 Intensidad & Regla & Test (17 días) & Simulación (36 días)\\\midrule
@@ -303,16 +301,16 @@ AS y Hawkes (7 variantes) & las tres & $-1{,}22$ a $-1{,}29$ & $-1{,}20$ a $-1{,
 \end{tabular}
 \end{table}
 
-Con AS, Hawkes, GLFT y la regla miope, las tres reglas difieren en menos de 0,07~bps por ejecución. R2 coincide con R0 en todas las políticas (diferencia máxima de 0,02~bps): bajo sus supuestos la cola no cambia el resultado, lo que no demuestra que la cola real lo produzca. La excepción es la HJB con las variantes de E3 (y, en menor medida, con el GLM de 49 covariables), que cotizan a menudo en el mejor precio. Con R1 triplican las ejecuciones y obtienen una ganancia bruta pequeña (Tabla~\ref{tab:cola}): E3 tesis, $+0{,}15$~bps por ejecución en la simulación y $+0{,}11$ en el test, con un intervalo que llega a cero; E3 base, $+0{,}44$ y $+0{,}35$~bps, con intervalos positivos. Con R1, la mejor variante económica es E3 base, no E3 tesis (diferencia de $-0{,}24$ y $-0{,}28$~bps, con intervalos que excluyen el cero), y E3 tesis supera a todas las variantes de AS y Hawkes por unos 1,35~bps por ejecución; con R0 y R2 ninguna de estas diferencias aparece. R1 es un escenario optimista, no una estimación de la prioridad real, y no muestra que una mayor velocidad volviera rentable a E3; el mecanismo de esas ejecuciones adicionales no se verificó a nivel de ejecución. Con las comisiones maker evaluadas (7,5 y 10~bps por ejecución), ninguna política es rentable con ninguna de las tres reglas.
+Con AS, Hawkes, GLFT y la regla miope, las tres reglas difieren en menos de 0,07~bps por ejecución. R2 coincide con R0 en todas las políticas (diferencia máxima de 0,02~bps): bajo sus supuestos la cola no cambia el resultado, lo que no demuestra que la cola real lo produzca. La excepción es la HJB con las variantes de E3 (y, en menor medida, con el GLM de 49 covariables), que cotizan a menudo en el mejor precio. Con R1 triplican las ejecuciones y obtienen una ganancia bruta pequeña (Tabla~\ref{tab:cola}): E3 tesis, $+0{,}15$~bps por ejecución en la simulación y $+0{,}11$ en el test, con un intervalo que llega a cero; E3 base, $+0{,}44$ y $+0{,}35$~bps, con intervalos positivos. Con R1, la mejor variante económica es E3 base, no E3 tesis (diferencia de $-0{,}24$ y $-0{,}28$~bps, con intervalos que excluyen el cero), y E3 tesis supera a todas las variantes de AS y Hawkes por unos 1,35~bps por ejecución; con R0 y R2 ninguna de estas diferencias aparece. El contraste entre R1 y R0/R2 ilustra la sensibilidad al supuesto de ejecución. Es coherente con la advertencia de \citet{LalorSwishchuk2024} sobre el efecto de incorporar ejecuciones adversas y probabilidades de fill más realistas, sin equiparar su simulador con las reglas de cola de este trabajo. R1 es un escenario optimista, no una estimación de la prioridad real, y no muestra que una mayor velocidad volviera rentable a E3; esta comparación agregada no identifica por sí sola el mecanismo ni qué ejecuciones obtendría una orden real. Con las comisiones maker evaluadas (7,5 y 10~bps por ejecución), ninguna política es rentable con ninguna de las tres reglas. La coincidencia entre R0 y R2 no demuestra insensibilidad a la ejecución: R1 muestra que admitir ejecuciones al mismo precio puede cambiar el signo bruto de la HJB con E3.
 
-\Needspace{.5\textheight}  % título, frase y tabla en la misma página
+\Needspace{.72\textheight}  % título, frase y tabla en la misma página
 \section{Avance frente a los objetivos}
 
 La Tabla~\ref{tab:avance-oe} resume, para cada objetivo específico del anteproyecto, la evidencia que lo atiende y la sección donde se presenta.
 
 \begin{table}[H]
 \centering\small
-\caption{Cumplimiento de los objetivos específicos.}
+\caption[Evidencia por objetivo específico.]{Cumplimiento de los objetivos específicos.}
 \label{tab:avance-oe}
 \begin{tabular}{@{}p{.07\textwidth}p{.84\textwidth}@{}}\toprule
 OE & Evidencia\\\midrule
@@ -320,6 +318,6 @@ OE1 & E1 estimado por lado; su forma exponencial queda mal calibrada por distanc
 OE2 & Intensidad \eqref{eq:fkx} con 49 covariables, $h$ horaria, curva monótona y modulación por estado; ablaciones y calibración tras barridos (Sección~\ref{sec:especificacion-final}).\\
 OE3 & GBM y \textit{Random Forest} comparados con la misma información: conclusiones iguales, GBM más eficiente (Sección~\ref{sec:especificacion-final}).\\
 OE4 & HJB derivada y resuelta numéricamente con intensidades dependientes del estado, verificada contra soluciones conocidas y aplicada en el test (Sección~\ref{sec:politica}).\\
-OE5 & Comparación económica en el test frente a AS y Hawkes, con PnL, inventario y selección adversa; robustez entre ventanas, simuladores, colas y latencias (Secciones~\ref{sec:walkforward} y~\ref{sec:p2}).\\\bottomrule
+OE5 & Comparación económica en el test frente a AS y Hawkes, con PnL, inventario y selección adversa; evaluación temporal y sensibilidad a la ejecución; las comparaciones con otros motores y latencias se limitan al entrenamiento (Secciones~\ref{sec:walkforward}, \ref{sec:p2} y~\ref{sec:sensibilidad-ejecucion}).\\\bottomrule
 \end{tabular}
 \end{table}

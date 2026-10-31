@@ -1,45 +1,9 @@
-% ═══════════════════════════════════════════════════════════════════════════
 \chapter{Justificación}
-% ═══════════════════════════════════════════════════════════════════════════
 
-La justificación de este proyecto se articula en tres dimensiones: teórica, empírica
-y de viabilidad.
+La propuesta se justifica por la necesidad de representar el estado del mercado, por la disponibilidad de datos verificables y por su viabilidad computacional.
 
-\textbf{Justificación teórica.} Los modelos clásicos de market making basados en
-procesos de Poisson condicionales con parámetros fijos presentan limitaciones
-estructurales documentadas. En
-primer lugar, \citet{BacryHawkes2015} revisan evidencia de fuerte endogeneidad y de
-dinámicas cercanas a la criticidad en diversas aplicaciones financieras de procesos
-de Hawkes, fenómenos que una intensidad sin memoria no puede capturar. En segundo lugar,
-\citet{ContKukanovStoikov2014} documentan que el desequilibrio del flujo de órdenes
-explica, en promedio, alrededor del 65\,\% de la variación de los cambios de precio
-a corto plazo en su muestra de acciones, lo que confirma la relevancia del estado
-observable del mercado. En tercer lugar, \citet{MorariuPatrichiPakkanen2022}
-encuentran que la excitación y la endogeneidad del flujo de órdenes dependen
-fuertemente de variables de estado como el spread y el desequilibrio de colas.
-Estas evidencias establecen la necesidad
-teórica de modelos de intensidad dinámicos y sensibles al estado del mercado.
+\paragraph{Fundamento teórico.} Una intensidad con parámetros fijos no representa la dependencia temporal del flujo de órdenes. \citet{BacryHawkes2015} revisan evidencia de endogeneidad y agrupamiento en aplicaciones financieras de procesos de Hawkes. \citet{ContKukanovStoikov2014} documentan la relación entre desequilibrio del flujo y cambios de precio de corto plazo en acciones. \citet{MorariuPatrichiPakkanen2022} muestran que la excitación del flujo depende de variables de estado, como spread y desequilibrio. Estos resultados motivan una intensidad que combine memoria, periodicidad y covariables observables, sin presuponer que una mejor predicción produzca rentabilidad.
 
-\textbf{Justificación empírica.} Los mercados de criptoactivos, en particular BTC/USDT
-en Binance, ofrecen un entorno idóneo para el desarrollo empírico de esta propuesta.
-\citet{BarucciEtAl2022} documentan patrones intradía en retornos, número de
-transacciones, volumen, volatilidad, spread y flujo de órdenes de mercados de
-Bitcoin, Ether y Tether, y muestran el papel central de los mercados denominados
-en USDT en la formación de precios. Por su parte, \citet{FabreToke2025} aplican
-estimación Hawkes no paramétrica a la microestructura de criptomonedas. Estas
-evidencias motivan el uso de modelos de intensidad flexibles. La
-disponibilidad de infraestructura pública de mercado para BTC/USDT en Binance Spot,
-mediante la cual se implementó una captura propia de datos históricos de alta
-frecuencia, permite desarrollar una validación empírica reproducible y reduce las
-barreras de acceso que enfrentarían enfoques sobre mercados de renta variable
-tradicional.
+\paragraph{Pertinencia empírica.} BTC/USDT en Binance Spot permite estudiar un mercado continuo con datos públicos de alta frecuencia. \citet{BarucciEtAl2022} documentan patrones intradía y la importancia de los mercados denominados en USDT en la formación de precios de criptoactivos; \citet{FabreToke2025} aplican estimación Hawkes no paramétrica a su microestructura. La captura propia permite reconstruir el libro, verificar secuencias y conservar las transacciones originales. La evaluación compara así modelos sobre una base común y auditable.
 
-\textbf{Justificación de viabilidad.} La integración propuesta de control estocástico,
-modelos semiparamétricos y aprendizaje estadístico es computacionalmente factible
-con las herramientas disponibles. \citet{GrinsztajnEtAl2022} demuestran que los
-métodos de Gradient Boosting y Random Forest son altamente eficientes en datos
-tabulares de dimensión moderada, exactamente el régimen de las covariables del estado
-del mercado $X_t$. Esto permite ciclos de estimación, validación y actualización del
-modelo compatibles con los recursos computacionales disponibles para la estimación
-y evaluación fuera de muestra.
-
+\paragraph{Viabilidad.} Los métodos de árboles son adecuados para comparar relaciones no lineales en datos tabulares de dimensión moderada \citep{GrinsztajnEtAl2022}. El trabajo contrasta gradient boosting con random forest y elige el estimador según desempeño temporal y costo de cómputo. La combinación de esa estimación con una curva de distancia interpretable permite integrar el pronóstico en el control de inventario y evaluar por separado su calidad estadística y su utilidad económica.

@@ -3,10 +3,10 @@
 \label{chap:metodologia}
 % ═══════════════════════════════════════════════════════════════════════════
 
-El diseño es cuantitativo, longitudinal y comparativo sobre una capa canónica del libro de órdenes y las transacciones de BTC/USDT, cuya construcción se describe en el Capítulo~\ref{chap:datos}. Responde por separado dos preguntas: cuánto mejora la propuesta la predicción de la intensidad (P1) y qué valor económico produce en una política de cotización (P2--P3).
+El diseño es cuantitativo, longitudinal y comparativo sobre una capa canónica del libro de órdenes y las transacciones de BTC/USDT, descrita en el Capítulo~\ref{chap:datos}. Responde por separado dos preguntas: cuánto mejora la propuesta la predicción de la intensidad (P1) y qué valor económico produce en una política de cotización (P2--P3).
 
 \section{Variable respuesta}
-La respuesta se define sobre \emph{eventos agresores}: transacciones con el mismo instante y el mismo lado, que corresponden a una orden agresiva que barre uno o varios niveles, con su precio extremo. Para cada segundo $[t,t+1)$ y cada distancia $\delta\in\{0{,}5;1;2;3;5;7{,}5;10;15;20\}$~bps se cuentan los eventos compradores que alcanzan $m_t(1+10^{-4}\delta)$ (lado ask) y los vendedores que alcanzan $m_t(1-10^{-4}\delta)$ (lado bid). Un segundo es válido solo si el libro es observable en todas sus filas. Que el precio alcance una cotización hipotética no implica que una orden pasiva se ejecute: la respuesta mide la intensidad de \emph{alcance}, que no depende de la posición en la cola y se utiliza como proxy de la intensidad de ejecución.
+Se agrupan como un evento agresor las transacciones con el mismo instante y lado, conservando su precio extremo. En cada segundo $[t,t+1)$ se cuentan los eventos compradores que alcanzan $m_t(1+10^{-4}\delta)$ (ask) y los vendedores que alcanzan $m_t(1-10^{-4}\delta)$ (bid), para $\delta\in\{0{,}5;1;2;3;5;7{,}5;10;15;20\}$~bps. Se exige validez del libro en todo el intervalo. La respuesta mide \emph{alcance}, no ejecución propia: no depende de prioridad en la cola y se utiliza como aproximación para el control.
 
 \section{Partición y protocolo}
 \label{sec:particion}
@@ -21,27 +21,27 @@ Simulación & 21 sep.--26 oct. (36 días) & Evaluación de los mismos modelos y 
 
 Dentro del entrenamiento se desarrolló la especificación de E3 (covariables, hiperparámetros, curva de distancia) y se reforzaron las referencias. Después, el orden fue fijo:
 \begin{enumerate}[nosep]
-\item \textit{walk-forward} con cinco ventanas semanales expansivas: se ajusta desde el 29 de junio hasta el 31 de julio, 7, 14, 21 y 28 de agosto, y se evalúa en los siete días siguientes (34 días fuera de muestra);
+\item \textit{walk-forward} con cinco ventanas semanales expansivas: se ajusta desde el 29 de junio hasta el 31 de julio, 7, 14, 21 y 28 de agosto, y se evalúa en la semana siguiente: cuatro ventanas de siete días y una última de seis (29 de agosto--3 de septiembre), para un total de 34 días fuera de muestra;
 \item ajuste de los modelos finales con todo el entrenamiento, que se guardan sin cambios posteriores;
 \item evaluación del test;
-\item simulación con los modelos y las políticas congelados; la evaluación principal se corrió una vez, y el análisis de sensibilidad a la cola (Sección~\ref{sec:p2-origen}) repitió la parte económica con otras reglas de ejecución. Su primera parte se había usado antes en evaluaciones exploratorias de versiones anteriores del modelo, sin intervenir en la selección ni el ajuste de las especificaciones finales (Sección~\ref{sec:limitaciones}).
+\item simulación con los modelos y las políticas congelados; la evaluación principal se corrió una vez, y el análisis de sensibilidad a la ejecución (Sección~\ref{sec:sensibilidad-ejecucion}) repitió la parte económica con otras reglas de ejecución. Su primera parte se había usado antes en evaluaciones exploratorias de versiones anteriores del modelo, sin intervenir en la selección ni el ajuste de las especificaciones finales (Sección~\ref{sec:limitaciones}).
 \end{enumerate}
-Cada paso tuvo un protocolo con sus criterios escritos antes de correr. Antes de abrir la simulación se comprobó que su código reproduce exactamente un día del test.
+Las etapas principales tuvieron protocolos con criterios escritos antes de ejecutar cada una; esto no convierte en independientes los periodos consultados anteriormente. Antes de abrir la simulación se comprobó que su código reproduce exactamente un día del test.
 
-\paragraph{Versiones de los modelos.} Los resultados provienen de dos versiones del ajuste, que se identifican en cada tabla:
+\paragraph{Versiones de los modelos.} Se distinguen dos ajustes:
 \begin{itemize}[nosep]
-\item \textbf{ajuste original}: el \textit{walk-forward} y los modelos finales con los que se evaluó primero el test;
-\item \textbf{ajuste corregido}: una revisión posterior encontró que el último paso de la curva de E3 no verificaba la convergencia y que su gradiente omitía el recorte de $m(X)$. Se corrigió y se reestimó solo ese paso (la curva, su modulación y un ajuste de nivel) para E3 tesis y E3-fkX, con $g$ y $h$ fijos y convergencia comprobada de ese paso, sin tocar las demás variantes. El test predictivo repetido con el ajuste corregido coincide con el original a tres decimales en las ventajas de log-verosimilitud y en el AUC, y no cambia ningún criterio; las brechas de rebote de E3 tesis difieren en 0,001.
+\item \textbf{original}: usado en el \textit{walk-forward} y en la primera evaluación del test;
+\item \textbf{corregido}: reestima la curva, su modulación y el nivel de E3 tesis y E3-fkX con $g$ y $h$ fijos, corrigiendo el gradiente del recorte y verificando la convergencia de ese paso. Las ventajas predictivas y el AUC del test coinciden con el original a tres decimales; las brechas tras barridos difieren en 0,001. Ningún criterio cambia.
 \end{itemize}
-El \textit{walk-forward} se conserva con el ajuste original; la evaluación económica usa el ajuste corregido. Ningún parámetro ni hiperparámetro se estimó con el periodo de test. El periodo se evaluó más de una vez: las versiones posteriores corrigieron defectos del código señalados en revisiones, no se eligieron por su desempeño en el test y no cambiaron las conclusiones. El test no es ciego en sentido estricto, porque la versión original de E3 se había evaluado en esas fechas (Apéndice~\ref{app:ciegos}); lo que confirma son las especificaciones finales, que nunca se evaluaron allí.
+El \textit{walk-forward} conserva el ajuste original y la evaluación económica usa el corregido. El test se evaluó más de una vez por correcciones de código, no por selección según su desempeño; ningún parámetro se estimó con ese periodo. La exposición previa descrita en el Apéndice~\ref{app:ciegos} impide considerarlo completamente ciego, aun con las especificaciones finales congeladas. La convergencia conjunta permanece como limitación (Sección~\ref{sec:limitaciones}).
 
 \section{Modelos comparados}
 \label{sec:modelos}
-Para que la comparación no favorezca a la propuesta, cada mejora aplicable a las referencias se les dio también: la curva de distancia, el nivel horario, un Hawkes de dos escalas, siete señales de barrido y tendencia, y un modelo lineal con las mismas covariables de E3. La Tabla~\ref{tab:modelos} resume las once variantes; todas comparten respuesta, distancias, segundos y datos, y se ajustan por lado.
+Las once variantes comparten respuesta, distancias, segundos y datos, y se ajustan por lado. Las referencias reciben las mejoras aplicables: curva de distancia, efecto horario y señales de barrido y tendencia (Tabla~\ref{tab:modelos}). El GLM permite comparar una especificación lineal con las mismas covariables de E3.
 
 \begin{table}[htbp]
 \centering\small
-\caption{Variantes comparadas. $\nu(\text{hora})$: nivel horario; $f(\delta)$: curva monótona \eqref{eq:f-cerrada}; S: siete señales (cinco de barrido, tendencia a 15~min y a 1~h); X49: las 49 covariables de E3 en un modelo lineal (GLM de Poisson).}
+\caption[Especificaciones comparadas.]{Variantes comparadas. $\nu(\text{hora})$: nivel horario; $f(\delta)$: curva monótona \eqref{eq:f-cerrada}; S: siete señales (cinco de barrido, tendencia a 15~min y a 1~h); X49: las 49 covariables de E3 en un modelo lineal (GLM de Poisson).}
 \label{tab:modelos}
 \begin{tabular}{@{}lp{.60\textwidth}@{}}\toprule
 Variante & $\log\lambda_i(t,\delta)$\\\midrule
@@ -67,10 +67,10 @@ Se compara la log-verosimilitud \eqref{eq:ll-compuesta} por segundo, el AUC a $\
 Todas las intensidades se evalúan en el test con el mismo simulador:
 \begin{itemize}[nosep]
 \item cada segundo y en cada lado se cotiza una orden de 0,01~BTC a la distancia que indica la política, redondeada al tick y siempre pasiva;
-\item la orden se ejecuta solo si, dentro de ese segundo, un agresor negocia a un precio \emph{estrictamente} más allá del suyo (regla de cruce estricto). La regla no modela la cola: omite las ejecuciones al mismo precio de la orden, por lo que tiende a contar menos ejecuciones, pero no garantiza que el PnL resultante sea conservador; su sensibilidad a la cola se estudia en la Sección~\ref{sec:p2-origen};
+\item la orden se ejecuta solo si, dentro de ese segundo, un agresor negocia a un precio \emph{estrictamente} más allá del suyo (regla de cruce estricto). La regla no modela la cola: omite las ejecuciones al mismo precio de la orden, por lo que tiende a contar menos ejecuciones, pero no garantiza que el PnL resultante sea conservador; su sensibilidad a la ejecución se estudia en la Sección~\ref{sec:sensibilidad-ejecucion};
 \item la decisión usa el estado de la capa al inicio del segundo y la orden queda activa desde ese instante, sin latencia de envío; la sensibilidad a la latencia se estudió por separado en el entrenamiento (Sección~\ref{sec:p2-origen});
 \item el inventario se limita a $|q|\le10$ y se valora al último precio medio del día.
 \end{itemize}
 Se evalúan tres políticas: la regla miope $\delta^*=\arg\max_\delta\lambda(\delta)\,\delta$; la política HJB numérica (Sección~\ref{sec:hjb-teoria}) con $\gamma=0{,}01$, elegido en la fase de desarrollo con la versión original de los modelos, y $Q=10$; y su aproximación GLFT. Para la HJB, la intensidad de cada modelo se usa con su curva de distancia interpolada entre los nueve nodos (Sección~\ref{sec:politica}); GLFT, cuya forma cerrada solo existe para intensidades exponenciales, usa en cada segundo un ajuste exponencial en $\delta\le5$~bps. La volatilidad es una media móvil exponencial causal, común a todos, con vida media de 60~s. Unidades: distancias y precios en bps del precio medio, tiempo en segundos, $A_i$ en eventos por segundo, $k_i$ en bps$^{-1}$, $\sigma$ en bps$/\sqrt{\text{s}}$, inventario $q$ en órdenes de 0,01~BTC y $\gamma$ en bps$^{-1}$ por orden.
 
-Se reportan el PnL por ejecución y por día antes de comisiones, los días positivos, el número de ejecuciones, el inventario medio y el \textit{markout} a 10~s. El PnL de un día es el efectivo final más el inventario valorado al último precio medio, en USDT. El PnL por ejecución en bps es $10^4\times$ la suma del PnL de los días dividida por la suma del valor negociado (precio de cada ejecución por 0,01~BTC); su intervalo de confianza se obtiene remuestreando días.
+Se reportan PnL bruto diario y por ejecución, días positivos, ejecuciones, inventario medio y markout a 10~s. El PnL diario suma efectivo e inventario final marcado al mid; no simula su liquidación ni sus costos. El markout caracteriza las ejecuciones y no se suma al PnL. La medida en bps es $10^4\times$ el PnL agregado dividido por el nocional ejecutado (precio por 0,01~BTC), con intervalo obtenido remuestreando días.

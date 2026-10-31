@@ -1,49 +1,21 @@
-% ═══════════════════════════════════════════════════════════════════════════
 \chapter{Introducción}
-% ═══════════════════════════════════════════════════════════════════════════
 
-El market making constituye uno de los problemas centrales de la microestructura de
-mercados modernos. Un agente que actúa como market maker provee liquidez continua al
-mercado publicando simultáneamente cotizaciones de compra y venta, buscando capturar
-la diferencia entre ambas ---el spread--- a cambio de asumir el riesgo de
-inventario y el riesgo de selección adversa \citep{GlostenMilgrom1985}.
+Un creador de mercado publica cotizaciones de compra y venta para proveer liquidez. Busca obtener un margen entre ambas, pero asume dos riesgos: mantener una posición cuyo valor puede cambiar y ser ejecutado antes de un movimiento desfavorable del precio, fenómeno denominado selección adversa \citep{GlostenMilgrom1985}. La decisión de dónde cotizar depende, por tanto, de cuántas ejecuciones se esperan, del inventario y del riesgo asociado a esas ejecuciones.
 
-Con el auge de los mercados electrónicos y el trading algorítmico, el diseño de
-estrategias óptimas de market making ha adquirido una relevancia tanto académica como
-práctica considerable. El modelo seminal de \citet{AvellanedaStoikov2008} estableció
-el marco de referencia: formulando el problema como uno de control estocástico en
-tiempo continuo, los autores derivan cotizaciones óptimas en función del inventario
-acumulado y la volatilidad del activo. Sin embargo, este modelo descansa sobre una
-especificación restrictiva: las ejecuciones se describen mediante procesos de Poisson
-condicionales con forma exponencial en la distancia y parámetros fijos, sin depender
-explícitamente de covariables contemporáneas del LOB ni de la historia reciente de
-eventos.
+El modelo de \citet{AvellanedaStoikov2008} formula esta decisión como un problema de control estocástico. Sus cotizaciones dependen del inventario y de la volatilidad, mientras que la intensidad de ejecución decrece exponencialmente con la distancia al precio medio. La parametrización clásica mantiene fijos el nivel de llegada y la sensibilidad a la distancia. Esta estructura es interpretable, pero no incorpora de forma explícita el estado contemporáneo del libro ni la historia reciente del flujo de órdenes.
 
-La evidencia empírica muestra las limitaciones de esta especificación. Los datos de
-alta frecuencia muestran que la dinámica de llegada de órdenes exhibe
-\textit{clustering} temporal, dependencias entre eventos consecutivos y una fuerte
-sensibilidad al estado observable del libro de órdenes, fenómenos que los procesos
-de Poisson con parámetros fijos no pueden reproducir \citep{BacryHawkes2015}. Esta
-brecha entre el modelo y la realidad puede producir intensidades mal calibradas
-y afectar tanto la política de cotización como el control del riesgo de inventario.
+Las transacciones de alta frecuencia presentan agrupamiento temporal y dependencias entre eventos \citep{BacryHawkes2015}. Además, la profundidad, el desequilibrio y el flujo reciente pueden aportar información sobre la llegada de agresores. Este trabajo incorpora esa información mediante una intensidad semiparamétrica: un componente flexible del estado del mercado se combina con periodicidad horaria y una curva interpretable de distancia. El estudio utiliza datos propios de BTC/USDT en Binance Spot, capturados en vivo y transformados en una capa canónica verificable.
 
-Este trabajo propone cerrar esa brecha integrando herramientas de aprendizaje
-estadístico dentro del marco de control estocástico, mediante un modelo
-semiparamétrico que estima las intensidades de órdenes como funciones del estado
-observable del mercado. El caso de estudio empírico se desarrolla sobre BTC/USDT
-en Binance Spot, un mercado de criptoactivos que opera de manera continua y sobre el
-cual se implementó una captura propia de datos históricos de alta frecuencia
-directamente desde la infraestructura pública de mercado de Binance.
-
-
-El trabajo responde dos preguntas que se mantienen separadas a lo largo del documento. La primera es predictiva: cuánto mejora la propuesta la estimación de la intensidad de llegada de órdenes agresivas a cada distancia del precio medio, frente a Avellaneda--Stoikov y a un Hawkes bivariado que reciben las mismas mejoras aplicables. La segunda es económica: qué valor produce esa mejora cuando se traduce en una política de cotización, bajo una regla de ejecución, unos costos y un inventario comunes. Una contribución predictiva puede coexistir con un resultado económico negativo, siempre que ambos se sustenten con el mismo rigor. Eso es lo que se encuentra aquí.
+El análisis mantiene separadas dos preguntas. La primera es \emph{predictiva}: cuánto mejora la estimación del número de eventos agresores que alcanzan cada distancia, frente a Avellaneda--Stoikov y a procesos de Hawkes con referencias reforzadas. La segunda es \emph{económica}: qué ocurre al usar esas intensidades en políticas de cotización con reglas comunes de ejecución e inventario. Predecir el alcance de una cotización no equivale a estimar su ejecución con prioridad en la cola ni el retorno posterior a esa ejecución. Por ello, la comparación predictiva no constituye por sí sola una prueba de rentabilidad.
 
 Las contribuciones son cuatro:
 \begin{enumerate}[nosep]
-\item una especificación semiparamétrica de la intensidad que incorpora el estado del libro, la periodicidad, una curva monótona de distancia modulada por el estado y covariables de barridos;
-\item una comparación con referencias reforzadas, en la que E1 y E2 reciben los mismos hallazgos que E3, evaluada con \textit{walk-forward} y con especificaciones finales congeladas sobre un periodo de test;
-\item la resolución numérica de la ecuación HJB con intensidades dependientes del estado y su evaluación económica con la misma regla de ejecución para todos los modelos;
-\item una explicación cuantitativa de por qué la mejora predictiva no se traduce en rentabilidad en BTC/USDT, apoyada en la literatura reciente y en una comparación con tres motores de simulación limitada a configuraciones anteriores del entrenamiento.
+\item una intensidad semiparamétrica que incorpora el estado del libro, la periodicidad horaria y una curva monótona de distancia modulada por el estado;
+\item una comparación temporal con referencias que reciben las mismas mejoras aplicables, incluyendo un modelo lineal con las mismas covariables;
+\item la integración de las intensidades en una política HJB numérica con coeficientes congelados y su comparación económica bajo condiciones comunes;
+\item un diagnóstico de las pérdidas mediante captura, movimiento del precio y sensibilidad a la regla de ejecución, distinguiendo cruce estricto, FIFO aproximada y toque optimista.
 \end{enumerate}
 
-El Capítulo~\ref{chap:marco-teorico} presenta el marco teórico, el Capítulo~\ref{chap:metodologia} la metodología, el Capítulo~\ref{chap:datos} la captura y reconstrucción de los datos y el Capítulo~\ref{chap:resultados} los resultados, primero los predictivos y después los económicos. El Capítulo~\ref{chap:discusion} los interpreta frente a la literatura y declara las limitaciones, y el Capítulo~\ref{chap:conclusiones} concluye.
+El resultado central es una mejora predictiva que no produce rentabilidad neta de las comisiones evaluadas. Bajo cruce estricto, la pérdida por ejecución es similar entre modelos; bajo toque optimista, la HJB con E3 presenta una excepción bruta que obliga a condicionar la interpretación económica a la prioridad supuesta. Las comprobaciones previas con otros motores se presentan como evidencia auxiliar del entrenamiento, sin extenderlas a las políticas finales.
+
+El Capítulo~\ref{chap:marco-teorico} desarrolla los modelos y las métricas. El Capítulo~\ref{chap:datos} describe los datos y sus verificaciones; el Capítulo~\ref{chap:metodologia}, la partición temporal y los protocolos. El Capítulo~\ref{chap:resultados} presenta la evidencia predictiva, la política y los resultados económicos. Los Capítulos~\ref{chap:discusion} y~\ref{chap:conclusiones} interpretan sus alcances y limitaciones. Los apéndices documentan las covariables, el código y la exposición previa de los periodos de evaluación.

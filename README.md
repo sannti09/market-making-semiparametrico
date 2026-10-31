@@ -2,7 +2,7 @@
 
 Undergraduate thesis, Data Science, Pontificia Universidad Javeriana (2026). Author: Santiago Rueda. Advisor: Vladimir Moreno.
 
-The thesis document is in Spanish (`documento/`). This repository contains it together with the code, sealed protocols and results of the final phase of the work. The earlier development phase is summarised in appendix B of the document.
+The revised thesis document (V3) is in Spanish (`documento/`), with the compiled PDF and its matching sources. This repository contains it together with the code, sealed protocols and results of the final phase of the work. The earlier development phase is summarised in appendix B of the document.
 
 ## The question
 
@@ -21,7 +21,7 @@ The thesis proposes **E3**, a semiparametric intensity:
 
 It then asks two separate questions:
 1. **Prediction:** does E3 estimate the arrival of aggressive orders better than AS and Hawkes?
-2. **Economics:** does that better estimate produce value under an optimal quoting policy (HJB)?
+2. **Economics:** does that better estimate produce value under an HJB quoting policy with frozen coefficients?
 
 ## Main results
 
@@ -30,11 +30,11 @@ It then asks two separate questions:
 | Walk-forward (34 days) | E3 beats all 10 benchmarks in all 5 windows, on both sides | [`10_`](codigo/10_walk_forward/) |
 | Pre-registered test (4–20 Sep; not strictly blind, [see below](#the-test-period-had-been-consulted-before)) | All 4 criteria met; AUC 0.813; E3 beats the best Hawkes on 17 of 17 days | [`17_`](codigo/17_test_predictivo/) |
 | Simulation (21 Sep–26 Oct, 36 days after the test) | Still the best predictor (AUC 0.848 / 0.842); the rebound criterion fails after buyer sweeps | [`19_`](codigo/19_simulacion/) |
-| Economic value | With the strict-cross execution rule, every model and policy loses about 1.1–1.3 bps per fill before fees; E3 does not win on PnL | [`18_`](codigo/18_hjb_curva_interpolada/), [`19_`](codigo/19_simulacion/) |
-| Queue robustness | Same result with an approximate FIFO queue. Under optimistic execution at the touch (a sensitivity scenario, not an estimate of real queue priority), the HJB policy with E3 earns a small gross profit (+0.15 bps per fill in the simulation with the thesis E3, +0.44 with E3 base), far below the fees evaluated (7.5–10 bps) | [`21_`](codigo/21_ejecucion_con_cola/) |
-| Why | Adverse selection: whatever is captured by quoting farther is lost when the price keeps moving, mostly within the first second | [`20_`](codigo/20_seleccion_adversa/) |
+| Economic value | With the strict-cross execution rule, all 11 models lose about 1.1–1.3 bps per fill before fees with the myopic and HJB policies; E3 does not win on PnL | [`18_`](codigo/18_hjb_curva_interpolada/), [`19_`](codigo/19_simulacion/) |
+| Queue robustness | The approximate FIFO scenario with imputed depth gives the same conclusion; this does not validate the real queue. Under optimistic execution at the touch (a sensitivity scenario, not an estimate of real queue priority), the HJB policy with E3 earns a small gross profit (+0.15 bps per fill in the simulation with the thesis E3, +0.44 with E3 base), far below the fees evaluated (7.5–10 bps) | [`21_`](codigo/21_ejecucion_con_cola/) |
+| Strict-cross loss diagnosis | Positive quote capture is offset by adverse price changes, already mostly present at the 1 s mark measured from the decision-time mid | [`20_`](codigo/20_seleccion_adversa/) |
 
-**In short:** a clear predictive contribution and an economic result that is negative after the fees evaluated, both supported.
+The contribution is predictive. Economic results remain negative after the fees evaluated, including the optimistic touch scenario.
 
 ### The test period had been consulted before
 
@@ -43,11 +43,11 @@ The 4–20 Sep test is pre-registered but not blind in the strict sense:
 - a pause policy was run on it before a hold order, without its results being read;
 - the final specifications were evaluated on it more than once: the corrected curve fit (`15_`–`17_`) repeated the evaluation after a code review. The repeat matched the original to three decimals in the per-bin log-likelihood gains and the AUC, and the four criteria did not change; the post-sweep rebound gaps of the thesis E3 differ by 0.001 (+0.115 and −0.140, against +0.116 and −0.139).
 
-No parameter or hyperparameter was estimated on the test, and no version was chosen for its test performance. What the test confirms is the final specifications, which had never been evaluated there.
+No parameter or hyperparameter was estimated on the test, and no version was chosen for its test performance. The evaluation uses final specifications frozen before that stage; freezing them does not restore the independence of the previously consulted period.
 
-The 21 Sep–26 Oct simulation period is not untouched either: its first part (21 Sep–6 Oct) was used in the exploratory phase, in predictive and economic evaluations of earlier versions of the model. Those results were not used to select or tune the final specifications. From 7 to 26 Oct the data layer was only built and checked; no model was evaluated there before the simulation (thesis §9.3, *Periodo de la simulación*).
+The 21 Sep–26 Oct simulation period is not untouched either: its first part (21 Sep–6 Oct) was used in the exploratory phase, in predictive and economic evaluations of earlier versions of the model. Those results were not used to select or tune the final specifications. From 7 to 26 Oct the data layer was only built and checked; no model was evaluated there before the simulation (thesis §9.4, *Independencia de la evaluación*).
 
-In the [thesis PDF](documento/main.pdf): §6.2 *Partición y protocolo* (methodology) and §9.3 *Limitaciones*, item *Exposición previa del test*; the earlier blind tests are in Appendix B.
+In the [thesis PDF](documento/main.pdf): §7.2 *Partición y protocolo* (methodology) and §9.4 *Limitaciones*, item *Independencia de la evaluación*; the earlier blind tests are in Appendix B.
 
 ## How well each model predicts
 
@@ -138,15 +138,15 @@ Protocols and notes are in Spanish, as they were sealed.
 
 | Document | Folder |
 |---|---|
-| Ch. 6, methodology: response, models and evaluation | `02_`, `05_`, `07_`, `09_` |
-| Ch. 7, data: capture and canonical layer | `captura_datos/`, `00_datos_canonicos/`, `03_cargador_datos/` |
+| Ch. 7, methodology: response, models and evaluation | `02_`, `05_`, `07_`, `09_` |
+| Ch. 6, data: capture and canonical layer | `captura_datos/`, `00_datos_canonicos/`, `03_cargador_datos/` |
 | §8.1, final E3 specification | `01_` to `06_` |
 | §8.2, walk-forward | `10_walk_forward/` |
 | §8.3–8.4, predictive test and post-sweep calibration | `17_test_predictivo/` (log-likelihood gains and AUC identical to `12_` to three decimals) |
 | §8.5, HJB policy | `08_hjb_exponencial/`, `18_hjb_curva_interpolada/` |
 | §8.6, economic value in the test | `18_hjb_curva_interpolada/` (earlier versions: `13_`, `14_`) |
 | §8.7, simulation | `19_simulacion/` |
-| §8.8, origin of the loss and queue robustness | `20_seleccion_adversa/`, `21_ejecucion_con_cola/` |
+| §8.8–8.9, loss diagnosis and execution-rule sensitivity | `20_seleccion_adversa/`, `21_ejecucion_con_cola/` |
 | Appendix A, covariates | `01_nucleo_e3/`, `04_covariables_barrido/` |
 | Gradient and convergence check | `15_`, `16_` |
 
@@ -296,7 +296,9 @@ These files are not included because of their size; the code itself produces the
 7. `20_seleccion_adversa/codigo/sa_v112.py`.
 8. `21_ejecucion_con_cola/codigo/cola_v115.py test`, then `cola_v115.py sim`.
 
-**Reproducibility check:** from this structure, with caches built from scratch, the code exactly reproduces one test day (4 Sep). Prediction, fills and PnL all match with zero difference.
+Checkpoint and cache regression checks (no model fitting) are documented in [`codigo/NOTA_CORRECCIONES_REPRODUCCION_20261031.md`](codigo/NOTA_CORRECCIONES_REPRODUCCION_20261031.md).
+
+**Reproducibility check:** with fresh bin/covariate caches and the frozen models and policy tables, 4 Sep reproduces all 47 combinations exactly in fill counts, PnL, notional, summed 10 s markout and mean absolute inventory. This check reuses the previously generated events and daily data package; it is not a full reestimation from raw messages.
 
 File names keep the version number they were run with (for example `wf_v102.py`), because the sealed protocols and notes refer to them.
 
