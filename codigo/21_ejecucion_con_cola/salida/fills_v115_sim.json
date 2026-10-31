@@ -1,0 +1,230 @@
+{
+ "E3-fkX+B|R0": {
+  "todas": {
+   "n": 85507,
+   "frac": 1.0,
+   "frac_en_mejor_precio": 0.06256797689078088,
+   "captura_vs_mid_decision_bps": 1.0419302530480052,
+   "markout_1s_bps": -0.8877596097120161,
+   "markout_10s_bps": -1.242562397820215,
+   "markout_60s_bps": -1.3028608079438138,
+   "movimiento_1s_bps": -1.9296979171073496,
+   "movimiento_10s_bps": -2.284498769620453,
+   "movimiento_60s_bps": -2.344854202907595
+  },
+  "por_cruce": {
+   "n": 85507,
+   "frac": 1.0,
+   "frac_en_mejor_precio": 0.06256797689078088,
+   "captura_vs_mid_decision_bps": 1.0419302530480052,
+   "markout_1s_bps": -0.8877596097120161,
+   "markout_10s_bps": -1.242562397820215,
+   "markout_60s_bps": -1.3028608079438138,
+   "movimiento_1s_bps": -1.9296979171073496,
+   "movimiento_10s_bps": -2.284498769620453,
+   "movimiento_60s_bps": -2.344854202907595
+  },
+  "solo_toque": {
+   "n": 0,
+   "frac": 0.0,
+   "frac_en_mejor_precio": null,
+   "captura_vs_mid_decision_bps": null,
+   "markout_1s_bps": null,
+   "markout_10s_bps": null,
+   "markout_60s_bps": null,
+   "movimiento_1s_bps": null,
+   "movimiento_10s_bps": null,
+   "movimiento_60s_bps": null
+  }
+ },
+ "E3-fkX+B|R1": {
+  "todas": {
+   "n": 246074,
+   "frac": 1.0,
+   "frac_en_mejor_precio": 0.6702008338954949,
+   "captura_vs_mid_decision_bps": 0.36969755168066554,
+   "markout_1s_bps": -0.20930674105723385,
+   "markout_10s_bps": 0.003033485307632398,
+   "markout_60s_bps": 0.11583674805025576,
+   "movimiento_1s_bps": -0.5790060028246248,
+   "movimiento_10s_bps": -0.3666725338184322,
+   "movimiento_60s_bps": -0.2539313367021951
+  },
+  "por_cruce": {
+   "n": 81982,
+   "frac": 0.3331599437567561,
+   "frac_en_mejor_precio": 0.017028128125686125,
+   "captura_vs_mid_decision_bps": 1.1020484736645741,
+   "markout_1s_bps": -0.8846156505530695,
+   "markout_10s_bps": -1.227943077142189,
+   "markout_60s_bps": -1.2793994976836607,
+   "movimiento_1s_bps": -1.9866736883357745,
+   "movimiento_10s_bps": -2.329985235955106,
+   "movimiento_60s_bps": -2.381495812291453
+  },
+  "solo_toque": {
+   "n": 164092,
+   "frac": 0.6668400562432439,
+   "frac_en_mejor_precio": 0.996532433025376,
+   "captura_vs_mid_decision_bps": 0.0038077259360539766,
+   "markout_1s_bps": 0.12808226692844546,
+   "markout_10s_bps": 0.6180678749191848,
+   "markout_60s_bps": 0.8130635432545161,
+   "movimiento_1s_bps": 0.12427452155446705,
+   "movimiento_10s_bps": 0.6142598951241038,
+   "movimiento_60s_bps": 0.8092541743115625
+  }
+ },
+ "E3|R0": {
+  "todas": {
+   "n": 53106,
+   "frac": 1.0,
+   "frac_en_mejor_precio": 0.1305690505780891,
+   "captura_vs_mid_decision_bps": 1.1328566693087316,
+   "markout_1s_bps": -0.9589082758576181,
+   "markout_10s_bps": -1.2735274198516253,
+   "markout_60s_bps": -1.3369904675272837,
+   "movimiento_1s_bps": -2.091776076853616,
+   "movimiento_10s_bps": -2.406395220847623,
+   "movimiento_60s_bps": -2.4698982630906463
+  },
+  "por_cruce": {
+   "n": 53106,
+   "frac": 1.0,
+   "frac_en_mejor_precio": 0.1305690505780891,
+   "captura_vs_mid_decision_bps": 1.1328566693087316,
+   "markout_1s_bps": -0.9589082758576181,
+   "markout_10s_bps": -1.2735274198516253,
+   "markout_60s_bps": -1.3369904675272837,
+   "movimiento_1s_bps": -2.091776076853616,
+   "movimiento_10s_bps": -2.406395220847623,
+   "movimiento_60s_bps": -2.4698982630906463
+  },
+  "solo_toque": {
+   "n": 0,
+   "frac": 0.0,
+   "frac_en_mejor_precio": null,
+   "captura_vs_mid_decision_bps": null,
+   "markout_1s_bps": null,
+   "markout_10s_bps": null,
+   "markout_60s_bps": null,
+   "movimiento_1s_bps": null,
+   "movimiento_10s_bps": null,
+   "movimiento_60s_bps": null
+  }
+ },
+ "E3|R1": {
+  "todas": {
+   "n": 252650,
+   "frac": 1.0,
+   "frac_en_mejor_precio": 0.8163506827627153,
+   "captura_vs_mid_decision_bps": 0.24130221340106642,
+   "markout_1s_bps": -0.07940859645449301,
+   "markout_10s_bps": 0.2548024757413997,
+   "markout_60s_bps": 0.39621865836311915,
+   "movimiento_1s_bps": -0.3207117625475599,
+   "movimiento_10s_bps": 0.013480253826745054,
+   "movimiento_60s_bps": 0.15486644644310452
+  },
+  "por_cruce": {
+   "n": 47883,
+   "frac": 0.1895230556105284,
+   "frac_en_mejor_precio": 0.0381346198024351,
+   "captura_vs_mid_decision_bps": 1.2636845375301466,
+   "markout_1s_bps": -0.9629577130404925,
+   "markout_10s_bps": -1.2641147956258785,
+   "markout_60s_bps": -1.2830378560668505,
+   "movimiento_1s_bps": -2.226642250570639,
+   "movimiento_10s_bps": -2.527799333156025,
+   "movimiento_60s_bps": -2.546760981133023
+  },
+  "solo_toque": {
+   "n": 204767,
+   "frac": 0.8104769443894716,
+   "frac_en_mejor_precio": 0.9983298090024272,
+   "captura_vs_mid_decision_bps": 0.0022269091466077043,
+   "markout_1s_bps": 0.1272027665134187,
+   "markout_10s_bps": 0.6100246324862414,
+   "markout_60s_bps": 0.7889835366569461,
+   "movimiento_1s_bps": 0.1249758494486167,
+   "movimiento_10s_bps": 0.6077975565505881,
+   "movimiento_60s_bps": 0.7867558324118695
+  }
+ },
+ "E1|R0": {
+  "todas": {
+   "n": 76144,
+   "frac": 1.0,
+   "frac_en_mejor_precio": 0.003309518806471948,
+   "captura_vs_mid_decision_bps": 1.4564416853405384,
+   "markout_1s_bps": -0.8437370237610349,
+   "markout_10s_bps": -1.1842247099051442,
+   "markout_60s_bps": -1.2209772403610921,
+   "movimiento_1s_bps": -2.300178709101573,
+   "movimiento_10s_bps": -2.6406691190386726,
+   "movimiento_60s_bps": -2.6774329300046134
+  },
+  "por_cruce": {
+   "n": 76144,
+   "frac": 1.0,
+   "frac_en_mejor_precio": 0.003309518806471948,
+   "captura_vs_mid_decision_bps": 1.4564416853405384,
+   "markout_1s_bps": -0.8437370237610349,
+   "markout_10s_bps": -1.1842247099051442,
+   "markout_60s_bps": -1.2209772403610921,
+   "movimiento_1s_bps": -2.300178709101573,
+   "movimiento_10s_bps": -2.6406691190386726,
+   "movimiento_60s_bps": -2.6774329300046134
+  },
+  "solo_toque": {
+   "n": 0,
+   "frac": 0.0,
+   "frac_en_mejor_precio": null,
+   "captura_vs_mid_decision_bps": null,
+   "markout_1s_bps": null,
+   "markout_10s_bps": null,
+   "markout_60s_bps": null,
+   "movimiento_1s_bps": null,
+   "movimiento_10s_bps": null,
+   "movimiento_60s_bps": null
+  }
+ },
+ "E1|R1": {
+  "todas": {
+   "n": 76310,
+   "frac": 1.0,
+   "frac_en_mejor_precio": 0.003249901716681955,
+   "captura_vs_mid_decision_bps": 1.45634768036739,
+   "markout_1s_bps": -0.8406406192556003,
+   "markout_10s_bps": -1.1831173835438729,
+   "markout_60s_bps": -1.220136697414859,
+   "movimiento_1s_bps": -2.2969882996229902,
+   "movimiento_10s_bps": -2.639467776850984,
+   "movimiento_60s_bps": -2.6764991658318533
+  },
+  "por_cruce": {
+   "n": 75696,
+   "frac": 0.9919538723627309,
+   "frac_en_mejor_precio": 0.0014928133586979498,
+   "captura_vs_mid_decision_bps": 1.4589282263066414,
+   "markout_1s_bps": -0.8430170139609444,
+   "markout_10s_bps": -1.183347107679746,
+   "markout_60s_bps": -1.2181600702103592,
+   "movimiento_1s_bps": -2.3019452402675853,
+   "movimiento_10s_bps": -2.64227820530386,
+   "movimiento_60s_bps": -2.677103818329249
+  },
+  "solo_toque": {
+   "n": 614,
+   "frac": 0.008046127637269035,
+   "frac_en_mejor_precio": 0.21986970684039087,
+   "captura_vs_mid_decision_bps": 1.1382092350619137,
+   "markout_1s_bps": -0.5476706296534316,
+   "markout_10s_bps": -1.154797710429059,
+   "markout_60s_bps": -1.4637640485257977,
+   "movimiento_1s_bps": -1.6858798647153452,
+   "movimiento_10s_bps": -2.293006945490973,
+   "movimiento_60s_bps": -2.601973283587711
+  }
+ }
+}

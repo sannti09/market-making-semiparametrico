@@ -37,7 +37,7 @@ Control: R0 reproduces v110 (17 days) and v111 (36 days) exactly.
 - The mechanism behind R1's extra fills has not been verified at fill level here.
 - The pre-registered reading "the economic conclusion holds" is false even under R0, because the fixed-δ 5 bps policy has very few fills and a wide interval. Restricted to the 11 models (a reading added after seeing the results), it holds under R0 and R2, not under R1.
 
-Details: [`NOTA_V115.md`](NOTA_V115.md) (Spanish). Run: `codigo/cola_v115.py test`, then `codigo/cola_v115.py sim`. It needs `19_simulacion/salida/por_dia_econ_v111.json` for the control.
+Details: [`NOTA_V115.md`](NOTA_V115.md) (Spanish). An exploratory fill-level analysis, designed after seeing these results, is in [`NOTA_FILLS_V115.md`](NOTA_FILLS_V115.md). Under R1, E3's extra fills are at the best price, capture about half a tick against the mid, and have a favourable average markout, unlike the fills that cross. It does not show how many of them a real order would get. Run: `codigo/cola_v115.py test`, then `codigo/cola_v115.py sim`. It needs `19_simulacion/salida/por_dia_econ_v111.json` for the control.
 
 ---
 Protocols (`PLAN_*`) and run notes (`NOTA_*`) are kept in Spanish, exactly as they were sealed and executed.
