@@ -47,7 +47,7 @@ No parameter or hyperparameter was estimated on the test, and no version was cho
 
 The 21 Sep–26 Oct simulation period is not untouched either: its first part (21 Sep–6 Oct) was used in the exploratory phase, in predictive and economic evaluations of earlier versions of the model. Those results were not used to select or tune the final specifications. From 7 to 26 Oct the data layer was only built and checked; no model was evaluated there before the simulation (thesis §9.4, *Independencia de la evaluación*).
 
-In the [thesis PDF](documento/main.pdf): §7.2 *Partición y protocolo* (methodology) and §9.4 *Limitaciones*, item *Independencia de la evaluación*; the earlier blind tests are in Appendix B.
+In the [thesis PDF](documento/main.pdf): §6.2 *Partición y protocolo* (methodology) and §9.4 *Limitaciones*, item *Independencia de la evaluación*; the earlier blind tests are in Appendix B.
 
 ## How well each model predicts
 
@@ -138,8 +138,8 @@ Protocols and notes are in Spanish, as they were sealed.
 
 | Document | Folder |
 |---|---|
-| Ch. 7, methodology: response, models and evaluation | `02_`, `05_`, `07_`, `09_` |
-| Ch. 6, data: capture and canonical layer | `captura_datos/`, `00_datos_canonicos/`, `03_cargador_datos/` |
+| Ch. 6, methodology: response, models and evaluation | `02_`, `05_`, `07_`, `09_` |
+| Ch. 7, data: capture and canonical layer | `captura_datos/`, `00_datos_canonicos/`, `03_cargador_datos/` |
 | §8.1, final E3 specification | `01_` to `06_` |
 | §8.2, walk-forward | `10_walk_forward/` |
 | §8.3–8.4, predictive test and post-sweep calibration | `17_test_predictivo/` (log-likelihood gains and AUC identical to `12_` to three decimals) |

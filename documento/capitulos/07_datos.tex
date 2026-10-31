@@ -3,7 +3,7 @@
 \label{chap:datos}
 % ═══════════════════════════════════════════════════════════════════════════
 
-Los datos de este trabajo no provienen de un proveedor comercial: se capturaron en vivo desde la infraestructura pública de Binance y se reconstruyó con ellos el libro de órdenes completo de BTC/USDT en Binance Spot. Este capítulo establece qué información está disponible, cómo se reconstruyó y qué verificaciones respaldan su uso. La partición y los modelos se presentan después, en el Capítulo~\ref{chap:metodologia}.
+Los datos de este trabajo no provienen de un proveedor comercial: se capturaron en vivo desde la infraestructura pública de Binance y se reconstruyó con ellos el libro de órdenes completo de BTC/USDT en Binance Spot. Este capítulo establece qué información está disponible, cómo se reconstruyó y qué verificaciones respaldan su uso. La partición y los modelos se presentaron en el Capítulo~\ref{chap:metodologia}.
 
 \section{Captura en vivo}
 Un servidor dedicado en Alemania se conectó de forma continua a dos flujos públicos de Binance Spot para BTC/USDT: el flujo de profundidad, que publica cada 100~ms los cambios del libro, y el flujo de transacciones, que publica cada operación con su precio, cantidad, lado agresor y hora del motor de negociación. Cada flujo se capturó dos veces en paralelo (captura primaria y de respaldo), de modo que un mensaje perdido por una conexión pudiera recuperarse de la otra. Los archivos se rotaron cada 12 horas y cada mensaje se guardó sin modificar, junto con su hora de recepción local. Periódicamente se descargaron instantáneas completas del libro, que sirven de punto de partida para la reconstrucción.
