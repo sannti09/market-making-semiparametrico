@@ -74,15 +74,21 @@ def evaluar(MOD, deltas, cols, dias, k, tipo, evs):
             evs.append(np.column_stack([np.full(len(i), k), ev[ok, 1], b["conteos"]["ask"][i, jd], b["conteos"]["bid"][i, jd], b["S"][i, -1]] + [L2[(m, l)][i] for m in NOMS for l in ("ask", "bid")]))
     return out
 
-if __name__ == "__main__":
+def correr():
+    """Reanudable: una ventana con fold{k}.json y fold{k}_ev.npy en salida/ no se recalcula. eventos_v102.npy alimenta T4 (tablas_v102.py)."""
     filas, evs = [], []
     for k, (fin, e0, e1) in enumerate(FOLDS, 1):
         if (SAL / f"fold{k}.json").exists():
             filas += json.loads((SAL / f"fold{k}.json").read_text()); evs.append(np.load(SAL / f"fold{k}_ev.npy")); continue
         t0 = time.time(); MOD, deltas, cols = ajustar(fin); log(f"ventana {k}: ajuste hasta {fin} ({time.time() - t0:.0f} s)")
         fd = date.fromisoformat(fin); ins = T.fechas((fd - timedelta(days=6)).isoformat(), fin)
+        n0 = len(evs)  # evaluar añade un bloque por día: se guardan todos los de la ventana (antes solo evs[-1], el último día)
         filas += evaluar(MOD, deltas, cols, T.fechas(e0, e1), k, "fuera", evs) + evaluar(MOD, deltas, cols, ins, k, "dentro", None)
-        nuevas = [r for r in filas if r["fold"] == k]; (SAL / f"fold{k}.json").write_text(json.dumps(nuevas)); np.save(SAL / f"fold{k}_ev.npy", evs[-1])
+        ev_k = np.vstack(evs[n0:]); evs[n0:] = [ev_k]
+        nuevas = [r for r in filas if r["fold"] == k]; (SAL / f"fold{k}.json").write_text(json.dumps(nuevas)); np.save(SAL / f"fold{k}_ev.npy", ev_k)
         (SAL / "por_dia_v102.json").write_text(json.dumps(filas, indent=1)); log(f"ventana {k}: evaluada {e0}–{e1} y dentro de muestra {ins[0]}–{ins[-1]}")
         del MOD
     np.save(SAL / "eventos_v102.npy", np.vstack(evs)); log("FIN")
+
+if __name__ == "__main__":
+    correr()

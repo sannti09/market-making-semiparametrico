@@ -28,12 +28,23 @@ It then asks two separate questions:
 | | Result | Folder |
 |---|---|---|
 | Walk-forward (34 days) | E3 beats all 10 benchmarks in all 5 windows, on both sides | [`10_`](codigo/10_walk_forward/) |
-| Pre-registered test (4–20 Sep) | All 4 criteria met; AUC 0.813; E3 beats the best Hawkes on 17 of 17 days | [`17_`](codigo/17_test_predictivo/) |
+| Pre-registered test (4–20 Sep; not strictly blind, [see below](#the-test-period-had-been-consulted-before)) | All 4 criteria met; AUC 0.813; E3 beats the best Hawkes on 17 of 17 days | [`17_`](codigo/17_test_predictivo/) |
 | Simulation (21 Sep–26 Oct, 36 new days) | Still the best predictor (AUC 0.848 / 0.842); the rebound criterion fails after buyer sweeps | [`19_`](codigo/19_simulacion/) |
 | Economic value | Every model and policy loses about 1.1–1.3 bps per fill before fees; E3 does not win on PnL | [`18_`](codigo/18_hjb_curva_interpolada/), [`19_`](codigo/19_simulacion/) |
 | Why | Adverse selection: whatever is captured by quoting farther is lost when the price keeps moving, mostly within the first second | [`20_`](codigo/20_seleccion_adversa/) |
 
 **In short:** a clear predictive contribution and a negative economic result, both supported.
+
+### The test period had been consulted before
+
+The 4–20 Sep test is pre-registered but not blind in the strict sense:
+- an earlier version of E3 had already been evaluated on those dates, inside the first blind test of the development phase (26 Aug–15 Sep);
+- a pause policy was run on it before a hold order, without its results being read;
+- the final specifications were evaluated on it more than once: the corrected curve fit (`15_`–`17_`) repeated the evaluation after a code review. The repeat matched the original to three decimals.
+
+No parameter or hyperparameter was estimated on the test, and no version was chosen for its test performance. What the test confirms is the final specifications, which had never been evaluated there. The 21 Sep–26 Oct simulation is the period never seen by any version.
+
+In the [thesis PDF](documento/main.pdf): §6.2 *Partición y protocolo* (methodology) and §9.3 *Limitaciones*, item *Exposición previa del test*; the earlier blind tests are in Appendix B.
 
 ## How well each model predicts
 
@@ -116,7 +127,7 @@ Protocols and notes are in Spanish, as they were sealed.
 | Period | Dates | Use |
 |---|---|---|
 | Training | 29 Jun–3 Sep | Walk-forward validation inside it: 1 Aug–3 Sep |
-| Test | 4–20 Sep | Pre-registered |
+| Test | 4–20 Sep | Pre-registered; consulted before ([details](#the-test-period-had-been-consulted-before)) |
 | Simulation | 21 Sep–26 Oct | Run once with everything frozen |
 
 ## Correspondence with the document
@@ -266,13 +277,14 @@ These files are not included because of their size; the code itself produces the
 |---|---|
 | `codigo/04_covariables_barrido/eventos_barridos/salida/eventos_v92.pkl` | `eventos_barridos/codigo/eventos_v92.py` |
 | `codigo/07_modelos_as_hawkes/paquete/dias/` | `07_modelos_as_hawkes/exportar_paquete.py` (events for the Hawkes fit) |
+| `codigo/10_walk_forward/salida/eventos_v102.npy` | `10_walk_forward/codigo/wf_v102.py` (post-sweep events with each model's prediction); **required** by `tablas_v102.py` for table T4 |
 | `codigo/18_hjb_curva_interpolada/salida/tablas_v110.pkl` | `18_hjb_curva_interpolada/codigo/verif_v110.py` |
 | `salida/cache/` caches | created automatically |
 
 ## Execution order
 
 1. `04_.../eventos_barridos/codigo/eventos_v92.py` and `07_.../exportar_paquete.py`: inputs.
-2. `10_walk_forward/codigo/wf_v102.py`, then `tablas_v102.py`.
+2. `10_walk_forward/codigo/wf_v102.py`, then `tablas_v102.py`. The first writes `salida/eventos_v102.npy`, which the second needs; it can be resumed (see [`10_`](codigo/10_walk_forward/README.md)).
 3. `11_modelos_finales/codigo/entrenar_v103.py`, then `16_curva_e3_corregida/codigo/actualizar_curva_v108.py`.
 4. `17_test_predictivo/codigo/test_v109.py`.
 5. `18_hjb_curva_interpolada/codigo/verif_v110.py`, then `econ_v110.py`.

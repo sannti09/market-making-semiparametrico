@@ -6,7 +6,7 @@ import numpy as np, pyarrow.parquet as pq
 from multiprocessing import Pool
 
 RAIZ = Path(__file__).resolve().parents[3] / "00_datos_canonicos"
-SAL = Path(__file__).resolve().parents[1] / "salida"
+SAL = Path(__file__).resolve().parents[1] / "salida"; SAL.mkdir(parents=True, exist_ok=True)  # ignorada en git: no existe en un clon
 THS = [0.5, 1.0, 2.0]; LS = [1, 2, 3]; HS = {10: 100, 30: 300, 60: 600, 300: 3000}
 COLS = ["ts_ms", "state_valid", "best_bid", "best_ask", "mid", "spread_bps", "ask_qty_01", "bid_qty_01"]
 F0, F1 = dt.date(2026, 6, 29), dt.date(2026, 9, 3)

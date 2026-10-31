@@ -24,5 +24,14 @@ E3 log-likelihood per bin minus each model's [95 % CI]:
 
 `codigo/wf_v102.py`, then `codigo/tablas_v102.py` (writes `tablas_tesis/` as md, csv, tex and figures).
 
+- `wf_v102.py` writes to `salida/`:
+  - `por_dia_v102.json`: metrics per day and model (included in the repository);
+  - `eventos_v102.npy`: post-sweep events with each model's prediction (≈ 12 MB, not included).
+- `tablas_v102.py` needs both. Without `eventos_v102.npy` it stops, and that file is only produced by running `wf_v102.py`.
+- **Resuming:** after each window the script saves `fold{k}.json` and `fold{k}_ev.npy` (all the events of that window). On a re-run, windows with both files are not refitted, and `eventos_v102.npy` is rebuilt from them.
+  - Before 30 Oct 2026, `fold{k}_ev.npy` kept only the window's last day. A resumed run would have produced an incomplete `eventos_v102.npy` and changed T4.
+  - The published run was not resumed (see `salida/wf_v102.log`): its `eventos_v102.npy` has all 53,764 events, and T1–T4 are unaffected.
+- `codigo/test_reanudacion_v102.py` checks the resume path without data or fitting. It verifies that a run interrupted after window 2, and a run with every window saved, reproduce the complete files. Optional argument: an existing `eventos_v102.npy`, to use its real rows.
+
 ---
 Protocols (`PLAN_*`, `ENMIENDA_*`) and run notes (`NOTA_*`) are kept in Spanish, exactly as they were sealed and executed.

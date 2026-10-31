@@ -10,7 +10,7 @@ sys.path.insert(0, str(RR / "03_cargador_datos" / "codigo"))
 import cargador_v98 as N  # noqa: E402
 from datos_capa_100ms import eventos_agresor  # noqa: E402
 from convenciones import DISTANCIAS_BPS_DEF  # noqa: E402
-P = R / "paquete"; d = date(2026, 6, 29); tot = 0
+P = R / "paquete"; (P / "dias").mkdir(parents=True, exist_ok=True); d = date(2026, 6, 29); tot = 0  # dias/ ignorada en git
 while d <= date(2026, 9, 3):
     b = N.bins(d, DISTANCIAS_BPS_DEF)
     tr = pq.read_table(N.DAT / "trades_event" / f"binance_trades_events_BTCUSDT_{d.isoformat()}.parquet", columns=["event_time_us", "price", "aggressor_buy"])
