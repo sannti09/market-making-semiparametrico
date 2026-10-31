@@ -30,10 +30,11 @@ It then asks two separate questions:
 | Walk-forward (34 days) | E3 beats all 10 benchmarks in all 5 windows, on both sides | [`10_`](codigo/10_walk_forward/) |
 | Pre-registered test (4–20 Sep; not strictly blind, [see below](#the-test-period-had-been-consulted-before)) | All 4 criteria met; AUC 0.813; E3 beats the best Hawkes on 17 of 17 days | [`17_`](codigo/17_test_predictivo/) |
 | Simulation (21 Sep–26 Oct, 36 new days) | Still the best predictor (AUC 0.848 / 0.842); the rebound criterion fails after buyer sweeps | [`19_`](codigo/19_simulacion/) |
-| Economic value | Every model and policy loses about 1.1–1.3 bps per fill before fees; E3 does not win on PnL | [`18_`](codigo/18_hjb_curva_interpolada/), [`19_`](codigo/19_simulacion/) |
+| Economic value | With the strict-cross execution rule, every model and policy loses about 1.1–1.3 bps per fill before fees; E3 does not win on PnL | [`18_`](codigo/18_hjb_curva_interpolada/), [`19_`](codigo/19_simulacion/) |
+| Queue robustness | Same result with an approximate FIFO queue. Under optimistic execution at the touch, the HJB policy with E3 earns a small gross profit in the simulation (+0.15 bps per fill), far below the fees evaluated (7.5–10 bps) | [`21_`](codigo/21_ejecucion_con_cola/) |
 | Why | Adverse selection: whatever is captured by quoting farther is lost when the price keeps moving, mostly within the first second | [`20_`](codigo/20_seleccion_adversa/) |
 
-**In short:** a clear predictive contribution and a negative economic result, both supported.
+**In short:** a clear predictive contribution and an economic result that is negative after the fees evaluated, both supported.
 
 ### The test period had been consulted before
 
@@ -113,6 +114,7 @@ codigo/
   18_hjb_curva_interpolada/     HJB with the interpolated distance curve: checks and economic test
   19_simulacion/                Simulation 21 Sep–26 Oct with frozen models and policies
   20_seleccion_adversa/         Decomposition of the loss per fill
+  21_ejecucion_con_cola/        Economic evaluation re-run with an approximate queue and optimistic at-touch execution
 ```
 
 Each numbered folder has an English `README.md` with its purpose and results. It also contains:
@@ -142,7 +144,7 @@ Protocols and notes are in Spanish, as they were sealed.
 | §8.5, HJB policy | `08_hjb_exponencial/`, `18_hjb_curva_interpolada/` |
 | §8.6, economic value in the test | `18_hjb_curva_interpolada/` (earlier versions: `13_`, `14_`) |
 | §8.7, simulation | `19_simulacion/` |
-| §8.8, origin of the loss | `20_seleccion_adversa/` |
+| §8.8, origin of the loss and queue robustness | `20_seleccion_adversa/`, `21_ejecucion_con_cola/` |
 | Appendix A, covariates | `01_nucleo_e3/`, `04_covariables_barrido/` |
 | Gradient and convergence check | `15_`, `16_` |
 
@@ -290,6 +292,7 @@ These files are not included because of their size; the code itself produces the
 5. `18_hjb_curva_interpolada/codigo/verif_v110.py`, then `econ_v110.py`.
 6. `19_simulacion/codigo/sim_v111.py`.
 7. `20_seleccion_adversa/codigo/sa_v112.py`.
+8. `21_ejecucion_con_cola/codigo/cola_v115.py test`, then `cola_v115.py sim`.
 
 **Reproducibility check:** from this structure, with caches built from scratch, the code exactly reproduces one test day (4 Sep). Prediction, fills and PnL all match with zero difference.
 

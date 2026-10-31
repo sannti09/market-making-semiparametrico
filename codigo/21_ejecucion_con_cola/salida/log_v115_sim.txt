@@ -1,0 +1,41 @@
+[23:50:58] tabla aprox 4d (31 s)
+[23:50:59] tabla aprox ('2d', 0.67757, 0.681495) (2 s)
+[23:51:01] tabla aprox ('2d', 0.683998, 0.684366) (2 s)
+[23:51:24] 2026-09-21 (62 s) control ok | HJB E3: R0 6634 ej -1.15 bps | R1 11067 ej -0.32 bps | R2 6640 ej -1.15 bps
+[23:51:46] 2026-09-22 (22 s) control ok | HJB E3: R0 3383 ej -1.24 bps | R1 8432 ej -0.18 bps | R2 3385 ej -1.23 bps
+[23:52:06] 2026-09-23 (20 s) control ok | HJB E3: R0 3325 ej -1.15 bps | R1 7961 ej -0.05 bps | R2 3331 ej -1.16 bps
+[23:52:28] 2026-09-24 (22 s) control ok | HJB E3: R0 3216 ej -1.39 bps | R1 8004 ej +0.07 bps | R2 3216 ej -1.39 bps
+[23:52:48] 2026-09-25 (20 s) control ok | HJB E3: R0 2685 ej -1.26 bps | R1 7151 ej +0.14 bps | R2 2691 ej -1.23 bps
+[23:53:02] 2026-09-26 (14 s) control ok | HJB E3: R0 466 ej -0.28 bps | R1 3191 ej +0.78 bps | R2 470 ej -0.27 bps
+[23:53:17] 2026-09-27 (15 s) control ok | HJB E3: R0 872 ej -0.64 bps | R1 5053 ej +0.54 bps | R2 872 ej -0.64 bps
+[23:53:40] 2026-09-28 (23 s) control ok | HJB E3: R0 3518 ej -1.11 bps | R1 9473 ej +0.12 bps | R2 3518 ej -1.11 bps
+[23:54:00] 2026-09-29 (19 s) control ok | HJB E3: R0 2158 ej -1.01 bps | R1 8163 ej +0.40 bps | R2 2162 ej -0.98 bps
+[23:54:20] 2026-09-30 (21 s) control ok | HJB E3: R0 3245 ej -1.20 bps | R1 9302 ej +0.21 bps | R2 3245 ej -1.20 bps
+[23:54:40] 2026-10-01 (20 s) control ok | HJB E3: R0 2571 ej -1.38 bps | R1 8149 ej +0.21 bps | R2 2575 ej -1.36 bps
+[23:55:02] 2026-10-02 (22 s) control ok | HJB E3: R0 3634 ej -1.44 bps | R1 9755 ej +0.07 bps | R2 3641 ej -1.43 bps
+[23:55:14] 2026-10-03 (12 s) control ok | HJB E3: R0 335 ej -0.60 bps | R1 2318 ej +0.72 bps | R2 337 ej -0.59 bps
+[23:55:28] 2026-10-04 (14 s) control ok | HJB E3: R0 770 ej -0.57 bps | R1 3886 ej +0.82 bps | R2 772 ej -0.58 bps
+[23:55:48] 2026-10-05 (20 s) control ok | HJB E3: R0 2427 ej -1.04 bps | R1 8583 ej +0.25 bps | R2 2431 ej -1.04 bps
+[23:56:06] 2026-10-06 (18 s) control ok | HJB E3: R0 1564 ej -1.21 bps | R1 7721 ej +0.41 bps | R2 1564 ej -1.21 bps
+[23:56:27] 2026-10-07 (21 s) control ok | HJB E3: R0 2355 ej -1.69 bps | R1 7432 ej +0.08 bps | R2 2359 ej -1.69 bps
+[23:56:51] 2026-10-08 (24 s) control ok | HJB E3: R0 4163 ej -1.37 bps | R1 9101 ej -0.14 bps | R2 4165 ej -1.36 bps
+[23:57:09] 2026-10-09 (17 s) control ok | HJB E3: R0 1770 ej -1.09 bps | R1 6903 ej +0.30 bps | R2 1772 ej -1.07 bps
+[23:57:22] 2026-10-10 (13 s) control ok | HJB E3: R0 397 ej -0.03 bps | R1 2521 ej +0.67 bps | R2 399 ej +0.03 bps
+[23:57:36] 2026-10-11 (14 s) control ok | HJB E3: R0 588 ej -0.89 bps | R1 3442 ej +0.70 bps | R2 588 ej -0.89 bps
+[23:57:54] 2026-10-12 (19 s) control ok | HJB E3: R0 2174 ej -1.76 bps | R1 7156 ej +0.22 bps | R2 2180 ej -1.77 bps
+[23:58:29] 2026-10-13 (35 s) control ok | HJB E3: R0 2885 ej -1.21 bps | R1 8015 ej +0.25 bps | R2 2889 ej -1.21 bps
+[23:59:10] 2026-10-14 (41 s) control ok | HJB E3: R0 2844 ej -0.84 bps | R1 8043 ej +0.19 bps | R2 2848 ej -0.84 bps
+[23:59:45] 2026-10-15 (35 s) control ok | HJB E3: R0 5043 ej -1.36 bps | R1 8904 ej -0.29 bps | R2 5047 ej -1.36 bps
+[00:00:09] 2026-10-16 (24 s) control ok | HJB E3: R0 2441 ej -1.86 bps | R1 6392 ej +0.12 bps | R2 2441 ej -1.87 bps
+[00:00:26] 2026-10-17 (16 s) control ok | HJB E3: R0 640 ej -1.15 bps | R1 3069 ej +0.51 bps | R2 640 ej -1.13 bps
+[00:00:45] 2026-10-18 (20 s) control ok | HJB E3: R0 1514 ej -0.99 bps | R1 4919 ej +0.22 bps | R2 1514 ej -1.00 bps
+[00:01:06] 2026-10-19 (21 s) control ok | HJB E3: R0 1798 ej -1.67 bps | R1 6249 ej +0.15 bps | R2 1802 ej -1.67 bps
+[00:01:28] 2026-10-20 (21 s) control ok | HJB E3: R0 2738 ej -1.17 bps | R1 7605 ej +0.11 bps | R2 2740 ej -1.17 bps
+[00:01:48] 2026-10-21 (20 s) control ok | HJB E3: R0 2428 ej -1.24 bps | R1 6916 ej +0.13 bps | R2 2430 ej -1.24 bps
+[00:02:27] 2026-10-22 (39 s) control ok | HJB E3: R0 2536 ej -1.42 bps | R1 7065 ej +0.02 bps | R2 2538 ej -1.43 bps
+[00:02:46] 2026-10-23 (19 s) control ok | HJB E3: R0 2106 ej -1.37 bps | R1 6499 ej +0.14 bps | R2 2108 ej -1.37 bps
+[00:03:03] 2026-10-24 (17 s) control ok | HJB E3: R0 2076 ej -1.21 bps | R1 5420 ej +0.08 bps | R2 2076 ej -1.21 bps
+[00:03:18] 2026-10-25 (15 s) control ok | HJB E3: R0 1008 ej -1.52 bps | R1 4359 ej +0.47 bps | R2 1010 ej -1.53 bps
+[00:03:41] 2026-10-26 (23 s) control ok | HJB E3: R0 3200 ej -1.37 bps | R1 7855 ej -0.01 bps | R2 3200 ej -1.37 bps
+[00:03:41] lectura: {"R0": {"conclusion_economica_se_mantiene": false, "max_ic_sup_bps": 3.6356388980349172, "E3_gana_HJBx": false}, "R1": {"conclusion_economica_se_mantiene": false, "max_ic_sup_bps": 3.51375401702689, "E3_gana_HJBx": true, "max_abs_cambio_vs_R0_HJBx": 1.7366290718060091}, "R2": {"conclusion_economica_se_mantiene": false, "max_ic_sup_bps": 3.5247142135510434, "E3_gana_HJBx": false, "max_abs_cambio_vs_R0_HJBx": 0.005318796649265156}, "poco_sensible_a_la_cola": false}
+[00:03:41] FIN (800 s)
