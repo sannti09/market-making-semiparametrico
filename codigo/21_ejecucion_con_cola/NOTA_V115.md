@@ -40,6 +40,8 @@ Nombres: R1 «ejecución optimista al toque» es la regla «toque sin cola» del
 - **R2 es una FIFO aproximada con profundidad imputada:** usa la cantidad mostrada cada 100 ms (o la mediana de los 20 niveles cuando el precio está más lejos), no cuenta las cancelaciones de quienes están delante y pierde la prioridad cada segundo. Los datos de 100 ms no permiten saber dónde cae la cola real entre R2 y R1.
 - **Neto de comisiones:** con las comisiones maker evaluadas en la tesis (7,5 y 10 bps por ejecución), ninguna política es rentable con ninguna de las tres reglas: la mayor ganancia bruta (+0,44 bps, E3 base con R1) queda muy por debajo. No se afirma nada para otras tarifas.
 - **Mecanismo no verificado aquí:** que R1 añada ejecuciones en el mejor precio con poca selección adversa es una hipótesis compatible con el PnL y el markout agregados. Comprobarlo requiere analizar las ejecuciones individuales (captura frente a movimiento posterior, separando las que cruzan de las que solo tocan el precio); ese análisis es exploratorio y se reporta aparte.
+- Con R1, la mejor variante económica es E3 base, no E3 tesis (E3 tesis − E3 base: −0,24 bps en el test y −0,28 en la simulación, IC excluye 0).
+- Las reglas son escenarios de sensibilidad: no se ha demostrado que acoten el PnL real.
 - La lectura restringida a los 11 modelos se añadió después de ver los resultados (ver arriba).
 
 ## Archivos

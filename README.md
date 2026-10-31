@@ -31,7 +31,7 @@ It then asks two separate questions:
 | Pre-registered test (4–20 Sep; not strictly blind, [see below](#the-test-period-had-been-consulted-before)) | All 4 criteria met; AUC 0.813; E3 beats the best Hawkes on 17 of 17 days | [`17_`](codigo/17_test_predictivo/) |
 | Simulation (21 Sep–26 Oct, 36 new days) | Still the best predictor (AUC 0.848 / 0.842); the rebound criterion fails after buyer sweeps | [`19_`](codigo/19_simulacion/) |
 | Economic value | With the strict-cross execution rule, every model and policy loses about 1.1–1.3 bps per fill before fees; E3 does not win on PnL | [`18_`](codigo/18_hjb_curva_interpolada/), [`19_`](codigo/19_simulacion/) |
-| Queue robustness | Same result with an approximate FIFO queue. Under optimistic execution at the touch, the HJB policy with E3 earns a small gross profit in the simulation (+0.15 bps per fill), far below the fees evaluated (7.5–10 bps) | [`21_`](codigo/21_ejecucion_con_cola/) |
+| Queue robustness | Same result with an approximate FIFO queue. Under optimistic execution at the touch (a sensitivity scenario, not an estimate of real queue priority), the HJB policy with E3 earns a small gross profit (+0.15 bps per fill in the simulation with the thesis E3, +0.44 with E3 base), far below the fees evaluated (7.5–10 bps) | [`21_`](codigo/21_ejecucion_con_cola/) |
 | Why | Adverse selection: whatever is captured by quoting farther is lost when the price keeps moving, mostly within the first second | [`20_`](codigo/20_seleccion_adversa/) |
 
 **In short:** a clear predictive contribution and an economic result that is negative after the fees evaluated, both supported.

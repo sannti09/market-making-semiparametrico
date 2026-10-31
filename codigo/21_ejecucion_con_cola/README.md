@@ -4,7 +4,7 @@ The thesis evaluates PnL with a **strict-cross rule**: a passive order fills onl
 
 ## What the data allow
 
-The canonical layer shows 20 levels per side every 100 ms. They reach only ~0.4–0.5 bps from the mid, while the policies quote at 0.85–2 bps (median). The real queue position therefore cannot be reconstructed, only bounded:
+The canonical layer shows 20 levels per side every 100 ms. They reach only ~0.4–0.5 bps from the mid, while the policies quote at 0.85–2 bps (median). The real queue position therefore cannot be reconstructed. The rules below are sensitivity scenarios; they have not been shown to bound the real PnL:
 
 | Rule | Fill condition |
 |---|---|
@@ -21,10 +21,13 @@ Control: R0 reproduces v110 (17 days) and v111 (36 days) exactly.
 | E3 thesis | R0 | −1.32 [−1.42; −1.21] | −1.26 [−1.33; −1.18] |
 | E3 thesis | R2 | −1.32 [−1.42; −1.21] | −1.25 [−1.33; −1.18] |
 | E3 thesis | R1 | +0.11 [−0.00; +0.24] | +0.15 [+0.08; +0.24] |
+| E3 base | R0 | −1.34 [−1.50; −1.15] | −1.30 [−1.43; −1.17] |
+| E3 base | R2 | −1.34 [−1.51; −1.16] | −1.30 [−1.42; −1.16] |
+| E3 base | R1 | +0.35 [+0.24; +0.47] | +0.44 [+0.37; +0.51] |
 | AS and Hawkes (7 variants) | any | −1.22 to −1.29 | −1.20 to −1.26 |
 
 - AS, Hawkes, GLFT and the myopic rule: the three rules differ by ≤ 0.07 bps.
-- HJB with E3 (and the 49-covariate GLM): under R1 the number of fills triples and the gross result turns slightly positive.
+- HJB with E3 (and the 49-covariate GLM): under R1 the number of fills triples and the gross result turns slightly positive. Under R1 the best economic variant is E3 base, not the thesis E3 (thesis − base: −0.24 bps in the test and −0.28 in the simulation, CI excludes 0), and the thesis E3 beats every AS and Hawkes variant by about +1.35 bps per fill (CI excludes 0). Under R0 and R2 none of these differences appears.
 - With the maker fees evaluated in the thesis (7.5 and 10 bps per fill), no policy is profitable under any of the three rules.
 
 ## Limitations
