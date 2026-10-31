@@ -8,7 +8,7 @@ The first and only opening of the test period (4–20 Sep), with the models from
   - C1 and C2: E3 beat every benchmark with CI > 0 and won 17 of 17 days against E2m+S;
   - C3: AUC 0.813 on both sides;
   - C4: rebound gaps of +0.116 and −0.139.
-- The results are identical to `17_`, which uses the corrected E3 curve, to three decimals.
+- The per-bin log-likelihood gains and the AUC are identical to `17_`, which uses the corrected E3 curve, to three decimals, and the four criteria are the same. The rebound gaps of the thesis E3 differ by 0.001 (+0.116 and −0.139 here, +0.115 and −0.140 in `17_`).
 - This folder is kept for traceability; the thesis reports `17_`.
 
 ---

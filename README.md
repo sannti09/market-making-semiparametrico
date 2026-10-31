@@ -2,7 +2,7 @@
 
 Undergraduate thesis, Data Science, Pontificia Universidad Javeriana (2026). Author: Santiago Rueda. Advisor: Vladimir Moreno.
 
-The thesis document is in Spanish (`documento/`). This repository contains it together with the code, sealed protocols and results of the final phase of the work. The earlier exploratory phase is summarised in appendices B and C of the document.
+The thesis document is in Spanish (`documento/`). This repository contains it together with the code, sealed protocols and results of the final phase of the work. The earlier development phase is summarised in appendix B of the document.
 
 ## The question
 
@@ -29,7 +29,7 @@ It then asks two separate questions:
 |---|---|---|
 | Walk-forward (34 days) | E3 beats all 10 benchmarks in all 5 windows, on both sides | [`10_`](codigo/10_walk_forward/) |
 | Pre-registered test (4–20 Sep; not strictly blind, [see below](#the-test-period-had-been-consulted-before)) | All 4 criteria met; AUC 0.813; E3 beats the best Hawkes on 17 of 17 days | [`17_`](codigo/17_test_predictivo/) |
-| Simulation (21 Sep–26 Oct, 36 new days) | Still the best predictor (AUC 0.848 / 0.842); the rebound criterion fails after buyer sweeps | [`19_`](codigo/19_simulacion/) |
+| Simulation (21 Sep–26 Oct, 36 days after the test) | Still the best predictor (AUC 0.848 / 0.842); the rebound criterion fails after buyer sweeps | [`19_`](codigo/19_simulacion/) |
 | Economic value | With the strict-cross execution rule, every model and policy loses about 1.1–1.3 bps per fill before fees; E3 does not win on PnL | [`18_`](codigo/18_hjb_curva_interpolada/), [`19_`](codigo/19_simulacion/) |
 | Queue robustness | Same result with an approximate FIFO queue. Under optimistic execution at the touch (a sensitivity scenario, not an estimate of real queue priority), the HJB policy with E3 earns a small gross profit (+0.15 bps per fill in the simulation with the thesis E3, +0.44 with E3 base), far below the fees evaluated (7.5–10 bps) | [`21_`](codigo/21_ejecucion_con_cola/) |
 | Why | Adverse selection: whatever is captured by quoting farther is lost when the price keeps moving, mostly within the first second | [`20_`](codigo/20_seleccion_adversa/) |
@@ -41,15 +41,17 @@ It then asks two separate questions:
 The 4–20 Sep test is pre-registered but not blind in the strict sense:
 - an earlier version of E3 had already been evaluated on those dates, inside the first blind test of the development phase (26 Aug–15 Sep);
 - a pause policy was run on it before a hold order, without its results being read;
-- the final specifications were evaluated on it more than once: the corrected curve fit (`15_`–`17_`) repeated the evaluation after a code review. The repeat matched the original to three decimals.
+- the final specifications were evaluated on it more than once: the corrected curve fit (`15_`–`17_`) repeated the evaluation after a code review. The repeat matched the original to three decimals in the per-bin log-likelihood gains and the AUC, and the four criteria did not change; the post-sweep rebound gaps of the thesis E3 differ by 0.001 (+0.115 and −0.140, against +0.116 and −0.139).
 
-No parameter or hyperparameter was estimated on the test, and no version was chosen for its test performance. What the test confirms is the final specifications, which had never been evaluated there. The 21 Sep–26 Oct simulation is the period never seen by any version.
+No parameter or hyperparameter was estimated on the test, and no version was chosen for its test performance. What the test confirms is the final specifications, which had never been evaluated there.
+
+The 21 Sep–26 Oct simulation period is not untouched either: part of it (up to 6 Oct) was used in an earlier business case, in the exploratory phase, to evaluate an earlier version of the model. Its results were not used to select or tune the final specifications (thesis §9.3, *Periodo de la simulación*).
 
 In the [thesis PDF](documento/main.pdf): §6.2 *Partición y protocolo* (methodology) and §9.3 *Limitaciones*, item *Exposición previa del test*; the earlier blind tests are in Appendix B.
 
 ## How well each model predicts
 
-All 11 models predict the same thing: how many aggressive orders will reach each of 9 distances from the mid in the next second. They are fitted on the same data (29 Jun–3 Sep) and evaluated on days they never saw.
+All 11 models predict the same thing: how many aggressive orders will reach each of 9 distances from the mid in the next second. They are fitted on the same data (29 Jun–3 Sep) and evaluated on days outside that fitting period.
 
 | Model | What it uses | AUC, test (4–20 Sep) | AUC, simulation (21 Sep–26 Oct) | Share of E3's gain, test / simulation |
 |---|---|---|---|---|
@@ -72,7 +74,7 @@ How to read the table:
   - E3 beats every Avellaneda–Stoikov and Hawkes variant on every test day (17/17) and every simulation day (36/36). It beats the linear GLM on 16 of 17 test days and 32–35 of 36 simulation days.
   - A linear model with the same covariates gets about 90 % of the way, so most of the gain comes from the covariates. The flexible fit adds the rest.
   - The best Hawkes model reaches about 70–74 %.
-  - Prediction did not degrade on the 36 new days: the AUC rose from 0.813 to 0.845.
+  - Prediction did not degrade on the 36 later days: the AUC rose from 0.813 to 0.845.
 
 Details: [`10_`](codigo/10_walk_forward/) (walk-forward), [`17_`](codigo/17_test_predictivo/) (test), [`19_`](codigo/19_simulacion/) (simulation).
 
@@ -130,7 +132,7 @@ Protocols and notes are in Spanish, as they were sealed.
 |---|---|---|
 | Training | 29 Jun–3 Sep | Walk-forward validation inside it: 1 Aug–3 Sep |
 | Test | 4–20 Sep | Pre-registered; consulted before ([details](#the-test-period-had-been-consulted-before)) |
-| Simulation | 21 Sep–26 Oct | Run once with everything frozen |
+| Simulation | 21 Sep–26 Oct | Everything frozen, no refitting; partly used in an earlier business case ([details](#the-test-period-had-been-consulted-before)) |
 
 ## Correspondence with the document
 
@@ -140,7 +142,7 @@ Protocols and notes are in Spanish, as they were sealed.
 | Ch. 7, data: capture and canonical layer | `captura_datos/`, `00_datos_canonicos/`, `03_cargador_datos/` |
 | §8.1, final E3 specification | `01_` to `06_` |
 | §8.2, walk-forward | `10_walk_forward/` |
-| §8.3–8.4, predictive test and post-sweep calibration | `17_test_predictivo/` (identical to `12_` to three decimals) |
+| §8.3–8.4, predictive test and post-sweep calibration | `17_test_predictivo/` (log-likelihood gains and AUC identical to `12_` to three decimals) |
 | §8.5, HJB policy | `08_hjb_exponencial/`, `18_hjb_curva_interpolada/` |
 | §8.6, economic value in the test | `18_hjb_curva_interpolada/` (earlier versions: `13_`, `14_`) |
 | §8.7, simulation | `19_simulacion/` |

@@ -19,7 +19,7 @@ Generalises the HJB of `08_` to any distance curve. log λ̂(δ) is interpolated
 | GLFT | −1.23 [−1.32; −1.11] | −1.22 to −1.26 | every CI includes 0 |
 | Myopic | −1.34 [−1.48; −1.19] | −1.29 to −1.34 | — |
 
-- **0 of 17 positive days for every model and policy.** With Binance maker fees (7.5–10 bps) the net loss is about −9 to −11 bps per fill.
+- **Positive days are rare, and the aggregate is always negative.** With the HJB and GLFT, 0 of 17 positive days for every model. With the myopic rule, AS base and E3 base (both at δ = 2 bps) have 4 of 17 positive days, and the fixed δ = 5 bps policy 10 of 17 (126 fills/day); every other model has 0. With Binance maker fees (7.5–10 bps) the net loss is about −9 to −11 bps per fill.
 - **The exact curve changes the policy but not the outcome.** It changes the quoted price in 86–99 % of decisions, but the loss per fill stays the same.
 - **E3 trades less.** With the exact HJB it fills 2,451 orders/day, against 3,543–3,982 for AS and Hawkes with the same f(δ) shape (31–38 % fewer). That means less losing volume, not better fills.
 
