@@ -67,7 +67,7 @@ Se compara la log-verosimilitud \eqref{eq:ll-compuesta} por segundo, el AUC a $\
 Todas las intensidades se evalúan en el test con el mismo simulador:
 \begin{itemize}[nosep]
 \item cada segundo y en cada lado se cotiza una orden de 0,01~BTC a la distancia que indica la política, redondeada al tick y siempre pasiva;
-\item la orden se ejecuta solo si, dentro de ese segundo, un agresor negocia a un precio \emph{estrictamente} más allá del suyo (regla de cruce estricto). La regla no modela la cola: omite las ejecuciones al mismo precio de la orden, por lo que tiende a contar menos ejecuciones, pero no garantiza que el PnL resultante sea conservador;
+\item la orden se ejecuta solo si, dentro de ese segundo, un agresor negocia a un precio \emph{estrictamente} más allá del suyo (regla de cruce estricto). La regla no modela la cola: omite las ejecuciones al mismo precio de la orden, por lo que tiende a contar menos ejecuciones, pero no garantiza que el PnL resultante sea conservador; su sensibilidad a la cola se estudia en la Sección~\ref{sec:p2-origen};
 \item la decisión usa el estado de la capa al inicio del segundo y la orden queda activa desde ese instante, sin latencia de envío; la sensibilidad a la latencia se estudió por separado en el entrenamiento (Sección~\ref{sec:p2-origen});
 \item el inventario se limita a $|q|\le10$ y se valora al último precio medio del día.
 \end{itemize}

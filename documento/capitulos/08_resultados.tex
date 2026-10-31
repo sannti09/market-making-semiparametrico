@@ -280,6 +280,28 @@ La pérdida tampoco depende de la intensidad que predice el modelo. Ordenando la
 
 En las configuraciones probadas en el entrenamiento, el resultado fue robusto al simulador, al modelo de cola y a la latencia. La regla de ejecución usada aquí coincide con simuladores que modelan la cola explícitamente: con hftbacktest, a 0,01--0,06~bps por ejecución; con NautilusTrader, entre $-1{,}22$ y $-1{,}27$~bps frente a $-1{,}26$. Reducir la latencia simulada de 100~ms a 10~$\mu$s deja la pérdida entre $-1{,}21$ y $-1{,}28$~bps. Estas comprobaciones, con políticas simétricas cerca del mejor precio, no cubren el test ni otras políticas, y los datos de 100~ms no permiten simular cancelaciones en microsegundos. Otras pruebas exploratorias de la parte económica, ninguna rentable después de comisiones, se resumen en el Apéndice~\ref{app:p2-exploratorio}.
 
+\paragraph{Sensibilidad a la cola en el test y la simulación.} Para comprobar si la regla de cruce estricto condiciona el resultado, se repitió la evaluación económica de los dos periodos con los modelos y las políticas congelados, cambiando solo la regla de ejecución. El protocolo se fijó antes de correr; es un análisis de robustez, no confirmatorio, porque ambos periodos ya se habían evaluado. La capa canónica muestra veinte niveles por lado, que llegan a unos 0,5~bps del precio medio, mientras que las políticas cotizan a 0,85--2~bps (mediana). La posición real en la cola no se puede reconstruir, de modo que se acota con tres reglas:
+\begin{itemize}[nosep]
+\item \textbf{R0, cruce estricto}: la regla de la tesis; reproduce exactamente los resultados anteriores;
+\item \textbf{R2, FIFO aproximada con profundidad imputada}: además de los cruces, la orden se ejecuta si el volumen agresor negociado exactamente a su precio dentro del segundo supera la cantidad que tiene delante más la propia. Esa cantidad es la mostrada en el libro o, si el precio está más allá de los veinte niveles, la mediana de los niveles visibles; la cola solo avanza con transacciones y la prioridad se pierde al recotizar;
+\item \textbf{R1, ejecución optimista al toque}: la orden se ejecuta completa en cuanto un agresor negocia a su precio, como si no tuviera cola delante.
+\end{itemize}
+
+\begin{table}[htbp]
+\centering\small
+\caption{PnL bruto por ejecución de la política HJB con tres reglas de ejecución (bps, IC95 por días); modelos y políticas congelados. R0: cruce estricto; R2: FIFO aproximada con profundidad imputada; R1: ejecución optimista al toque.}
+\label{tab:cola}
+\begin{tabular}{@{}llcc@{}}\toprule
+Intensidad & Regla & Test (17 días) & Simulación (36 días)\\\midrule
+E3 tesis & R0 & $-1{,}32$ [$-1{,}42$; $-1{,}21$] & $-1{,}26$ [$-1{,}33$; $-1{,}18$]\\
+E3 tesis & R2 & $-1{,}32$ [$-1{,}42$; $-1{,}21$] & $-1{,}25$ [$-1{,}33$; $-1{,}18$]\\
+E3 tesis & R1 & $+0{,}11$ [$-0{,}00$; $+0{,}24$] & $+0{,}15$ [$+0{,}08$; $+0{,}24$]\\
+AS y Hawkes (7 variantes) & las tres & $-1{,}22$ a $-1{,}29$ & $-1{,}20$ a $-1{,}26$\\\bottomrule
+\end{tabular}
+\end{table}
+
+Con AS, Hawkes, GLFT y la regla miope, las tres reglas difieren en menos de 0,07~bps por ejecución. R2 coincide con R0 en todas las políticas (diferencia máxima de 0,02~bps): bajo sus supuestos la cola no cambia el resultado, lo que no demuestra que la cola real lo produzca. La excepción es la HJB con E3 (y, en menor medida, con el GLM de 49 covariables), que cotiza a menudo en el mejor precio. Con R1 triplica las ejecuciones y obtiene una ganancia bruta pequeña (Tabla~\ref{tab:cola}): $+0{,}15$~bps por ejecución en la simulación, y $+0{,}11$ en el test, con un intervalo que llega a cero. R1 es un escenario optimista, no una estimación de la prioridad real, y no muestra que una mayor velocidad volviera rentable a E3; el mecanismo de esas ejecuciones adicionales no se verificó a nivel de ejecución. Con las comisiones maker evaluadas (7,5 y 10~bps por ejecución), ninguna política es rentable con ninguna de las tres reglas.
+
 \Needspace{.5\textheight}  % título, frase y tabla en la misma página
 \section{Avance frente a los objetivos}
 
