@@ -1,6 +1,6 @@
 ### Ejecución con cola aproximada, test (17 días; bruto, sin comisiones; modelos v108 y políticas de v110 congelados)
 
-R0 = cruce estricto (tesis); R1 = toque sin cola (cota optimista); R2 = cola FIFO, cola delante visible o imputada (mediana de los 20 niveles).
+R0 = cruce estricto (tesis); R1 = ejecución optimista al toque (escenario de sensibilidad, sin estimación de prioridad real); R2 = cola FIFO, cola delante visible o imputada (mediana de los 20 niveles).
 
 | Política | Modelo | Regla | Ejec./día | \|q\| medio | PnL/día (USDT) | Días > 0 | PnL por ejec. (bps) [IC95] | Cambio vs R0 (bps) [IC95] | Markout 10 s | Markout 60 s | E3 tesis − modelo [IC95] |
 |---|---|---|---|---|---|---|---|---|---|---|---|

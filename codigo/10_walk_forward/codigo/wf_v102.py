@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """v102: walk-forward semanal dentro del entrenamiento. Plan: PLAN_V102.md. Reutiliza las funciones de v101 (importadas, sin editar)."""
-import hashlib, json, sys, time
+import hashlib, json, sys, time, tempfile
 from datetime import date, timedelta
 from pathlib import Path
 import numpy as np
@@ -74,21 +74,70 @@ def evaluar(MOD, deltas, cols, dias, k, tipo, evs):
             evs.append(np.column_stack([np.full(len(i), k), ev[ok, 1], b["conteos"]["ask"][i, jd], b["conteos"]["bid"][i, jd], b["S"][i, -1]] + [L2[(m, l)][i] for m in NOMS for l in ("ask", "bid")]))
     return out
 
+def escribir_atomico(path, valor, numpy=False):
+    """Publica un archivo completo; una interrupción no trunca el anterior."""
+    temporal = None
+    try:
+        with tempfile.NamedTemporaryFile(dir=path.parent, suffix=".tmp", delete=False) as f:
+            temporal = Path(f.name)
+            if numpy:
+                np.save(f, valor, allow_pickle=False)
+            else:
+                f.write(json.dumps(valor, indent=1).encode())
+        temporal.replace(path)
+    finally:
+        if temporal is not None:
+            temporal.unlink(missing_ok=True)
+
+
+def cargar_ventana(k, fin, e0, e1):
+    """Solo reutiliza un checkpoint completo y coherente con su ventana."""
+    pj, pe = SAL / f"fold{k}.json", SAL / f"fold{k}_ev.npy"
+    if not (pj.exists() and pe.exists()):
+        return None
+    try:
+        filas = json.loads(pj.read_text())
+        with pe.open("rb") as archivo:
+            ev = np.load(archivo, allow_pickle=False)
+        fd = date.fromisoformat(fin)
+        esperadas = {(str(d), "fuera") for d in T.fechas(e0, e1)}
+        esperadas |= {(str(d), "dentro") for d in T.fechas((fd - timedelta(days=6)).isoformat(), fin)}
+        if not isinstance(filas, list) or any(not isinstance(r, dict) for r in filas):
+            return None
+        recibidas = [(r.get("fecha"), r.get("tipo")) for r in filas]
+        if len(recibidas) != len(esperadas) or set(recibidas) != esperadas:
+            return None
+        if any(r.get("fold") != k or not isinstance(r.get("n"), int) or r["n"] <= 0 for r in filas):
+            return None
+        if ev.ndim != 2 or ev.shape[1] != 5 + 2 * len(NOMS) or not np.all(ev[:, 0] == k):
+            return None
+        return filas, ev
+    except (OSError, ValueError, EOFError, TypeError):
+        return None
+
+
 def correr():
     """Reanudable: una ventana con fold{k}.json y fold{k}_ev.npy en salida/ no se recalcula. eventos_v102.npy alimenta T4 (tablas_v102.py)."""
     filas, evs = [], []
     for k, (fin, e0, e1) in enumerate(FOLDS, 1):
-        if (SAL / f"fold{k}.json").exists():
-            filas += json.loads((SAL / f"fold{k}.json").read_text()); evs.append(np.load(SAL / f"fold{k}_ev.npy")); continue
+        guardada = cargar_ventana(k, fin, e0, e1)
+        if guardada is not None:
+            filas += guardada[0]; evs.append(guardada[1]); continue
         t0 = time.time(); MOD, deltas, cols = ajustar(fin); log(f"ventana {k}: ajuste hasta {fin} ({time.time() - t0:.0f} s)")
         fd = date.fromisoformat(fin); ins = T.fechas((fd - timedelta(days=6)).isoformat(), fin)
         n0 = len(evs)  # evaluar añade un bloque por día: se guardan todos los de la ventana (antes solo evs[-1], el último día)
         filas += evaluar(MOD, deltas, cols, T.fechas(e0, e1), k, "fuera", evs) + evaluar(MOD, deltas, cols, ins, k, "dentro", None)
         ev_k = np.vstack(evs[n0:]); evs[n0:] = [ev_k]
-        nuevas = [r for r in filas if r["fold"] == k]; (SAL / f"fold{k}.json").write_text(json.dumps(nuevas)); np.save(SAL / f"fold{k}_ev.npy", ev_k)
-        (SAL / "por_dia_v102.json").write_text(json.dumps(filas, indent=1)); log(f"ventana {k}: evaluada {e0}–{e1} y dentro de muestra {ins[0]}–{ins[-1]}")
+        nuevas = [r for r in filas if r["fold"] == k]
+        escribir_atomico(SAL / f"fold{k}_ev.npy", ev_k, numpy=True)
+        escribir_atomico(SAL / f"fold{k}.json", nuevas)
+        escribir_atomico(SAL / "por_dia_v102.json", filas)
+        log(f"ventana {k}: evaluada {e0}–{e1} y dentro de muestra {ins[0]}–{ins[-1]}")
         del MOD
-    np.save(SAL / "eventos_v102.npy", np.vstack(evs)); log("FIN")
+    # También se reconstruyen cuando no se entrenó ninguna ventana nueva.
+    escribir_atomico(SAL / "eventos_v102.npy", np.vstack(evs), numpy=True)
+    escribir_atomico(SAL / "por_dia_v102.json", filas)
+    log("FIN")
 
 if __name__ == "__main__":
     correr()

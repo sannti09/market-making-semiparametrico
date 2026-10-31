@@ -1,6 +1,6 @@
 """v98: bins de 1 s para E3 leyendo SOLO la carpeta unificada 00_DATOS (README: todo el código nuevo lee de aquí).
 Misma lógica que cargador_v58.construir_bins_v58 (copiada; v58 sin editar), salvo: una sola capa, sin fin_capa de v1, guardia 29 jun–3 sep."""
-import sys
+import sys, tempfile, zipfile
 from datetime import date
 from pathlib import Path
 import numpy as np, pyarrow.parquet as pq
@@ -41,10 +41,32 @@ def construir(d, deltas_bps, delta_s=1.0):
 
 
 def bins(d, deltas_bps):
+    deltas = np.array(sorted(set(float(x) for x in deltas_bps)))
+    if not len(deltas) or not np.isfinite(deltas).all():
+        raise ValueError("deltas_bps debe contener distancias finitas")
     p = CAC / f"bins_{d}.npz"
-    if not p.exists():
-        b = construir(d, deltas_bps)
-        np.savez(p, t_ms=b["t_ms"], X=b["X"], hora_utc=b["hora_utc"], exposicion_s=b["exposicion_s"], deltas_bps=b["deltas_bps"],
-                 c_ask=b["conteos"]["ask"], c_bid=b["conteos"]["bid"], cols=np.array(b["columnas_x"]))
-    z = np.load(p, allow_pickle=True)
-    return {k: z[k] for k in ("t_ms", "X", "hora_utc", "exposicion_s", "deltas_bps")} | {"conteos": {"ask": z["c_ask"], "bid": z["c_bid"]}, "columnas_x": list(z["cols"])}
+    if p.exists():
+        try:
+            with p.open("rb") as archivo, np.load(archivo, allow_pickle=False) as z:
+                if np.array_equal(z["deltas_bps"], deltas):
+                    b = {k: z[k] for k in ("t_ms", "X", "hora_utc", "exposicion_s", "deltas_bps")}
+                    b |= {"conteos": {"ask": z["c_ask"], "bid": z["c_bid"]}, "columnas_x": list(z["cols"])}
+                    n = len(b["t_ms"])
+                    if (b["X"].shape == (n, len(b["columnas_x"])) and
+                        b["hora_utc"].shape == b["exposicion_s"].shape == (n,) and
+                        all(y.shape == (n, len(deltas)) for y in b["conteos"].values())):
+                        return b
+        except (OSError, ValueError, KeyError, EOFError, TypeError, zipfile.BadZipFile):
+            pass  # Caché incompleta o incompatible: reconstruir desde la capa canónica.
+    b = construir(d, deltas)
+    temporal = None
+    try:
+        with tempfile.NamedTemporaryFile(dir=CAC, suffix=".tmp", delete=False) as f:
+            temporal = Path(f.name)
+            np.savez(f, t_ms=b["t_ms"], X=b["X"], hora_utc=b["hora_utc"], exposicion_s=b["exposicion_s"], deltas_bps=b["deltas_bps"],
+                     c_ask=b["conteos"]["ask"], c_bid=b["conteos"]["bid"], cols=np.array(b["columnas_x"]))
+        temporal.replace(p)
+    finally:
+        if temporal is not None:
+            temporal.unlink(missing_ok=True)
+    return b

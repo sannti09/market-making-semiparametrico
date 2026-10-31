@@ -1,6 +1,6 @@
 # 10 · Walk-forward validation
 
-Five weekly expanding windows: each fit starts on 29 Jun and ends on 31 Jul, 7, 14, 21 or 28 Aug; each evaluation is the following week. That gives **34 out-of-sample days (1 Aug–3 Sep)**; the test stayed closed. All 11 models are refitted in every window.
+Five weekly expanding windows: each fit starts on 29 Jun and ends on 31 Jul, 7, 14, 21 or 28 Aug; each evaluation is the following week, except the final window, which ends on 3 Sep and has six days. That gives **34 out-of-sample days (1 Aug–3 Sep)**; the test stayed closed. All 11 models are refitted in every window.
 
 ## Results (`tablas_tesis/T1–T4`)
 
@@ -35,3 +35,9 @@ E3 log-likelihood per bin minus each model's [95 % CI]:
 
 ---
 Protocols (`PLAN_*`, `ENMIENDA_*`) and run notes (`NOTA_*`) are kept in Spanish, exactly as they were sealed and executed.
+
+### Checkpoint recovery
+
+A window is reused only when both its JSON and event array are readable and match the window. Missing, corrupt or incomplete checkpoints are recomputed. Each file is replaced atomically, and both aggregate files are rebuilt at the end, including when all windows were loaded from checkpoints. This also repairs an absent or stale `por_dia_v102.json` without refitting valid windows.
+
+`test_reanudacion_v102.py` covers missing and corrupt checkpoint files, incomplete daily rows, events from another window, and absent or stale aggregates, in addition to normal resumption. The published 34-day results are unchanged.

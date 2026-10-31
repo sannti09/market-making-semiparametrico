@@ -13,3 +13,13 @@ Plans `PLAN_V98.md`, `PLAN_V99.md` (sealed with SHA-256); results in `NOTA_V98.m
 
 ---
 Protocols (`PLAN_*`, `ENMIENDA_*`) and run notes (`NOTA_*`) are kept in Spanish, exactly as they were sealed and executed.
+
+### Cache validation
+
+`bins(d, deltas_bps)` checks that a stored day's distance grid matches the requested grid after sorting and deduplication. An incompatible or damaged cache is rebuilt; writes replace the previous cache atomically. The published evaluation uses its original fixed grid.
+
+Regression checks, without market data:
+
+```bash
+python -m unittest discover -s codigo/03_cargador_datos/codigo -p 'test_cache_v98.py' -v
+```
