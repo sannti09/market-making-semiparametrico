@@ -80,12 +80,12 @@ Con los once modelos ajustados en todo el entrenamiento y congelados antes de le
 \item \textbf{jerarquía}: E3 tesis supera a AS + h + f, AS + S, GLM lineal, Hawkes 2 escalas + h + f y Hawkes 2 escalas + S con IC95 positivo en ambos lados;
 \item \textbf{consistencia}: gana 17 de 17 días al Hawkes de dos escalas con señales en ambos lados;
 \item \textbf{discriminación}: AUC de 0,813 en ambos lados, por encima de 0,80;
-\item \textbf{rebote}: brecha de $+0{,}116$ tras barridos vendedores y $-0{,}139$ tras compradores, dentro de $\pm0{,}15$.
+\item \textbf{rebote}: brecha de $+0{,}115$ tras barridos vendedores y $-0{,}140$ tras compradores, dentro de $\pm0{,}15$.
 \end{itemize}
 
 \begin{table}[htbp]
 \centering\footnotesize
-\caption{Test final (4--20 sep., 17 días; modelos congelados con el ajuste corregido, idéntico al original a tres decimales). Parte de la mejora sobre AS base, ventaja de E3 tesis por intervalo [IC95 por días] y días en que gana E3 tesis (ask / bid).}
+\caption{Test final (4--20 sep., 17 días; modelos congelados con el ajuste corregido; las ventajas por intervalo y el AUC coinciden con el ajuste original a tres decimales). Parte de la mejora sobre AS base, ventaja de E3 tesis por intervalo [IC95 por días] y días en que gana E3 tesis (ask / bid).}
 \label{tab:test}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}lrrccc@{}}\toprule
@@ -203,7 +203,7 @@ Política & Intensidad & Ejec./día & PnL/día (USDT) & PnL por ejec. (bps) & D�
 \section{Simulación del 21 de septiembre al 26 de octubre}
 \label{sec:simulacion}
 
-Con los mismos modelos y políticas, sin ningún reajuste, se evaluaron los 36 días posteriores al test. Antes de abrir el periodo se comprobó que el código reproduce exactamente un día del test (diferencia nula en predicción, ejecuciones y PnL).
+Con los mismos modelos y políticas, sin ningún reajuste, se evaluaron los 36 días posteriores al test, parte de los cuales se había usado antes en un caso de negocio (Sección~\ref{sec:limitaciones}). Antes de evaluar el periodo se comprobó que el código reproduce exactamente un día del test (diferencia nula en predicción, ejecuciones y PnL).
 
 \begin{table}[htbp]
 \centering\footnotesize
@@ -278,7 +278,7 @@ En los dos periodos y en todas las combinaciones se repite la misma regularidad.
 
 La pérdida tampoco depende de la intensidad que predice el modelo. Ordenando las ejecuciones de E3 tesis con la HJB por su intensidad predicha a 2~bps, la distancia capturada sube del decil más bajo al más alto (de 0,4 a 2,2~bps en el test), pero el \textit{markout} se mantiene entre $-1{,}0$ y $-1{,}4$~bps en el test y entre $-1{,}15$ y $-1{,}30$~bps en la simulación. Con la regla miope, el decil de mayor intensidad es el que más pierde ($-1{,}39$~bps en el test y $-1{,}25$~bps en la simulación).
 
-En las configuraciones probadas en el entrenamiento, el resultado fue robusto al simulador, al modelo de cola y a la latencia. La regla de ejecución usada aquí coincide con simuladores que modelan la cola explícitamente: con hftbacktest, a 0,01--0,06~bps por ejecución; con NautilusTrader, entre $-1{,}22$ y $-1{,}27$~bps frente a $-1{,}26$. Reducir la latencia simulada de 100~ms a 10~$\mu$s deja la pérdida entre $-1{,}21$ y $-1{,}28$~bps. Estas comprobaciones, con políticas simétricas cerca del mejor precio, no cubren el test ni otras políticas, y los datos de 100~ms no permiten simular cancelaciones en microsegundos. Otras pruebas exploratorias de la parte económica, ninguna rentable después de comisiones, se resumen en el Apéndice~\ref{app:p2-exploratorio}.
+En las configuraciones probadas en el entrenamiento, el resultado fue robusto al simulador, al modelo de cola y a la latencia. La regla de ejecución usada aquí coincide con simuladores que modelan la cola explícitamente: con hftbacktest, a 0,01--0,06~bps por ejecución; con NautilusTrader, entre $-1{,}22$ y $-1{,}27$~bps frente a $-1{,}26$. Reducir la latencia simulada de 100~ms a 10~$\mu$s deja la pérdida entre $-1{,}21$ y $-1{,}28$~bps. Estas comprobaciones, con políticas simétricas cerca del mejor precio, no cubren el test ni otras políticas, y los datos de 100~ms no permiten simular cancelaciones en microsegundos. En la fase exploratoria se probaron otras variantes económicas, ninguna rentable después de comisiones, que no se reportan aquí. Una salvedad metodológica de esa fase sí afecta a la lectura de los resultados: un simulador intermedio que daba por ejecutadas como pasivas cotizaciones que habrían cruzado el libro reducía artificialmente la pérdida de $-1{,}26$ a $-0{,}2$~bps por ejecución; la validación con cola explícita lo detectó y ese resultado se retiró.
 
 \paragraph{Sensibilidad a la cola en el test y la simulación.} Para comprobar si la regla de cruce estricto condiciona el resultado, se repitió la evaluación económica de los dos periodos con los modelos y las políticas congelados, cambiando solo la regla de ejecución. El protocolo se fijó antes de correr; es un análisis de robustez, no confirmatorio, porque ambos periodos ya se habían evaluado. La capa canónica muestra veinte niveles por lado, que llegan a unos 0,5~bps del precio medio, mientras que las políticas cotizan a 0,85--2~bps (mediana). La posición real en la cola no se puede reconstruir, de modo que se examina con tres reglas, que son escenarios de sensibilidad y no se ha demostrado que acoten el PnL real:
 \begin{itemize}[nosep]

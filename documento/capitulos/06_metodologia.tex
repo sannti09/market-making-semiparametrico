@@ -15,7 +15,7 @@ La respuesta se define sobre \emph{eventos agresores}: transacciones con el mism
 Bloque & Fechas (2026) & Uso\\\midrule
 Entrenamiento & 29 jun.--3 sep. (67 días) & Desarrollo, \textit{walk-forward} y ajuste de los modelos finales\\
 Test & 4--20 sep. (17 días) & Evaluación de los modelos finales congelados, predictiva y económica\\
-Simulación & 21 sep.--26 oct. (36 días) & Evaluación única de los mismos modelos y políticas, sin ningún reajuste\\\bottomrule
+Simulación & 21 sep.--26 oct. (36 días) & Evaluación de los mismos modelos y políticas, sin ningún reajuste\\\bottomrule
 \end{tabular}
 \end{center}
 
@@ -24,14 +24,14 @@ Dentro del entrenamiento se desarrolló la especificación de E3 (covariables, h
 \item \textit{walk-forward} con cinco ventanas semanales expansivas: se ajusta desde el 29 de junio hasta el 31 de julio, 7, 14, 21 y 28 de agosto, y se evalúa en los siete días siguientes (34 días fuera de muestra);
 \item ajuste de los modelos finales con todo el entrenamiento, que se guardan sin cambios posteriores;
 \item evaluación del test;
-\item simulación, una sola vez, con los modelos y las políticas congelados.
+\item simulación con los modelos y las políticas congelados; la evaluación principal se corrió una vez, y el análisis de sensibilidad a la cola (Sección~\ref{sec:p2-origen}) repitió la parte económica con otras reglas de ejecución. Parte de este periodo se había usado antes en un caso de negocio, sin intervenir en la selección ni el ajuste de las especificaciones finales (Sección~\ref{sec:limitaciones}).
 \end{enumerate}
 Cada paso tuvo un protocolo con sus criterios escritos antes de correr. Antes de abrir la simulación se comprobó que su código reproduce exactamente un día del test.
 
 \paragraph{Versiones de los modelos.} Los resultados provienen de dos versiones del ajuste, que se identifican en cada tabla:
 \begin{itemize}[nosep]
 \item \textbf{ajuste original}: el \textit{walk-forward} y los modelos finales con los que se evaluó primero el test;
-\item \textbf{ajuste corregido}: una revisión posterior encontró que el último paso de la curva de E3 no verificaba la convergencia y que su gradiente omitía el recorte de $m(X)$. Se corrigió y se reestimó solo ese paso (la curva, su modulación y un ajuste de nivel) para E3 tesis y E3-fkX, con $g$ y $h$ fijos y convergencia comprobada de ese paso, sin tocar las demás variantes. El test predictivo repetido con el ajuste corregido coincide con el original a tres decimales en todas las métricas.
+\item \textbf{ajuste corregido}: una revisión posterior encontró que el último paso de la curva de E3 no verificaba la convergencia y que su gradiente omitía el recorte de $m(X)$. Se corrigió y se reestimó solo ese paso (la curva, su modulación y un ajuste de nivel) para E3 tesis y E3-fkX, con $g$ y $h$ fijos y convergencia comprobada de ese paso, sin tocar las demás variantes. El test predictivo repetido con el ajuste corregido coincide con el original a tres decimales en las ventajas de log-verosimilitud y en el AUC, y no cambia ningún criterio; las brechas de rebote de E3 tesis difieren en 0,001.
 \end{itemize}
 El \textit{walk-forward} se conserva con el ajuste original; la evaluación económica usa el ajuste corregido. Ningún parámetro ni hiperparámetro se estimó con el periodo de test. El periodo se evaluó más de una vez: las versiones posteriores corrigieron defectos del código señalados en revisiones, no se eligieron por su desempeño en el test y no cambiaron las conclusiones. El test no es ciego en sentido estricto, porque la versión original de E3 se había evaluado en esas fechas (Apéndice~\ref{app:ciegos}); lo que confirma son las especificaciones finales, que nunca se evaluaron allí.
 
