@@ -45,7 +45,7 @@ The 4–20 Sep test is pre-registered but not blind in the strict sense:
 
 No parameter or hyperparameter was estimated on the test, and no version was chosen for its test performance. What the test confirms is the final specifications, which had never been evaluated there.
 
-The 21 Sep–26 Oct simulation period is not untouched either: part of it (up to 6 Oct) was used in an earlier business case, in the exploratory phase, to evaluate an earlier version of the model. Its results were not used to select or tune the final specifications (thesis §9.3, *Periodo de la simulación*).
+The 21 Sep–26 Oct simulation period is not untouched either: its first part (21 Sep–6 Oct) was used in the exploratory phase, in predictive and economic evaluations of earlier versions of the model. Those results were not used to select or tune the final specifications. From 7 to 26 Oct the data layer was only built and checked; no model was evaluated there before the simulation (thesis §9.3, *Periodo de la simulación*).
 
 In the [thesis PDF](documento/main.pdf): §6.2 *Partición y protocolo* (methodology) and §9.3 *Limitaciones*, item *Exposición previa del test*; the earlier blind tests are in Appendix B.
 
@@ -132,7 +132,7 @@ Protocols and notes are in Spanish, as they were sealed.
 |---|---|---|
 | Training | 29 Jun–3 Sep | Walk-forward validation inside it: 1 Aug–3 Sep |
 | Test | 4–20 Sep | Pre-registered; consulted before ([details](#the-test-period-had-been-consulted-before)) |
-| Simulation | 21 Sep–26 Oct | Everything frozen, no refitting; partly used in an earlier business case ([details](#the-test-period-had-been-consulted-before)) |
+| Simulation | 21 Sep–26 Oct | Everything frozen, no refitting; 21 Sep–6 Oct used earlier in exploratory evaluations ([details](#the-test-period-had-been-consulted-before)) |
 
 ## Correspondence with the document
 

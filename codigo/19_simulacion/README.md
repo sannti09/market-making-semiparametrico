@@ -1,6 +1,6 @@
 # 19 · Simulation, 21 Sep–26 Oct (36 days, frozen models and policies)
 
-Part of this period (up to 6 Oct) was used in an earlier business case, in the exploratory phase, to evaluate an earlier version of the model; its results were not used to select or tune the final specifications. Models (`16_`) and policies (`18_`) are frozen and were run once in this folder; `21_` later re-ran the economic evaluation with other execution rules. As a control, the script first reproduces 4 Sep of `17_` and `18_` exactly.
+Part of this period (21 Sep–6 Oct) was used in the exploratory phase, in predictive and economic evaluations of earlier versions of the model; those results were not used to select or tune the final specifications. No model was evaluated on 7–26 Oct before this run. Models (`16_`) and policies (`18_`) are frozen and were run once in this folder; `21_` later re-ran the economic evaluation with other execution rules. As a control, the script first reproduces 4 Sep of `17_` and `18_` exactly.
 
 ## Simulator rules
 
