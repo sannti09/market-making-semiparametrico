@@ -94,12 +94,12 @@ Como un evento que alcanza $\delta_2$ alcanza también toda $\delta_1<\delta_2$,
  \ell=\sum_t\sum_\delta\bigl[y_{t\delta}\log\lambda(t,\delta)-\Delta\,\lambda(t,\delta)\bigr]
  \label{eq:ll-compuesta}
 \end{equation}
-es una verosimilitud compuesta. Con $m_i\equiv1$ y $g_i+h_i$ fijos, la condición de primer orden da la curva en forma cerrada:
+es una verosimilitud compuesta. Con $m_i\equiv1$ y $g_i+h_i$ fijos, la condición de primer orden para cada $f_j$ da $f_j=\log N_j-\log\sum_t\Delta e^{g_i+h_i}$. El segundo término es común a todas las distancias; la normalización $f_i(\delta_1)=0$ lo traslada al nivel y deja la curva en forma cerrada:
 \begin{equation}
  f_j=\log\frac{N_j}{N_1},\qquad N_j=\sum_t y_{tj},
  \label{eq:f-cerrada}
 \end{equation}
-monótona porque el anidamiento hace $N_j$ no creciente. Cuando $m_i$ varía, $f$ se parametriza como $f_j=-\sum_{l<j}e^{\theta_l}(\delta_{l+1}-\delta_l)$ y $(\theta,b)$ se estiman por máxima verosimilitud. La estimación completa alterna los ajustes de $g_i$, $h_i$ y la curva (\textit{backfitting}), principio relacionado con la regresión semiparamétrica parcialmente lineal \citep{RobinsonSemiparametric1988,SancettaLOB2024}.
+monótona porque el anidamiento hace $N_j$ no creciente. Cuando $m_i$ varía, $f$ se parametriza como $f_j=-\sum_{l<j}e^{\theta_l}(\delta_{l+1}-\delta_l)$ y $(\theta,b)$ se estiman por máxima verosimilitud. Con $m_i$ variable, $f_i(\delta_1)=0$ deja de ser solo una normalización: como $m_i$ multiplica a $f_i$, fija el punto de giro de la curva. En $\delta_1$ la intensidad no depende de $m_i$, y $m_i$ escala la caída relativa a $\delta_1$; anclar la curva en otra distancia daría otro modelo, no una reparametrización. La escala entre $f_i$ y $m_i$ queda fijada porque $m_i=1$ en el estado medio ($z_t=0$). La estimación completa alterna los ajustes de $g_i$, $h_i$ y la curva (\textit{backfitting}), principio relacionado con la regresión semiparamétrica parcialmente lineal \citep{RobinsonSemiparametric1988,SancettaLOB2024}.
 
 Las covariables usan solo información disponible antes de decidir la cotización, y la respuesta corresponde al intervalo posterior; así se evita el sesgo de anticipación. Que una variable mejore la predicción no implica que modificarla cause más ejecuciones: la interpretación es predictiva, no causal.
 
@@ -135,12 +135,12 @@ donde $p_b=\theta(q)-\theta(q+1)$ y $p_a=\theta(q)-\theta(q-1)$. Para una intens
 \end{equation}
 Estas expresiones suponen que $\Lambda_i(\delta)$ es la intensidad de \emph{ejecución} de la propia orden. Los datos permiten estimar la intensidad de \emph{alcance} de una cotización hipotética, que es una cota superior de la de ejecución porque no considera la posición en la cola; en este trabajo se usa como aproximación, y la evaluación económica aplica una regla de ejecución más estricta (Sección~\ref{sec:eval-economica}). Dos consecuencias son centrales. En GLFT la distancia base depende de $k_i$ y no de $A_i$: un modelo que solo mejora el nivel de la intensidad apenas mueve las cotizaciones. En la solución numérica, en cambio, el cociente $A_b/A_a$ entra de forma no lineal en \eqref{eq:hjb-theta}, y la política se sesga hacia un lado incluso con inventario nulo. En el límite sin aversión ni inventario, el agente maximiza $\Lambda_i(\delta)\,\delta$ en cada instante (regla miope), cuyo óptimo exponencial es $\delta^*=1/k_i$.
 
-Cuando las intensidades dependen del estado, el problema exacto incluiría $X_t$ como variable de estado. Aquí se usa la aproximación de coeficientes congelados: en cada decisión se aplica la política estacionaria con los coeficientes vigentes.
+Cuando las intensidades dependen del estado, el problema exacto incluiría $X_t$ como variable de estado. Aquí se usa la aproximación de coeficientes congelados: en cada decisión se aplica la política estacionaria con los coeficientes vigentes. En este trabajo, ``política óptima'' o ``política HJB'' designa esa política, óptima para el problema con coeficientes fijos; no es la óptima del problema que incluye la dinámica de $X_t$.
 
 \section{Evaluación predictiva y valor económico}
 \label{sec:evaluacion-pronosticos}
 
-La log-verosimilitud es una regla de puntuación estrictamente propia: su esperanza se maximiza solo con la distribución verdadera \citep{GneitingRaftery2007}. La comparación principal es, por tanto, la diferencia de \eqref{eq:ll-compuesta} por intervalo entre dos modelos, fuera de muestra, complementada con:
+La función \eqref{eq:ll-compuesta} no se interpreta como la puntuación logarítmica de la distribución verdadera \citep{GneitingRaftery2007}: los conteos anidados la hacen compuesta y los datos tienen sobredispersión, así que ningún Poisson es la distribución verdadera. Su justificación es más débil y suficiente: en cada celda $(t,\delta)$, $y\log\lambda-\Delta\lambda$ es una función de puntuación estrictamente consistente para la media, cuyo valor esperado se maximiza solo cuando $\Delta\lambda=\E[y_{t\delta}\mid X_t]$, sea cual sea la distribución de $y_{t\delta}$ \citep{Gneiting2011}. La suma sobre celdas conserva la propiedad, de modo que la comparación ordena los modelos por su predicción del número esperado de eventos, no por la distribución completa. La comparación principal es, por tanto, la diferencia de \eqref{eq:ll-compuesta} por intervalo entre dos modelos, fuera de muestra, complementada con:
 \begin{itemize}[nosep]
 \item la discriminación, mediante el AUC del evento ``al menos un cruce a $\delta=2$~bps en el segundo'' \citep{Fawcett2006}; un predictor constante obtiene 0,5;
 \item la calibración, mediante el cociente entre cruces observados y esperados (O/E);

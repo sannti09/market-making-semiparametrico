@@ -75,7 +75,7 @@ Tres lecturas se desprenden de la Tabla~\ref{tab:wf}. Primera, el estado del lib
 \section{P1: test final}
 \label{sec:test}
 
-Con los once modelos ajustados en todo el entrenamiento y congelados antes de leer el test, se evaluaron una sola vez en el test del 4 al 20 de septiembre, un periodo ya consultado con la versión original de E3. Se cumplen los cuatro criterios preregistrados (Tabla~\ref{tab:test}):
+Con los once modelos ajustados en todo el entrenamiento y congelados antes de leer el test, se evaluaron en el test del 4 al 20 de septiembre. El periodo ya se había consultado con la versión original de E3, y las especificaciones finales se evaluaron en él más de una vez, por correcciones de código que no se eligieron por su desempeño ni cambiaron las conclusiones (Sección~\ref{sec:particion}). Se cumplen los cuatro criterios preregistrados (Tabla~\ref{tab:test}):
 \begin{itemize}[nosep]
 \item \textbf{jerarquía}: E3 tesis supera a AS + h + f, AS + S, GLM lineal, Hawkes 2 escalas + h + f y Hawkes 2 escalas + S con IC95 positivo en ambos lados;
 \item \textbf{consistencia}: gana 17 de 17 días al Hawkes de dos escalas con señales en ambos lados;
@@ -130,7 +130,7 @@ La Figura~\ref{fig:rebote} muestra, para el \textit{walk-forward}, la brecha ent
 Los modelos sin covariables de estado (AS y Hawkes con h y f) subestiman fuertemente el rebote, con brechas de $+0{,}6$ a $+2{,}7$. Las señales lineales lo sobrecorrigen en la celda ``comprador con tendencia bajista'' ($-0{,}4$ a $-0{,}5$). E3 tesis tiene las brechas más cercanas a cero en tres de las cuatro celdas. La celda ``comprador con tendencia bajista'' ($-0{,}16$) no la corrige ningún modelo y queda como limitación declarada. En el test, la celda más débil de E3 tesis es ``comprador con tendencia alcista'' ($-0{,}235$).
 
 
-\section{P3: política óptima con intensidades estimadas}
+\section{P3: política HJB con intensidades estimadas}
 \label{sec:politica}
 
 La HJB \eqref{eq:hjb-theta} se resolvió numéricamente con un esquema de Euler implícito linealizado, incondicionalmente estable porque la matriz del sistema es una M-matriz, seguido de un paso de Newton sobre el régimen ergódico. El Hamiltoniano se calcula con la curva de distancia de cada modelo interpolada: $\log\Lambda_i(\delta)$ es lineal a trozos entre los nueve nodos de $\delta$ y se extiende con la pendiente del primer y del último tramo; en cada tramo el máximo de $\Lambda_i(\delta)(1-e^{-\gamma(\delta-p)})/\gamma$ tiene forma cerrada, y $H_i$ es el máximo sobre los tramos, con $\delta$ restringida a $[-5;40]$~bps. Para aplicarla cada segundo se precalculan tablas en $(\ln\sigma^2/A_a,\ln A_b/A_a)$ y, para E3 tesis y E3-fkX, también en $(m_a,m_b)$, con rangos tomados de seis días de entrenamiento. Antes de usarla en el test se verificó en el entrenamiento que:
@@ -280,9 +280,12 @@ La pérdida tampoco depende de la intensidad que predice el modelo. Ordenando la
 
 En las configuraciones probadas en el entrenamiento, el resultado fue robusto al simulador, al modelo de cola y a la latencia. La regla de ejecución usada aquí coincide con simuladores que modelan la cola explícitamente: con hftbacktest, a 0,01--0,06~bps por ejecución; con NautilusTrader, entre $-1{,}22$ y $-1{,}27$~bps frente a $-1{,}26$. Reducir la latencia simulada de 100~ms a 10~$\mu$s deja la pérdida entre $-1{,}21$ y $-1{,}28$~bps. Estas comprobaciones, con políticas simétricas cerca del mejor precio, no cubren el test ni otras políticas, y los datos de 100~ms no permiten simular cancelaciones en microsegundos. Otras pruebas exploratorias de la parte económica, ninguna rentable después de comisiones, se resumen en el Apéndice~\ref{app:p2-exploratorio}.
 
+\Needspace{.5\textheight}  % título, frase y tabla en la misma página
 \section{Avance frente a los objetivos}
 
-\begin{table}[htbp]
+La Tabla~\ref{tab:avance-oe} resume, para cada objetivo específico del anteproyecto, la evidencia que lo atiende y la sección donde se presenta.
+
+\begin{table}[H]
 \centering\small
 \caption{Cumplimiento de los objetivos específicos.}
 \label{tab:avance-oe}
