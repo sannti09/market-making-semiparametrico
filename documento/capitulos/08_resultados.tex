@@ -64,13 +64,13 @@ Se cumplen los dos criterios principales del protocolo. \emph{Estabilidad}: E3 t
 
 El diagnóstico de sobreajuste compara la ventaja de E3 sobre el GLM lineal en la semana siguiente con la de la última semana ajustada. El cociente está por debajo de 0,5 en dos de cinco ventanas (V4 y V5), en las que la semana ajustada incluye el periodo agitado del 15 al 28 de agosto y la ventaja dentro de muestra se infla; el umbral del protocolo (tres ventanas) no se alcanza. En la ventana 3 el cociente supera 2, porque la semana evaluada es la agitada.
 
-Tres lecturas se desprenden de la Tabla~\ref{tab:wf}. Primera, el estado del libro explica la mayor parte de la mejora: el GLM lineal con las mismas covariables recupera el 90--91\,\%. La especificación de E3 aporta una ventaja adicional, mejora la discriminación (AUC 0,834 frente a 0,821) y, entre los modelos evaluados, es la que mejor corrige el rebote (Sección~\ref{sec:rebote}). Segunda, la memoria importa, pero con la escala correcta: el Hawkes de dos escalas recupera el 61--62\,\% frente al 9\,\% del de una escala. Tercera, las variables de barrido aportan poco a la verosimilitud global (E3-fkX recupera el 98,6--99,5\,\%), porque los barridos son eventos raros; su valor está en la calibración tras esos eventos.
+Tres lecturas se desprenden de la Tabla~\ref{tab:wf}. Primera, el estado del libro explica la mayor parte de la mejora: el GLM lineal con las mismas covariables recupera el 90--91\,\%. La especificación de E3 aporta una ventaja adicional, mejora la discriminación (AUC 0,834 frente a 0,821) y, entre los modelos evaluados, es la de menor brecha absoluta media tras barridos, aunque no en cada celda (Sección~\ref{sec:rebote}). Segunda, la memoria importa, pero con la escala correcta: el Hawkes de dos escalas recupera el 61--62\,\% frente al 9\,\% del de una escala. Tercera, las variables de barrido aportan poco a la verosimilitud global (E3-fkX recupera el 98,6--99,5\,\%), porque los barridos son eventos raros; su valor está en la calibración tras esos eventos.
 
 
 \section{P1: test final}
 \label{sec:test}
 
-Con los once modelos ajustados en todo el entrenamiento y congelados antes de leer el test, se evaluaron en el test del 4 al 20 de septiembre. El periodo ya se había consultado con la versión original de E3, y las especificaciones finales se evaluaron en él más de una vez, por correcciones de código que no se eligieron por su desempeño ni cambiaron las conclusiones (Sección~\ref{sec:particion}). Se cumplen los cuatro criterios preregistrados (Tabla~\ref{tab:test}):
+Con los once modelos ajustados en todo el entrenamiento y congelados antes de leer el test, se evaluaron en el test del 4 al 20 de septiembre. El periodo ya se había consultado con la versión original de E3, y las especificaciones finales se evaluaron en él más de una vez, por correcciones de código y, en la parte económica, por el reemplazo de la HJB descrito en la Sección~\ref{sec:particion}. Las correcciones de la parte predictiva no cambiaron las conclusiones. Se cumplen los cuatro criterios preregistrados (Tabla~\ref{tab:test}):
 \begin{itemize}[nosep]
 \item \textbf{jerarquía}: E3 tesis supera a AS + h + f, AS + S, GLM lineal, Hawkes 2 escalas + h + f y Hawkes 2 escalas + S con IC95 positivo en ambos lados;
 \item \textbf{consistencia}: gana 17 de 17 días al Hawkes de dos escalas con señales en ambos lados;
@@ -117,7 +117,7 @@ La Figura~\ref{fig:rebote} muestra, para el \textit{walk-forward}, la brecha ent
 \label{fig:rebote}
 \end{figure}
 
-Los modelos sin covariables de estado (AS y Hawkes con h y f) subestiman fuertemente el rebote, con brechas de $+0{,}6$ a $+2{,}7$. Las señales lineales lo sobrecorrigen en la celda ``comprador con tendencia bajista'' ($-0{,}4$ a $-0{,}5$). E3 tesis tiene las brechas más cercanas a cero en tres de las cuatro celdas. La celda ``comprador con tendencia bajista'' ($-0{,}16$) no la corrige ningún modelo y queda como limitación declarada. En el test, la celda más débil de E3 tesis es ``comprador con tendencia alcista'' ($-0{,}235$).
+Los modelos sin covariables de estado (AS y Hawkes con h y f) subestiman fuertemente el rebote, con brechas de $+0{,}6$ a $+2{,}7$. Las señales lineales lo sobrecorrigen en la celda ``comprador con tendencia bajista'' ($-0{,}4$ a $-0{,}5$). E3 tesis tiene la menor brecha absoluta media entre los once modelos (0,115, frente a 0,165 de E3-fkX, 0,208 del Hawkes de dos escalas con señales y 0,223 del GLM), pero no la más cercana a cero en cada celda: lo es solo en ``vendedor con tendencia bajista''. En ``comprador con tendencia bajista'', E3 tesis queda en $-0{,}16$, mientras que E3 base llega a $-0{,}02$ y el Hawkes de dos escalas con $h$ y $f$ a $+0{,}02$, con brechas mayores en las demás celdas; ningún modelo corrige las cuatro a la vez. En el test, la celda más débil de E3 tesis es ``comprador con tendencia alcista'' ($-0{,}235$).
 
 
 \section{P3: política HJB con intensidades estimadas}
@@ -157,21 +157,21 @@ La Tabla~\ref{tab:pnl} y la Figura~\ref{fig:pnl} muestran el desempeño en el te
 \label{tab:pnl}
 \setlength{\tabcolsep}{3.5pt}
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}llrrcr@{}}\toprule
-Política & Intensidad & Ejec./día & PnL/día (USDT) & PnL por ejec. (bps) & Días $>0$\\\midrule
-\multirow{4}{*}{Miope} & E3 tesis & 4\,222 & $-443$ & $-1{,}34$ [$-1{,}48$; $-1{,}19$] & 0/17\\
- & AS, Hawkes, GLM con $f(\delta)$ & 3\,806 & $-385$ & $-1{,}29$ [$-1{,}45$; $-1{,}14$] & 0/17\\
- & AS base y E3 base ($\delta=2$) & 1\,173 & $-121$ & $-1{,}32$ [$-1{,}84$; $-0{,}78$] & 4/17\\
- & $\delta$ fijo 0,5~bps & 6\,872 & $-720$ & $-1{,}34$ [$-1{,}42$; $-1{,}24$] & 0/17\\\midrule
-\multirow{6}{*}{HJB} & E3 tesis & 2\,451 & $-253$ & $-1{,}32$ [$-1{,}42$; $-1{,}20$] & 0/17\\
- & E3 base & 1\,677 & $-175$ & $-1{,}34$ [$-1{,}51$; $-1{,}15$] & 0/17\\
- & GLM lineal & 2\,549 & $-262$ & $-1{,}32$ [$-1{,}40$; $-1{,}22$] & 0/17\\
- & Hawkes 2 esc. + S & 3\,543 & $-355$ & $-1{,}28$ [$-1{,}35$; $-1{,}18$] & 0/17\\
- & AS + h + f & 3\,982 & $-398$ & $-1{,}28$ [$-1{,}35$; $-1{,}18$] & 0/17\\
- & AS base & 2\,218 & $-219$ & $-1{,}26$ [$-1{,}37$; $-1{,}14$] & 0/17\\\midrule
-\multirow{3}{*}{GLFT} & E3 tesis & 3\,008 & $-289$ & $-1{,}23$ [$-1{,}32$; $-1{,}11$] & 0/17\\
- & Hawkes 2 esc. + S & 2\,321 & $-228$ & $-1{,}25$ [$-1{,}36$; $-1{,}12$] & 0/17\\
- & AS base & 2\,223 & $-218$ & $-1{,}25$ [$-1{,}35$; $-1{,}13$] & 0/17\\\bottomrule
+\begin{tabular}{@{}llrrrcr@{}}\toprule
+Política & Intensidad & Ejec./día & $|q|$ medio & PnL/día (USDT) & PnL por ejec. (bps) & Días $>0$\\\midrule
+\multirow{4}{*}{Miope} & E3 tesis & 4\,222 & 5{,}78 & $-443$ & $-1{,}34$ [$-1{,}48$; $-1{,}19$] & 0/17\\
+ & AS, Hawkes, GLM con $f(\delta)$ & 3\,806 & 5{,}45 & $-385$ & $-1{,}29$ [$-1{,}45$; $-1{,}14$] & 0/17\\
+ & AS base y E3 base ($\delta=2$) & 1\,173 & 5{,}47 & $-121$ & $-1{,}32$ [$-1{,}84$; $-0{,}78$] & 4/17\\
+ & $\delta$ fijo 0,5~bps & 6\,872 & 5{,}23 & $-720$ & $-1{,}34$ [$-1{,}42$; $-1{,}24$] & 0/17\\\midrule
+\multirow{6}{*}{HJB} & E3 tesis & 2\,451 & 2{,}52 & $-253$ & $-1{,}32$ [$-1{,}42$; $-1{,}20$] & 0/17\\
+ & E3 base & 1\,677 & 2{,}42 & $-175$ & $-1{,}34$ [$-1{,}51$; $-1{,}15$] & 0/17\\
+ & GLM lineal & 2\,549 & 2{,}42 & $-262$ & $-1{,}32$ [$-1{,}40$; $-1{,}22$] & 0/17\\
+ & Hawkes 2 esc. + S & 3\,543 & 1{,}86 & $-355$ & $-1{,}28$ [$-1{,}35$; $-1{,}18$] & 0/17\\
+ & AS + h + f & 3\,982 & 2{,}05 & $-398$ & $-1{,}28$ [$-1{,}35$; $-1{,}18$] & 0/17\\
+ & AS base & 2\,218 & 1{,}99 & $-219$ & $-1{,}26$ [$-1{,}37$; $-1{,}14$] & 0/17\\\midrule
+\multirow{3}{*}{GLFT} & E3 tesis & 3\,008 & 2{,}15 & $-289$ & $-1{,}23$ [$-1{,}32$; $-1{,}11$] & 0/17\\
+ & Hawkes 2 esc. + S & 2\,321 & 1{,}82 & $-228$ & $-1{,}25$ [$-1{,}36$; $-1{,}12$] & 0/17\\
+ & AS base & 2\,223 & 1{,}94 & $-218$ & $-1{,}25$ [$-1{,}35$; $-1{,}13$] & 0/17\\\bottomrule
 \end{tabular}}
 \end{table}
 
@@ -187,6 +187,7 @@ Política & Intensidad & Ejec./día & PnL/día (USDT) & PnL por ejec. (bps) & D�
 \item \textbf{E3 cambia la política, no el resultado por ejecución.} Con la HJB, E3 tesis opera entre un 31 y un 38\,\% menos que AS y Hawkes con la misma forma de curva (2\,451 frente a 3\,543--3\,982 ejecuciones por día) y pierde menos por día ($-253$ frente a $-355$ a $-398$~USDT); frente a AS base, con forma exponencial, opera un 10\,\% más. La pérdida por ejecución es similar en todos los casos.
 \item \textbf{La curva interpolada cambia las cotizaciones, no la pérdida por ejecución.} Frente a la HJB con exponencial local, aumenta las ejecuciones entre 723 y 1\,735 por día según el modelo, con diferencias en el PnL por ejecución de $-0{,}04$ a $+0{,}02$~bps, todas con intervalos que incluyen el cero.
 \item \textbf{La regla miope colapsa a distancias fijas.} Como solo usa la forma de $\lambda$ en $\delta$, los modelos con curva $f(\delta)$ fija eligen siempre 1~bps y los de forma exponencial siempre 2~bps; solo E3 tesis varía la distancia con el estado.
+\item \textbf{La HJB reduce el inventario, pero E3 no lo reduce más.} El $|q|$ medio de la regla miope es de 5,2--5,8 órdenes, frente a 1,9--2,9 con la HJB y 1,8--2,2 con GLFT. Con la HJB, E3 tesis mantiene más inventario que las demás variantes de la tabla (2,52 frente a 1,86--2,42 en el test; 2,87 frente a 1,88--2,21 en la simulación, Tabla~\ref{tab:sim-pnl}). Estas medias no llevan intervalo y se usaron un solo $\gamma$ y un solo $Q$.
 \item \textbf{Las comisiones agravan el resultado.} Con la comisión maker estándar de un participante minorista (7,5--10~bps por ejecución), todas las combinaciones pierden entre 9 y 11~bps por ejecución.
 \end{itemize}
 
@@ -227,17 +228,17 @@ AS base & 0\,\% & 0\,\% & $+1{,}164$ [0,946; 1,419] & $+1{,}286$ [1,016; 1,575] 
 \caption[PnL en el periodo posterior con cruce estricto.]{PnL con cruce estricto en la simulación (36 días), bruto de comisiones; modelos congelados, HJB con curva interpolada. PnL por ejecución con IC95 por días.}
 \label{tab:sim-pnl}
 \resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}llrrcr@{}}\toprule
-Política & Intensidad & Ejec./día & PnL/día (USDT) & PnL por ejec. (bps) & Días $>0$\\\midrule
-\multirow{3}{*}{Miope} & E3 tesis & 4\,406 & $-449$ & $-1{,}22$ [$-1{,}31$; $-1{,}14$] & 0/36\\
- & AS, Hawkes, GLM con $f(\delta)$ & 3\,869 & $-369$ & $-1{,}14$ [$-1{,}22$; $-1{,}07$] & 0/36\\
- & AS base ($\delta=2$) & 975 & $-98$ & $-1{,}20$ [$-1{,}52$; $-0{,}89$] & 9/36\\\midrule
-\multirow{4}{*}{HJB} & E3 tesis & 2\,375 & $-249$ & $-1{,}26$ [$-1{,}34$; $-1{,}18$] & 0/36\\
- & GLM lineal & 2\,398 & $-250$ & $-1{,}25$ [$-1{,}32$; $-1{,}18$] & 0/36\\
- & Hawkes 2 esc. + S & 3\,612 & $-369$ & $-1{,}23$ [$-1{,}28$; $-1{,}18$] & 0/36\\
- & AS base & 2\,115 & $-212$ & $-1{,}20$ [$-1{,}27$; $-1{,}13$] & 1/36\\\midrule
-\multirow{2}{*}{GLFT} & E3 tesis & 3\,065 & $-309$ & $-1{,}21$ [$-1{,}27$; $-1{,}15$] & 0/36\\
- & AS base & 2\,120 & $-213$ & $-1{,}20$ [$-1{,}27$; $-1{,}13$] & 1/36\\\bottomrule
+\begin{tabular}{@{}llrrrcr@{}}\toprule
+Política & Intensidad & Ejec./día & $|q|$ medio & PnL/día (USDT) & PnL por ejec. (bps) & Días $>0$\\\midrule
+\multirow{3}{*}{Miope} & E3 tesis & 4\,406 & 5{,}61 & $-449$ & $-1{,}22$ [$-1{,}31$; $-1{,}14$] & 0/36\\
+ & AS, Hawkes, GLM con $f(\delta)$ & 3\,869 & 5{,}26 & $-369$ & $-1{,}14$ [$-1{,}22$; $-1{,}07$] & 0/36\\
+ & AS base ($\delta=2$) & 975 & 5{,}47 & $-98$ & $-1{,}20$ [$-1{,}52$; $-0{,}89$] & 9/36\\\midrule
+\multirow{4}{*}{HJB} & E3 tesis & 2\,375 & 2{,}87 & $-249$ & $-1{,}26$ [$-1{,}34$; $-1{,}18$] & 0/36\\
+ & GLM lineal & 2\,398 & 2{,}21 & $-250$ & $-1{,}25$ [$-1{,}32$; $-1{,}18$] & 0/36\\
+ & Hawkes 2 esc. + S & 3\,612 & 1{,}88 & $-369$ & $-1{,}23$ [$-1{,}28$; $-1{,}18$] & 0/36\\
+ & AS base & 2\,115 & 1{,}94 & $-212$ & $-1{,}20$ [$-1{,}27$; $-1{,}13$] & 1/36\\\midrule
+\multirow{2}{*}{GLFT} & E3 tesis & 3\,065 & 2{,}15 & $-309$ & $-1{,}21$ [$-1{,}27$; $-1{,}15$] & 0/36\\
+ & AS base & 2\,120 & 1{,}95 & $-213$ & $-1{,}20$ [$-1{,}27$; $-1{,}13$] & 1/36\\\bottomrule
 \end{tabular}}
 \end{table}
 

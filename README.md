@@ -43,7 +43,11 @@ The 4–20 Sep test is pre-registered but not blind in the strict sense:
 - a pause policy was run on it before a hold order, without its results being read;
 - the final specifications were evaluated on it more than once: the corrected curve fit (`15_`–`17_`) repeated the evaluation after a code review. The repeat matched the original to three decimals in the per-bin log-likelihood gains and the AUC, and the four criteria did not change; the post-sweep rebound gaps of the thesis E3 differ by 0.001 (+0.115 and −0.140, against +0.116 and −0.139).
 
-No parameter or hyperparameter was estimated on the test, and no version was chosen for its test performance. The evaluation uses final specifications frozen before that stage; freezing them does not restore the independence of the previously consulted period.
+- the HJB with the interpolated curve (`18_`, `PLAN_V110`) replaced the local-exponential HJB after the latter's test PnL had been consulted; that plan declares the evaluation not blind.
+
+No parameter or hyperparameter was estimated on the test. The evaluation uses final specifications frozen before that stage; freezing them does not restore the independence of the previously consulted period.
+
+The 34 walk-forward days (1 Aug–3 Sep) are the same days used to compare and choose the specifications (`PLAN_V98`, `PLAN_V100`), so that stage is development evidence, not confirmatory. Protocol dates are self-declared: the public history starts on 29 Oct 2026 and the `.sha256` files check integrity, not priority.
 
 The 21 Sep–26 Oct simulation period is not untouched either: its first part (21 Sep–6 Oct) was used in the exploratory phase, in predictive and economic evaluations of earlier versions of the model. Those results were not used to select or tune the final specifications. From 7 to 26 Oct the data layer was only built and checked; no model was evaluated there before the simulation (thesis §9.4, *Independencia de la evaluación*).
 

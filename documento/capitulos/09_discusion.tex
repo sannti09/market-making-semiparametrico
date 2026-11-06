@@ -31,7 +31,7 @@ La comparación con motores alternativos sirve como comprobación auxiliar en co
 \label{sec:limitaciones}
 
 \paragraph{Independencia de la evaluación.}
-El test del 4 al 20 de septiembre no es completamente ciego: la especificación original de E3 ya se había evaluado allí, y una política de pausa se ejecutó antes de una orden de espera, aunque sus resultados no se consultaron. Las especificaciones finales se congelaron antes de su evaluación, pero esto no recupera la independencia del periodo. El \textit{walk-forward} se realizó dentro del bloque de desarrollo; sus ajustes respetan el orden temporal, sin constituir una selección anidada e independiente de toda la especificación.
+El test del 4 al 20 de septiembre no es completamente ciego: la especificación original de E3 ya se había evaluado allí, y una política de pausa se ejecutó antes de una orden de espera, aunque sus resultados no se consultaron. Las especificaciones finales se congelaron antes de su evaluación, pero esto no recupera la independencia del periodo. La HJB final reemplazó a una versión anterior cuyo PnL del test ya se había consultado. El \textit{walk-forward} se evaluó en los mismos días usados para elegir las especificaciones; sus ajustes respetan el orden temporal, pero es evidencia de desarrollo, no confirmatoria.
 
 La primera parte del periodo posterior, del 21 de septiembre al 6 de octubre, se usó en evaluaciones predictivas y económicas de versiones anteriores. Sus resultados no se usaron para seleccionar ni ajustar las especificaciones finales, pero ese tramo no es ciego en sentido estricto. Del 7 al 26 de octubre solo se construyó y verificó la capa de datos; ningún modelo se evaluó allí antes de la simulación.
 
@@ -41,7 +41,7 @@ Los Hawkes se estimaron con un tercio de los días por costo computacional, aunq
 \paragraph{Alcance, ejecución y prioridad.}
 La respuesta estadística mide alcance, no fills propios. Mejorar su predicción no implica mejorar la predicción de las ejecuciones que obtendría un agente. R2 usa profundidad visible o imputada, no cuenta cancelaciones delante de la orden y pierde la prioridad al recotizar; R1 supone ejecución completa al toque sin cola delante. Son escenarios de sensibilidad, no cotas demostradas del PnL real. La resolución de 100~ms y los veinte niveles no permiten reconstruir la prioridad efectiva. La sensibilidad de la HJB con E3 impide generalizar su resultado bruto a cualquier regla de cola.
 
-\paragraph{Control y condiciones de operación.}
+\paragraph{Control y condiciones de operación.} El control de inventario se describe con el $|q|$ medio, sin sensibilidad a $\gamma$ ni a $Q$.
 La HJB usa coeficientes congelados, una curva interpolada en nueve nodos y tablas numéricas; no incorpora la dinámica de $X_t$ como estado. GLFT añade una aproximación exponencial local. La evaluación final supone activación al inicio del segundo sin latencia de envío, no los aproximadamente 130~ms de red observados en la captura. El inventario terminal se marca al mid, sin liquidación ejecutada, impacto propio ni costo de salida. Las sensibilidades anteriores de motores y latencia no cubren todas las políticas finales ni carreras de cancelación en microsegundos \citep{BudishCramtonShim2015,AquilinaBudishONeill2022}.
 
 \paragraph{Incertidumbre y generalización.}
