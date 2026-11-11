@@ -12,6 +12,7 @@ Igual que v52 salvo:
   no tiene excepción: si trae OFI nulo se excluye (regla de la unión).
 """
 import hashlib
+import os
 import sys
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -26,7 +27,7 @@ sys.path.insert(0, str(BASE / "01_nucleo_e3" / "01_pipeline"))
 import datos_capa_100ms as V37  # noqa: E402
 from datos_capa_100ms import COLUMNAS_BASE, GRUPOS_X, eventos_agresor  # noqa: E402
 
-COMP1 = Path("/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1")
+COMP1 = Path(os.environ.get("MM_DATA_ROOT", BASE.parent / "datos")) / "Comparativa 1"  # misma raíz que V37
 CAPA_V1 = COMP1 / "binance_canonical_100ms_unified_v1_20260629_20260824T12"
 CAPA_V2 = COMP1 / "binance_canonical_100ms_ext_v2_20260826_20261006"
 assert V37.CAPA == CAPA_V1

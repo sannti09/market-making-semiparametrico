@@ -11,7 +11,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-06-29.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-06-29.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -24,7 +24,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-06-29.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-06-29.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 4884336,
@@ -36,7 +36,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-06-30.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-06-30.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -49,7 +49,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-06-30.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-06-30.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3804809,
@@ -61,7 +61,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-01.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-01.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -74,7 +74,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-01.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-01.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 4166849,
@@ -86,7 +86,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-02.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-02.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -99,7 +99,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-02.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-02.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3883096,
@@ -111,7 +111,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-03.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-03.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -124,7 +124,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-03.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-03.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2571531,
@@ -136,7 +136,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-04.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-04.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -149,7 +149,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-04.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-04.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1643288,
@@ -161,7 +161,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-05.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-05.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -174,7 +174,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-05.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-05.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1790183,
@@ -186,7 +186,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-06.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-06.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -199,7 +199,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-06.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-06.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3777895,
@@ -211,7 +211,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-07.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-07.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -224,7 +224,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-07.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-07.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3282102,
@@ -236,7 +236,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-08.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-08.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -249,7 +249,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-08.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-08.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3598487,
@@ -261,7 +261,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-09.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-09.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -274,7 +274,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-09.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-09.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3176050,
@@ -286,7 +286,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-10.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-10.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -299,7 +299,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-10.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-10.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2927425,
@@ -311,7 +311,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-11.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-11.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -324,7 +324,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-11.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-11.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1406178,
@@ -336,7 +336,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-12.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-12.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -349,7 +349,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-12.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-12.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1919605,
@@ -361,7 +361,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-13.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-13.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -374,7 +374,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-13.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-13.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3349712,
@@ -386,7 +386,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-14.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-14.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -399,7 +399,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-14.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-14.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3080945,
@@ -411,7 +411,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-15.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-15.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -424,7 +424,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-15.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-15.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2668919,
@@ -436,7 +436,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-16.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-16.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -449,7 +449,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-16.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-16.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2813481,
@@ -461,7 +461,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-17.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-17.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -474,7 +474,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-17.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-17.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3239296,
@@ -486,7 +486,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-18.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-18.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -499,7 +499,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-18.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-18.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1088701,
@@ -511,7 +511,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-19.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-19.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -524,7 +524,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-19.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-19.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1464337,
@@ -536,7 +536,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-20.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-20.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -549,7 +549,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-20.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-20.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3606847,
@@ -561,7 +561,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-21.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-21.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -574,7 +574,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-21.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-21.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3005241,
@@ -586,7 +586,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-22.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-22.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -599,7 +599,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-22.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-22.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3381825,
@@ -611,7 +611,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-23.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-23.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -624,7 +624,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-23.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-23.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2557299,
@@ -636,7 +636,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-24.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-24.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -649,7 +649,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-24.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-24.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2467691,
@@ -661,7 +661,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-25.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-25.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -674,7 +674,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-25.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-25.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1005338,
@@ -686,7 +686,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-26.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-26.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -699,7 +699,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-26.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-26.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1138023,
@@ -711,7 +711,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-27.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-27.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -724,7 +724,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-27.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-27.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2921636,
@@ -736,7 +736,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-28.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-28.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -749,7 +749,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-28.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-28.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2679943,
@@ -761,7 +761,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-29.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-29.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -774,7 +774,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-29.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-29.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3615294,
@@ -786,7 +786,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-30.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-30.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -799,7 +799,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-30.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-30.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3246691,
@@ -811,7 +811,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-31.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-07-31.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -824,7 +824,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-31.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-07-31.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2740238,
@@ -836,7 +836,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-01.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-01.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -849,7 +849,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-01.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-01.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 831983,
@@ -861,7 +861,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-02.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-02.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -874,7 +874,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-02.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-02.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1286064,
@@ -886,7 +886,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-03.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-03.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -899,7 +899,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-03.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-03.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2494364,
@@ -911,7 +911,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-04.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-04.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -924,7 +924,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-04.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-04.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2388039,
@@ -936,7 +936,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-05.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-05.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -949,7 +949,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-05.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-05.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2402227,
@@ -961,7 +961,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-06.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-06.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -974,7 +974,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-06.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-06.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2087951,
@@ -986,7 +986,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-07.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-07.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -999,7 +999,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-07.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-07.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2283383,
@@ -1011,7 +1011,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-08.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-08.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1024,7 +1024,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-08.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-08.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 540447,
@@ -1036,7 +1036,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-09.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-09.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1049,7 +1049,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-09.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-09.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 803981,
@@ -1061,7 +1061,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-10.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-10.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1074,7 +1074,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-10.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-10.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2054347,
@@ -1086,7 +1086,7 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-11.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-11.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1099,7 +1099,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-11.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-11.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1660517,
@@ -1111,8 +1111,8 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-12_00-12.parquet",
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-12_12-00.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-12_00-12.parquet",
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-12_12-00.parquet"
     ],
     "metodo": "concatenación de 2 medios días",
     "filas": 864000,
@@ -1125,7 +1125,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-12.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-12.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1990499,
@@ -1137,8 +1137,8 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-13_00-12.parquet",
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-13_12-00.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-13_00-12.parquet",
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-13_12-00.parquet"
     ],
     "metodo": "concatenación de 2 medios días",
     "filas": 864000,
@@ -1151,7 +1151,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-13.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-13.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2078777,
@@ -1163,8 +1163,8 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-14_00-12.parquet",
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-14_12-00.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-14_00-12.parquet",
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-14_12-00.parquet"
     ],
     "metodo": "concatenación de 2 medios días",
     "filas": 864000,
@@ -1177,7 +1177,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-14.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-14.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2184530,
@@ -1189,8 +1189,8 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-15_00-12.parquet",
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-15_12-00.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-15_00-12.parquet",
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-15_12-00.parquet"
     ],
     "metodo": "concatenación de 2 medios días",
     "filas": 864000,
@@ -1203,7 +1203,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-15.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-15.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 540313,
@@ -1215,8 +1215,8 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-16_00-12.parquet",
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-16_12-00.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-16_00-12.parquet",
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-16_12-00.parquet"
     ],
     "metodo": "concatenación de 2 medios días",
     "filas": 864000,
@@ -1229,7 +1229,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-16.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-16.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 640294,
@@ -1241,8 +1241,8 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-17_00-12.parquet",
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-17_12-00.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-17_00-12.parquet",
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-17_12-00.parquet"
     ],
     "metodo": "concatenación de 2 medios días",
     "filas": 864000,
@@ -1255,7 +1255,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-17.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-17.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2111256,
@@ -1267,8 +1267,8 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-18_00-12.parquet",
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-18_12-00.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-18_00-12.parquet",
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-18_12-00.parquet"
     ],
     "metodo": "concatenación de 2 medios días",
     "filas": 864000,
@@ -1281,7 +1281,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-18.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-18.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1608019,
@@ -1293,8 +1293,8 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-19_00-12.parquet",
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-19_12-00.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-19_00-12.parquet",
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-19_12-00.parquet"
     ],
     "metodo": "concatenación de 2 medios días",
     "filas": 864000,
@@ -1307,7 +1307,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-19.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-19.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 4160596,
@@ -1319,8 +1319,8 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-20_00-12.parquet",
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-20_12-00.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-20_00-12.parquet",
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-20_12-00.parquet"
     ],
     "metodo": "concatenación de 2 medios días",
     "filas": 864000,
@@ -1333,7 +1333,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-20.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-20.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 6249114,
@@ -1345,8 +1345,8 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-21_00-12.parquet",
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-21_12-00.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-21_00-12.parquet",
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-21_12-00.parquet"
     ],
     "metodo": "concatenación de 2 medios días",
     "filas": 864000,
@@ -1359,7 +1359,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-21.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-21.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 8928944,
@@ -1371,8 +1371,8 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-22_00-12.parquet",
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-22_12-00.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-22_00-12.parquet",
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-22_12-00.parquet"
     ],
     "metodo": "concatenación de 2 medios días",
     "filas": 864000,
@@ -1385,7 +1385,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-22.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-22.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3950045,
@@ -1397,8 +1397,8 @@
    "market_features_100ms": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-23_00-12.parquet",
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-23_12-00.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-23_00-12.parquet",
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-23_12-00.parquet"
     ],
     "metodo": "concatenación de 2 medios días",
     "filas": 864000,
@@ -1411,7 +1411,7 @@
    "trades_event": {
     "capa_origen": "v1_unified",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-23.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_unified_v1_20260629_20260824T12/trades_event/binance_trades_events_BTCUSDT_2026-08-23.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3627829,
@@ -1423,7 +1423,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2 (paquete Drive)",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v2_ago/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-24.parquet"
+     "${MM_PAQUETE_DIR}/v2_ago/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-24.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1436,7 +1436,7 @@
    "trades_event": {
     "capa_origen": "ext_v2 (paquete Drive)",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v2_ago/trades_event/binance_trades_events_BTCUSDT_2026-08-24.parquet"
+     "${MM_PAQUETE_DIR}/v2_ago/trades_event/binance_trades_events_BTCUSDT_2026-08-24.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 6334409,
@@ -1448,7 +1448,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2 (paquete Drive)",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v2_ago/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-25.parquet"
+     "${MM_PAQUETE_DIR}/v2_ago/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-25.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1461,7 +1461,7 @@
    "trades_event": {
     "capa_origen": "ext_v2 (paquete Drive)",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v2_ago/trades_event/binance_trades_events_BTCUSDT_2026-08-25.parquet"
+     "${MM_PAQUETE_DIR}/v2_ago/trades_event/binance_trades_events_BTCUSDT_2026-08-25.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 6360202,
@@ -1473,7 +1473,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-26.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-26.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1486,7 +1486,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-08-26.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-08-26.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 4284527,
@@ -1498,7 +1498,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-27.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-27.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1511,7 +1511,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-08-27.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-08-27.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 4932285,
@@ -1523,7 +1523,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-28.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-28.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1536,7 +1536,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-08-28.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-08-28.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 4822157,
@@ -1548,7 +1548,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-29.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-29.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1561,7 +1561,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-08-29.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-08-29.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1519886,
@@ -1573,7 +1573,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-30.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-30.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1586,7 +1586,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-08-30.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-08-30.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2404922,
@@ -1598,7 +1598,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-31.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-08-31.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1611,7 +1611,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-08-31.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-08-31.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 4354737,
@@ -1623,7 +1623,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-01.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-01.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1636,7 +1636,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-01.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-01.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3662805,
@@ -1648,7 +1648,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-02.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-02.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1661,7 +1661,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-02.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-02.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3312492,
@@ -1673,7 +1673,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-03.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-03.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1686,7 +1686,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-03.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-03.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 4460645,
@@ -1698,7 +1698,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-04.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-04.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1711,7 +1711,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-04.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-04.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3417900,
@@ -1723,7 +1723,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-05.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-05.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1736,7 +1736,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-05.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-05.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1276050,
@@ -1748,7 +1748,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-06.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-06.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1761,7 +1761,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-06.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-06.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1658245,
@@ -1773,7 +1773,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-07.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-07.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1786,7 +1786,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-07.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-07.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2464603,
@@ -1798,7 +1798,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-08.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-08.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1811,7 +1811,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-08.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-08.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 4339646,
@@ -1823,7 +1823,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-09.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-09.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1836,7 +1836,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-09.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-09.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3338369,
@@ -1848,7 +1848,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-10.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-10.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1861,7 +1861,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-10.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-10.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3080707,
@@ -1873,7 +1873,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-11.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-11.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1886,7 +1886,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-11.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-11.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3614263,
@@ -1898,7 +1898,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-12.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-12.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1911,7 +1911,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-12.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-12.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 748574,
@@ -1923,7 +1923,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-13.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-13.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1936,7 +1936,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-13.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-13.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1275503,
@@ -1948,7 +1948,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-14.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-14.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1961,7 +1961,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-14.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-14.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3225517,
@@ -1973,7 +1973,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-15.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-15.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -1986,7 +1986,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-15.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-15.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3419940,
@@ -1998,7 +1998,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2 (parche 16 sep)",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-16.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-16.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2011,7 +2011,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-16.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-16.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3057694,
@@ -2023,7 +2023,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-17.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-17.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2036,7 +2036,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-17.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-17.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2014558,
@@ -2048,7 +2048,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-18.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-18.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2061,7 +2061,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-18.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-18.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3193109,
@@ -2073,7 +2073,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-19.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-19.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2086,7 +2086,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-19.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-19.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1648389,
@@ -2098,7 +2098,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-20.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-20.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2111,7 +2111,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-20.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-20.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1941278,
@@ -2123,7 +2123,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-21.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-21.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2136,7 +2136,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-21.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-21.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 4461004,
@@ -2148,7 +2148,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-22.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-22.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2161,7 +2161,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-22.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-22.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3386775,
@@ -2173,7 +2173,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-23.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-23.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2186,7 +2186,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-23.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-23.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3301896,
@@ -2198,7 +2198,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-24.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-24.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2211,7 +2211,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-24.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-24.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3293051,
@@ -2223,7 +2223,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-25.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-25.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2236,7 +2236,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-25.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-25.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2848596,
@@ -2248,7 +2248,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-26.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-26.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2261,7 +2261,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-26.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-26.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 946697,
@@ -2273,7 +2273,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-27.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-27.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2286,7 +2286,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-27.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-27.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1358160,
@@ -2298,7 +2298,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-28.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-28.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2311,7 +2311,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-28.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-28.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3568162,
@@ -2323,7 +2323,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-29.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-29.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2336,7 +2336,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-29.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-29.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2908693,
@@ -2348,7 +2348,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-30.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-09-30.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2361,7 +2361,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-30.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-09-30.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3218097,
@@ -2373,7 +2373,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-01.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-01.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2386,7 +2386,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-10-01.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-10-01.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3018436,
@@ -2398,7 +2398,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-02.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-02.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2411,7 +2411,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-10-02.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-10-02.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3801781,
@@ -2423,7 +2423,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-03.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-03.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2436,7 +2436,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-10-03.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-10-03.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 668698,
@@ -2448,7 +2448,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-04.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-04.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2461,7 +2461,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-10-04.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-10-04.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1340109,
@@ -2473,7 +2473,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-05.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-05.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2486,7 +2486,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-10-05.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-10-05.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2992211,
@@ -2498,7 +2498,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-06.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-06.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2511,7 +2511,7 @@
    "trades_event": {
     "capa_origen": "ext_v2",
     "origen": [
-     "/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-10-06.parquet"
+     "${MM_DATA_ROOT}/Comparativa 1/binance_canonical_100ms_ext_v2_20260826_20261006/trades_event/binance_trades_events_BTCUSDT_2026-10-06.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2606680,
@@ -2523,7 +2523,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-07.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-07.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2536,7 +2536,7 @@
    "trades_event": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-07.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-07.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 4884850,
@@ -2548,7 +2548,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-08.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-08.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2561,7 +2561,7 @@
    "trades_event": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-08.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-08.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3910823,
@@ -2573,7 +2573,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-09.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-09.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2586,7 +2586,7 @@
    "trades_event": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-09.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-09.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2142080,
@@ -2598,7 +2598,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-10.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-10.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2611,7 +2611,7 @@
    "trades_event": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-10.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-10.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 607880,
@@ -2623,7 +2623,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-11.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-11.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2636,7 +2636,7 @@
    "trades_event": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-11.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-11.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 996255,
@@ -2648,7 +2648,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-12.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-12.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2661,7 +2661,7 @@
    "trades_event": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-12.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-12.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2484237,
@@ -2673,7 +2673,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v3 (parche 13 oct)",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-13.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-13.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2686,7 +2686,7 @@
    "trades_event": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-13.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-13.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3094331,
@@ -2698,7 +2698,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-14.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-14.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2711,7 +2711,7 @@
    "trades_event": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-14.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-14.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3558844,
@@ -2723,7 +2723,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-15.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-15.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2736,7 +2736,7 @@
    "trades_event": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-15.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-15.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 4346924,
@@ -2748,7 +2748,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-16.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-16.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2761,7 +2761,7 @@
    "trades_event": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-16.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-16.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3155491,
@@ -2773,7 +2773,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-17.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-17.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2786,7 +2786,7 @@
    "trades_event": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-17.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-17.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1168469,
@@ -2798,7 +2798,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-18.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-18.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2811,7 +2811,7 @@
    "trades_event": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-18.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-18.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1897805,
@@ -2823,7 +2823,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-19.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-19.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2836,7 +2836,7 @@
    "trades_event": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-19.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-19.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2628443,
@@ -2848,7 +2848,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-20.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-20.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2861,7 +2861,7 @@
    "trades_event": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-20.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-20.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3117823,
@@ -2873,7 +2873,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-21.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-21.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2886,7 +2886,7 @@
    "trades_event": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-21.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-21.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3096152,
@@ -2898,7 +2898,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-22.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-22.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2911,7 +2911,7 @@
    "trades_event": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-22.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-22.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3457221,
@@ -2923,7 +2923,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-23.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-23.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2936,7 +2936,7 @@
    "trades_event": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-23.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-23.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 2208383,
@@ -2948,7 +2948,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-24.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-24.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2961,7 +2961,7 @@
    "trades_event": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-24.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-24.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1588915,
@@ -2973,7 +2973,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-25.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-25.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -2986,7 +2986,7 @@
    "trades_event": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-25.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-25.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 1390796,
@@ -2998,7 +2998,7 @@
    "market_features_100ms": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-26.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/market_features_100ms/binance_market_features_100ms_BTCUSDT_2026-10-26.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 864000,
@@ -3011,7 +3011,7 @@
    "trades_event": {
     "capa_origen": "ext_v3",
     "origen": [
-     "/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-26.parquet"
+     "${MM_PAQUETE_DIR}/v3_oct/trades_event/binance_trades_events_BTCUSDT_2026-10-26.parquet"
     ],
     "metodo": "enlace duro",
     "filas": 3292323,

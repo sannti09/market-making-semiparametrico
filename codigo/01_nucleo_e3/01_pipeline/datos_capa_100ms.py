@@ -12,6 +12,7 @@ Convenciones (verificadas empíricamente en 2026-06-29, bloque de ajuste):
 """
 
 import json
+import os
 from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Dict, List, Optional, Sequence
@@ -21,7 +22,10 @@ import pyarrow.parquet as pq
 
 V = Path(__file__).resolve().parents[1]
 PARTICION = json.load(open(V / "02_configuracion" / "PARTICION_ANTEPROYECTO.json"))
-CAPA = Path("/Users/santiagorueda/Documents/UNI/Semiparametric Market Making") / PARTICION["capa"]
+# Raíz de los datos crudos: variable de entorno MM_DATA_ROOT (carpeta que contiene "Comparativa 1").
+# Por defecto, <repo>/datos. Ver NOTA_CORRECCIONES_REPRODUCCION (11-nov-2026).
+DATA_ROOT = Path(os.environ.get("MM_DATA_ROOT", Path(__file__).resolve().parents[3] / "datos"))
+CAPA = DATA_ROOT / PARTICION["capa"]
 
 GRUPOS_X: Dict[str, List[str]] = {
     "libro": ["spread_bps", "imbalance_top1", "imbalance_top5", "imbalance_top20", "imbalance_weighted_top20",

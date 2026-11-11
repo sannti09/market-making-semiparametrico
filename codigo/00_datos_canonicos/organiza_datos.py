@@ -6,10 +6,17 @@ from datetime import date, timedelta
 from pathlib import Path
 import numpy as np, pyarrow as pa, pyarrow.parquet as pq
 
-C1 = Path('/Users/santiagorueda/Documents/UNI/Semiparametric Market Making/Comparativa 1')
+# Rutas de entrada por variables de entorno (por defecto <repo>/datos); ver NOTA_CORRECCIONES_REPRODUCCION.
+REPO = Path(__file__).resolve().parents[2]
+DATA_ROOT = Path(os.environ.get('MM_DATA_ROOT', REPO / 'datos'))
+C1 = DATA_ROOT / 'Comparativa 1'
 V1 = C1 / 'binance_canonical_100ms_unified_v1_20260629_20260824T12'
 V2 = C1 / 'binance_canonical_100ms_ext_v2_20260826_20261006'
-PK = Path('/Users/santiagorueda/Downloads/PAQUETE_DESCARGA_20261028')
+PK = Path(os.environ.get('MM_PAQUETE_DIR', REPO / 'datos' / 'PAQUETE_DESCARGA_20261028'))
+
+def rel(p):  # el catálogo registra la procedencia sin rutas absolutas del equipo local
+    s = str(p)
+    return s.replace(str(DATA_ROOT), '${MM_DATA_ROOT}').replace(str(PK), '${MM_PAQUETE_DIR}')
 OUT = Path(sys.argv[1])
 assert not OUT.exists(), f'ya existe {OUT}'
 CAPAS = {'market_features_100ms': 'binance_market_features_100ms_BTCUSDT_', 'trades_event': 'binance_trades_events_BTCUSDT_'}
@@ -46,7 +53,7 @@ while d <= date(2026, 10, 26):
             t = pa.concat_tables([pq.read_table(f) for f in fs])
             pq.write_table(t, dst, compression='zstd'); metodo = f'concatenación de {len(fs)} medios días'
         meta = pq.read_metadata(dst)
-        ent = {'capa_origen': capa_src, 'origen': [str(f) for f in fs], 'metodo': metodo, 'filas': meta.num_rows,
+        ent = {'capa_origen': capa_src, 'origen': [rel(f) for f in fs], 'metodo': metodo, 'filas': meta.num_rows,
                'sha256': sha(dst), 'bytes': dst.stat().st_size}
         if capa == 'market_features_100ms':
             t = pq.read_table(dst, columns=['ts_ms', 'state_valid'])

@@ -24,3 +24,16 @@ python -m unittest discover -s codigo/03_cargador_datos/codigo -p 'test_cache_v9
 python codigo/10_walk_forward/codigo/test_reanudacion_v102.py
 python -m unittest discover -s codigo/08_hjb_exponencial -p 'test_hjb.py' -v
 ```
+
+## Rutas de datos sin referencias al equipo local — 11 de noviembre de 2026
+
+- Los scripts que leían los datos crudos con rutas absolutas del equipo del autor (`organiza_datos.py`,
+  `datos_capa_100ms.py`, `cargador_v58.py`) ahora usan variables de entorno: **`MM_DATA_ROOT`** (carpeta que contiene
+  `Comparativa 1`) y **`MM_PAQUETE_DIR`** (paquete de descarga). Por defecto apuntan a `<repo>/datos`.
+- `CATALOGO.json` y `organiza_datos.py` registran la procedencia con `${MM_DATA_ROOT}` / `${MM_PAQUETE_DIR}` en lugar de
+  rutas absolutas. Los SHA-256, filas y bytes del catálogo no cambian (la verificación de integridad sigue igual).
+- En `18_hjb_curva_interpolada/salida/stdout_verif.txt` la ruta local se reemplazó por `<MM_DATA_ROOT>`; el resto del
+  registro no cambia.
+- No cambian modelos, protocolos sellados (PLAN/ENMIENDA con SHA-256) ni cifras.
+
+Para reproducir con la estructura original: `export MM_DATA_ROOT="/ruta/a/Semiparametric Market Making"`.
