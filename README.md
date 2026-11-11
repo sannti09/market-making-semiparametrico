@@ -107,9 +107,9 @@ codigo/
   09_protocolo_test/            Test pre-registration and shared functions (GLM, signals, evaluation)
   10_walk_forward/              Five-window walk-forward (11 models)
   11_modelos_finales/           Fit of the final models (29 Jun–3 Sep)
-  12_test_predictivo_ajuste_original/
-  13_pnl_miope_ajuste_original/
-  14_pnl_hjb_aproximada_ajuste_original/
+  12_test_predictivo_ajuste_original/      First (and only) opening of the test period, original fit; superseded by 17
+  13_pnl_miope_ajuste_original/            Myopic PnL with the original fit; superseded by 18
+  14_pnl_hjb_aproximada_ajuste_original/   HJB with a local exponential approximation; superseded by 18
   15_verificacion_gradiente/    Gradient and convergence check of the E3 curve
   16_curva_e3_corregida/        Corrected E3 curve; final models used in the thesis (modelos_finales_v108.pkl)
   17_test_predictivo/           Predictive test with the corrected fit
@@ -122,7 +122,12 @@ codigo/
 Each numbered folder has an English `README.md` with its purpose and results. It also contains:
 - its protocol (`PLAN_*.md` or `ENMIENDA_*.md`, sealed with a `.sha256`; each script checks on start-up that the protocol has not changed);
 - its code;
-- its run note (`NOTA_*.md`) and summarised outputs.
+- its run note (`NOTA_*.md`) and summarised outputs;
+- its raw run output in `salida/` (logs and console output kept as evidence of each execution).
+
+Folders ending in `_ajuste_original` hold the first results, obtained before the E3 curve was corrected in `16_`. They are kept on purpose: comparing them with `17_` and `18_` shows that the correction does not change the conclusions.
+
+Fixes made after publication (resumable runs, cache checks, data paths read from the `MM_DATA_ROOT` and `MM_PAQUETE_DIR` environment variables) are logged in [`codigo/NOTA_CORRECCIONES_REPRODUCCION_20261031.md`](codigo/NOTA_CORRECCIONES_REPRODUCCION_20261031.md); none of them changes models, sealed protocols or published figures.
 
 Protocols and notes are in Spanish, as they were sealed.
 
